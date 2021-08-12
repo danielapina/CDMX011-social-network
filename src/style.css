@@ -39,6 +39,7 @@ header{
 /*Aquí comienza la edición del registro*/
 #form-register{
     margin: auto;
+    width: 40%; /*Esto para despotck*/
 }
 #title-form{
     font-family: 'Comfortaa', cursive;
