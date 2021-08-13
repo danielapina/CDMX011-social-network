@@ -44,6 +44,7 @@ main {
   align-items: center;
   justify-content: center;
 }
+/*Frase de bienvenida del banner*/
 .banner-welcome {
   font-family: "Comfortaa", cursive;
   color: #405927;
@@ -54,7 +55,7 @@ main {
   margin-bottom: 0%;
   text-align: center;
 }
-.btn-login {
+.btns-login {
   border: none;
   background-color: #93bdb8;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -66,6 +67,7 @@ main {
   font-weight: 300;
   font-weight: bold;
 }
+/*Sección de la imagen del proceso con titulo*/
 .process {
   display: flex;
   align-items: center;
@@ -80,18 +82,19 @@ main {
   color: #405927;
   font-size: 6vmin;
   margin: 4vmin 0vmin;
-}
+}/*Sección de la imagen del proceso*/
 .process-img {
   display: flex;
   align-content: center;
 }
+/*id de la imagen del movil*/
 #process-movil {
   width: 60vmin;
 }
 
 
 /*Aquí comienza la edición del registro*/
-#form-register {
+#register-page{
   display: flex;
   flex-wrap: nowrap;
   justify-items: center;
@@ -109,11 +112,11 @@ main {
   margin-bottom: 1.5em;
   text-align: center;
 }
-
-.form {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
+.form{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+   
 }
 #register-form {
   align-self: flex-start;
