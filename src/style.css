@@ -19,7 +19,9 @@ header{
     right: 0;
     padding: 1em 0;
 }
-
+main{
+    margin-top: 5em;
+}
 #logoGF{
     height: 40px;
 }
@@ -27,10 +29,10 @@ header{
     height: 37px;
     left: 100%;
 }
-.banner{
+/* .banner{
     background-image: url(img/backgroud-banner.png);
-    /*background-size: ;*/
-}
+    /*background-size: ;*
+} */
 #mundo{
     width: 219px;
 }
