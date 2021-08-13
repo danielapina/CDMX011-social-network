@@ -2,7 +2,8 @@
 const database = firebase.firestore();
 console.log(database);
 
-document.getElementById('form-register').style.display = 'none';
+document.getElementById('form-register').style.display = 'block';
+document.getElementById('first-page').style.display = 'none';
 
 const registerForm = document.getElementById('register-form');
 
