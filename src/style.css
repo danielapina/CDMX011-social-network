@@ -127,17 +127,16 @@ justify-content: space-evenly;
     justify-content: center;
     /*margin-top: 4em;*/
 }
-/*
-#register-form {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
+
+/*#register-form {
+position: relative;
    
 }*/
 
 
 
 #register-form input{
+    color:#405927;
     width: 20em;
     height: 2em;
     background: rgba(242, 197, 28, 0.6);
@@ -146,6 +145,7 @@ justify-content: space-evenly;
     border: none;
     padding: .5em 2em;
     margin: 1em 4em;
+   
     /*margin: 5px 50px 30px 50px;*/
 }
 
@@ -159,6 +159,7 @@ justify-content: space-evenly;
     font-size: 24px;
     line-height: 29px;
     color: #000000;
+   
 
 }
 #register-form  button{
@@ -177,6 +178,13 @@ justify-content: space-evenly;
     border: none;
     margin: 2em ;
 }
+.leaf-img{
+    position: absolute;
+    z-index: -1;
+    float: left;
+    width:25em;
+}
+
 footer{
     margin-top: .7em;
     background-color: #405927;
