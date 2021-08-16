@@ -2,8 +2,8 @@
 const database = firebase.firestore();
 console.log(database);
 
-document.getElementById('form-register').style.display = 'block';
-document.getElementById('first-page').style.display = 'none';
+document.getElementById('register-page').style.display = 'block';
+document.getElementById('home-page').style.display = 'none';
 
 const registerForm = document.getElementById('register-form');
 
@@ -13,12 +13,11 @@ registerForm.addEventListener('submit', async (e) => {
   const email = registerForm['user-email'].value;
   const password = registerForm['user-password'].value;
 
-  const newUser = await database.collection('users').doc().set({
+  await database.collection('users').doc().set({
     userName,
     email,
     password,
   });
 
-  console.log(newUser);
   console.log(userName, email, password);
 });
