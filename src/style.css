@@ -97,9 +97,8 @@
   #register-page{
     display: flex;
     flex-wrap: nowrap;
-    justify-items: center;
-    /*flex-basis: 50%;
-    margin-left: 6em;*/
+    flex-basis: 35%;
+    margin-left: 6em;
   }
   .titles {
     font-family: "Comfortaa", cursive;
@@ -108,18 +107,18 @@
     font-size: 7vmin;
   }
   #title-form {
-    margin-top: 5em;
-    margin-bottom: 1.5em;
+    margin-top: 1.5vh;
+    margin-bottom: 1.2vh;
     text-align: center;
-  }
-  .form{
-      display: flex;
-      flex-flow: row wrap;
-      justify-content: center;
-     
+    padding: 1vh;
   }
   #register-form {
-    align-self: flex-start;
+    /*align-self: flex-start;*/
+    display: flex;
+    flex-flow: row wrap;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
     margin: 0;
     width: 35%; /*Esto para despotck*/
   }
@@ -132,7 +131,7 @@
     border-radius: 15px;
     border: none;
     padding: 0.5em 2em;
-    margin: 1em 4em;
+    margin: 1vh 6vw;
   }
   
   #register-form label {
@@ -143,7 +142,7 @@
     line-height: 29px;
     color: #000000;
   }
-  #register-form button {
+button {
     width: 155px;
     height: 37px;
     font-family: "Work Sans", sans-serif;
@@ -159,6 +158,10 @@
     border: none;
     margin: 2em;
   }
+  .blue{
+    background: #93BDB8;
+    color: #000000;
+  }
   #madre-tierra{
       display:none;
   }
@@ -170,7 +173,7 @@
   }
   
   footer {
-    margin-top: 0.7em;
+    margin-top: 80%;
     background-color: #405927;
     display: flex;
     text-align: center;
