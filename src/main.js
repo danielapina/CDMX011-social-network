@@ -14,7 +14,6 @@ const onNavigate = (pathname) => {
 };
 console.log(onNavigate);
 // Este ayuda a llamar a la funcion apenas carge la pagina
-window.onload = onNavigate('/');
 
 window.onpopstate = () => {
   rootDiv.innerHTML = template[window.location.pathname];
