@@ -34,7 +34,3 @@ for (let i = 0; i < btnRouting.length; i++) {
     onNavigate(btnRouting[i].value);
   });
 }
-window.addEventListener("load", () => {
-  rootDiv.innerHTML = routes[window.location.pathname];
-
-})
