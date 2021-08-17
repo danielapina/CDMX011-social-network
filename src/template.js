@@ -1,12 +1,13 @@
+/* pathname: ` estructura del template`
+*/
 export default {
   '/': `
-  <main>
     <div id="home-page">
       <div class="banner">
         <p class="banner-welcome">
           Cuidar de la naturaleza es cuidar de nosotros.
         </p>
-        <button class="btns-login">¡Regístrate!</button>
+        <button class="btns-login btn-routing" value='/register'>¡Regístrate!</button>
       </div>
       <div class="process">
         <h2 id="title-process">¿Cómo Funciona?</h2>
@@ -15,11 +16,10 @@ export default {
         </div>
       </div>
     </div>
-  </main>
-`,
+ 
+  `,
   '/register':
     `
-    <main>
          <div id="register-page">
             <form id="register-form">
               <img class="leaf-img" src="img/leafs-desktop.png" alt="leafs" />
@@ -38,6 +38,8 @@ export default {
               <img id="madre-tierra" src="img/madreTierra.png" alt="MadreTierra" />
             </div>
           </div>
-        </main>
+    `,
+  '/login': `
+    <p>Aqui esta el Login</p>
     `,
 };
