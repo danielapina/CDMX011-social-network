@@ -11,14 +11,21 @@ rootDiv.innerHTML = template[window.location.pathname];
 const onNavigate = (pathname) => {
   window.history.pushState({}, pathname, window.location.origin + pathname);
   rootDiv.innerHTML = template[pathname];
+
 };
 console.log(onNavigate);
 // Este ayuda a llamar a la funcion apenas carge la pagina
-window.onload = onNavigate('/');
+//window.onload = onNavigate('/');
+//window.history.go(1);
 
 window.onpopstate = () => {
   rootDiv.innerHTML = template[window.location.pathname];
+
 };
+
+
+
+
 
 const btnRouting = document.querySelectorAll('.btn-routing');
 console.log(btnRouting);
