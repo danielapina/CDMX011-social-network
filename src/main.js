@@ -8,8 +8,9 @@ console.log(database);
 const routes = {
   '/': template.home.template,
   '/register': template.register.template,
-  '/login': template.login.template
+  '/login': template.login.template,
 }
+
 const rootDiv = document.getElementById('root');
 rootDiv.innerHTML = routes[window.location.pathname];
 
@@ -18,9 +19,6 @@ const onNavigate = (pathname) => {
   rootDiv.innerHTML = routes[pathname];
 };
 console.log(onNavigate);
-// Este ayuda a llamar a la funcion apenas carge la pagina
-//window.onload = onNavigate('/');
-//window.history.go(1);
 
 window.onpopstate = () => {
   rootDiv.innerHTML = routes[window.location.pathname];
