@@ -32,3 +32,21 @@ for (let i = 0; i < btnRouting.length; i++) {
     onNavigate(btnRouting[i].value);
   });
 }
+
+// REGISTRO -----------------------------------------------------------------
+const registerForm = document.getElementById('register-form');
+
+registerForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const userName = registerForm['user-name'].value;
+  const email = registerForm['user-email'].value;
+  const password = registerForm['user-password'].value;
+
+  await database.collection('users').doc().set({
+    userName,
+    email,
+    password,
+  });
+
+  console.log(userName, email, password);
+});
