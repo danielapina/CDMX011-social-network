@@ -5,17 +5,13 @@
     background-color: #e5e5e5;
     /*font-family: 'Comfortaa', cursive;
       font-family: 'Work Sans', sans-serif;*/
-      min-height: calc(20vh - 100px - 300px);
-     
   }
  
-  
   header {
-  
     flex-wrap: wrap;
     background-color: #405927;
     width: 100%;
-    height: 2em;
+    height: 8.5vmin;
     width: auto;
     position: fixed;
     left: 0;
@@ -23,33 +19,58 @@
     right: 0;
     padding: 1.3em 0;
     margin-bottom: 0%;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+     
   }
-  main {
-    margin-top: 4em;
-  }
+  
   #logoGF {
     height: 6vmin;
     float: left;
     margin-left: 3vw;
     margin-top: 0;
   }
+ 
   header ul{
     float: right;
+    list-style: none;
+    display: none;
+    
+   
   }
+  header ul.show{
+    display: block;
+    background-color: #405927;
+   
+  
+    height: 10vmin;
+   /* margin-left: 100%;*/
+    transition: ease-in-out 0.8s linear;
+    align-content: space-between;
+    
+  }
+  
   header ul li{
     display: inline-block;
+    
   }
+  /*Botones contenidos dentro de img-icon*/
   .btn-routing{
     margin-top: 1.5vh !important;
     padding-top: 0 !important;
+   
   }
-  /*#users-icon {
-    height: 9vmin;
-    float: right;
-    margin-right: 8vw;
-  }*/
+ 
   .menu-icon{
     display: block;
+    cursor: pointer;
+  }
+  #img-users{
+    width: 9vw;
+  }
+  main {
+    margin-top: 4em;
   }
   .banner {
     background-image: url(img/fondo-verde-este-si\ 2.png);
@@ -117,6 +138,7 @@
   }
   #process-desktop{
     display: none;
+    padding-bottom: 9vmin;
   }
   /*Aquí comienza la edición del registro*/
   #register-page{
@@ -197,9 +219,11 @@ button {
     float: left;
     width: 25em;
   }
-  
+  #root{
+  min-height: calc(80vh - 80px);
+  }
   footer {
-    margin-top: 13%;
+    margin-top: 0%;
     width: 100%;
     background-color: #405927;
     display: flex;
@@ -208,7 +232,7 @@ button {
     font-family: "Work Sans", sans-serif;
     color: #e5e5e5;
     padding-bottom: 0.7em;
-  position: sticky;
+   height: min-content;
  
 
   }
@@ -226,9 +250,15 @@ button {
       background-color: #000000;
       height: 5em;
     }
+    header ul{
+      display:block;
+    }
     .menu-icon{
       display: none;
     }
+    /*.btn-routing{
+      display:block;
+    }*/
     #process-desktop{
       display:block;
     }
