@@ -8,8 +8,14 @@ console.log(database);
 const routes = {
   '/': template.home.template,
   '/register': template.register.template,
+<<<<<<< HEAD
   '/login': template.login.template
 }
+=======
+  '/login': template.login.template,
+}
+
+>>>>>>> main
 const rootDiv = document.getElementById('root');
 rootDiv.innerHTML = routes[window.location.pathname];
 
