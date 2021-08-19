@@ -1,7 +1,9 @@
 /* pathname: ` estructura del template`
 */
 export default {
-  '/': `
+  home: {
+    template:
+      `
     <div id="home-page">
       <div class="banner">
         <p class="banner-welcome">
@@ -16,10 +18,11 @@ export default {
         </div>
       </div>
     </div>
- 
-  `,
-  '/register':
-    `
+
+  `},
+  register: {
+    template:
+      `
          <div id="register-page">
             <form id="register-form">
               <img class="leaf-img" src="img/leafs-desktop.png" alt="leafs" />
@@ -38,8 +41,9 @@ export default {
               <img id="madre-tierra" src="img/madreTierra.png" alt="MadreTierra" />
             </div>
           </div>
-    `,
-  '/login': `
+    `},
+  login: {
+    template: `
     <p>Aqui esta el Login</p>
-    `,
+    `},
 };
