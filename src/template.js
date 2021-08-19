@@ -15,6 +15,7 @@ export default {
         <h2 id="title-process">¿Cómo Funciona?</h2>
         <div class="process-img">
           <img id="process-movil" src="img/process-movil.png" alt="register" />
+          <img id="process-desktop" src="img/process-desktop.png" alt="register" />
         </div>
       </div>
     </div>
