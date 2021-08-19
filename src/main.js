@@ -5,17 +5,23 @@ const database = firebase.firestore();
 console.log(database);
 
 // Routeo ----------------------------------------------------------------------------
+const routes = {
+  '/': template.home.template,
+  '/register': template.register.template,
+  '/login': template.login.template,
+}
+
 const rootDiv = document.getElementById('root');
-rootDiv.innerHTML = template[window.location.pathname];
+rootDiv.innerHTML = routes[window.location.pathname];
 
 const onNavigate = (pathname) => {
   window.history.pushState({}, pathname, window.location.origin + pathname);
-  rootDiv.innerHTML = template[pathname];
+  rootDiv.innerHTML = routes[pathname];
 };
-// Este ayuda a llamar a la funcion apenas carge la pagina
+console.log(onNavigate);
 
 window.onpopstate = () => {
-  rootDiv.innerHTML = template[window.location.pathname];
+  rootDiv.innerHTML = routes[window.location.pathname];
 };
 
 const btnRouting = document.querySelectorAll('.btn-routing');
@@ -24,5 +30,6 @@ for (let i = 0; i < btnRouting.length; i++) {
   btnRouting[i].addEventListener('click', (evt) => {
     evt.preventDefault();
     onNavigate(btnRouting[i].value);
+    console.log(window.location);
   });
 }
