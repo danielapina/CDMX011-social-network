@@ -1,53 +1,47 @@
-import template from './template.js';
-// Este es el punto de entrada de tu aplicacion
-console.log(template);
-const database = firebase.firestore();
-console.log(database);
+// eslint-disable-next-line import/no-cycle
+import { home } from './components/home.js';
+import { register } from './components/register.js';
+// eslint-disable-next-line import/no-cycle
+import { login } from './components/login.js';
 
-// Routeo ----------------------------------------------------------------------------
-const routes = {
-  '/': template.home.template,
-  '/register': template.register.template,
-  '/login': template.login.template,
-}
-//-------------------------------icon burguer
-document.getElementById("users-icon").addEventListener("click", () => {
-  const mostrar = document.getElementById("navegacion").className;
-  if (mostrar == "") {
-    document.getElementById("navegacion").setAttribute("class", "show");
-  } else {
-    document.getElementById("navegacion").removeAttribute("class", "show");
-  }
-});
-
-
-//-------------------------------------
 const rootDiv = document.getElementById('root');
-rootDiv.innerHTML = routes[window.location.pathname];
 
-const onNavigate = (pathname) => {
-  window.history.pushState({}, pathname, window.location.origin + pathname);
-  rootDiv.innerHTML = routes[pathname];
+const routes = {
+  '/': home,
+  '/register': register,
+  '/login': login,
 };
-console.log(onNavigate);
-// Este ayuda a llamar a la funcion apenas carge la pagina
-//window.onload = onNavigate('/');
-//window.history.go(1);
+
+export const onNavigate = (pathname) => {
+  window.history.pushState(
+    {},
+    pathname,
+    window.location.origin + pathname,
+  );
+  while (rootDiv.firstChild) {
+    rootDiv.removeChild(rootDiv.firstChild);
+  }
+  rootDiv.appendChild(routes[pathname]());
+};
+
+const component = routes[window.location.pathname];
 
 window.onpopstate = () => {
-  rootDiv.innerHTML = routes[window.location.pathname];
+  rootDiv.appendChild(component());
 };
 
-const btnRouting = document.querySelectorAll('.btn-routing');
+rootDiv.appendChild(component());
 
-for (let i = 0; i < btnRouting.length; i++) {
-  btnRouting[i].addEventListener('click', (evt) => {
-    evt.preventDefault();
-    onNavigate(btnRouting[i].value);
-    console.log(window.location);
-  });
-}
-window.addEventListener("load", () => {
-  rootDiv.innerHTML = routes[window.location.pathname];
+// Este es el punto de entrada de tu aplicacion
+// const database = firebase.firestore();
+// console.log(database);
 
-})
+// -------------------------------icon burguer
+document.getElementById('users-icon').addEventListener('click', () => {
+  const mostrar = document.getElementById('navegacion').className;
+  if (mostrar === '') {
+    document.getElementById('navegacion').setAttribute('class', 'show');
+  } else {
+    document.getElementById('navegacion').removeAttribute('class', 'show');
+  }
+});
