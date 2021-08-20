@@ -10,7 +10,18 @@ const routes = {
   '/register': template.register.template,
   '/login': template.login.template,
 }
+//-------------------------------icon burguer
+document.getElementById("users-icon").addEventListener("click", () => {
+  const mostrar = document.getElementById("navegacion").className;
+  if (mostrar == "") {
+    document.getElementById("navegacion").setAttribute("class", "show");
+  } else {
+    document.getElementById("navegacion").removeAttribute("class", "show");
+  }
+});
 
+
+//-------------------------------------
 const rootDiv = document.getElementById('root');
 rootDiv.innerHTML = routes[window.location.pathname];
 
