@@ -6,39 +6,48 @@
     /*font-family: 'Comfortaa', cursive;
       font-family: 'Work Sans', sans-serif;*/
   }
+ 
+  
   header {
-    display: flex;
+  
     flex-wrap: wrap;
     background-color: #405927;
     width: 100%;
-    height: 4vmax;
+    height: 2em;
     width: auto;
     position: fixed;
     left: 0;
     top: 0;
     right: 0;
     padding: 1.3em 0;
+    margin-bottom: 0%;
   }
   main {
     margin-top: 4em;
   }
   #logoGF {
-    height: 9vmin;
+    height: 6vmin;
     float: left;
     margin-left: 3vw;
     margin-top: 0;
+  }
+  header ul{
+    float: right;
   }
   header ul li{
     display: inline-block;
   }
   .btn-routing{
-    margin-top: 0 !important;
+    margin-top: 1.5vh !important;
     padding-top: 0 !important;
   }
-  #user-icon {
+  /*#users-icon {
     height: 9vmin;
     float: right;
     margin-right: 8vw;
+  }*/
+  .menu-icon{
+    display: block;
   }
   .banner {
     background-image: url(img/fondo-verde-este-si\ 2.png);
@@ -51,6 +60,9 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+    margin-top: -.5em;
+   
+
   }
   /*Frase de bienvenida del banner*/
   .banner-welcome {
@@ -60,7 +72,8 @@
     font-size: 7vmin;
     padding: 5vmin;
     padding-bottom: 0;
-    margin-bottom: 0%;
+    margin-bottom: 2vmin;
+    margin-top: 2vmin;
     text-align: center;
   }
   .btns-login {
@@ -98,14 +111,19 @@
   /*id de la imagen del movil*/
   #process-movil {
     width: 60vmin;
+   
   }
-  
+  #process-desktop{
+    display: none;
+    padding-bottom: 9vmin;
+  }
   /*Aquí comienza la edición del registro*/
   #register-page{
     display: flex;
     flex-wrap: nowrap;
     flex-basis: 35%;
     margin-left: 6em;
+    margin-top:15vh;
   }
   .titles {
     font-family: "Comfortaa", cursive;
@@ -151,7 +169,7 @@
   }
 button {
     width: 15vmax;
-    height: 4vmax;
+    height: 2.5vmax;
     font-family: "Work Sans", sans-serif;
     font-style: normal;
     font-weight: normal;
@@ -178,9 +196,14 @@ button {
     float: left;
     width: 25em;
   }
+  #root{
+    min-height: calc(90vh - 90px);
+    background-color:red;
+  }
   
   footer {
-    margin-top: 80%;
+    margin-top: 0;
+    width: 100%;
     background-color: #405927;
     display: flex;
     text-align: center;
@@ -188,8 +211,9 @@ button {
     font-family: "Work Sans", sans-serif;
     color: #e5e5e5;
     padding-bottom: 0.7em;
-    position: sticky;
+    height: min-content;
   }
+
   footer img {
     width: 8vmin;
     margin-top: 0.3em;
@@ -197,7 +221,22 @@ button {
   }
 
 @media only screen and ( min-width: 1026px ){
-    header{
+    
+  
+  header{
       background-color: #000000;
+      height: 5em;
+    }
+    .menu-icon{
+      display: none;
+    }
+    #process-desktop{
+      display:block;
+    }
+    #process-movil{
+      display:none;
+    }
+    #madre-tierra{
+     display:block;
     }
 }

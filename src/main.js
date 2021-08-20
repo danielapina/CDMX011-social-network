@@ -19,6 +19,9 @@ const onNavigate = (pathname) => {
   rootDiv.innerHTML = routes[pathname];
 };
 console.log(onNavigate);
+// Este ayuda a llamar a la funcion apenas carge la pagina
+//window.onload = onNavigate('/');
+//window.history.go(1);
 
 window.onpopstate = () => {
   rootDiv.innerHTML = routes[window.location.pathname];
@@ -33,21 +36,7 @@ for (let i = 0; i < btnRouting.length; i++) {
     console.log(window.location);
   });
 }
+window.addEventListener("load", () => {
+  rootDiv.innerHTML = routes[window.location.pathname];
 
-// REGISTRO -----------------------------------------------------------------
-const registerForm = document.getElementById('register-form');
-
-registerForm.addEventListener('submit', async (e) => {
-  e.preventDefault();
-  const userName = registerForm['user-name'].value;
-  const email = registerForm['user-email'].value;
-  const password = registerForm['user-password'].value;
-
-  await database.collection('users').doc().set({
-    userName,
-    email,
-    password,
-  });
-
-  console.log(userName, email, password);
-});
+})
