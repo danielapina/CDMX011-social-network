@@ -9,7 +9,7 @@ const routes = {
   '/': template.home.template,
   '/register': template.register.template,
   '/login': template.login.template,
-}
+};
 
 // -------------------------------icon burguer
 document.getElementById('users-icon').addEventListener('click', () => {
@@ -45,4 +45,4 @@ for (let i = 0; i < btnRouting.length; i++) {
 }
 window.addEventListener('load', () => {
   rootDiv.innerHTML = routes[window.location.pathname];
-})
+});
