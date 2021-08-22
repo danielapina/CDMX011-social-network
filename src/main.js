@@ -10,16 +10,16 @@ const routes = {
   '/register': template.register.template,
   '/login': template.login.template,
 }
-//-------------------------------icon burguer
-document.getElementById("users-icon").addEventListener("click", () => {
-  const mostrar = document.getElementById("navegacion").className;
-  if (mostrar == "") {
-    document.getElementById("navegacion").setAttribute("class", "show");
+
+// -------------------------------icon burguer
+document.getElementById('users-icon').addEventListener('click', () => {
+  const mostrar = document.getElementById('navegacion').className;
+  if (mostrar === '') {
+    document.getElementById('navegacion').setAttribute('class', 'show');
   } else {
-    document.getElementById("navegacion").removeAttribute("class", "show");
+    document.getElementById('navegacion').removeAttribute('class', 'show');
   }
 });
-
 
 //-------------------------------------
 const rootDiv = document.getElementById('root');
@@ -30,9 +30,6 @@ const onNavigate = (pathname) => {
   rootDiv.innerHTML = routes[pathname];
 };
 console.log(onNavigate);
-// Este ayuda a llamar a la funcion apenas carge la pagina
-//window.onload = onNavigate('/');
-//window.history.go(1);
 
 window.onpopstate = () => {
   rootDiv.innerHTML = routes[window.location.pathname];
@@ -46,7 +43,6 @@ for (let i = 0; i < btnRouting.length; i++) {
     onNavigate(btnRouting[i].value);
   });
 }
-window.addEventListener("load", () => {
+window.addEventListener('load', () => {
   rootDiv.innerHTML = routes[window.location.pathname];
-
 })
