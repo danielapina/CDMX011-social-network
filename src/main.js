@@ -7,6 +7,7 @@ import { login } from './components/login.js';
 const rootDiv = document.getElementById('root');
 
 const routes = {
+
   '/': home,
   '/register': register,
   '/login': login,
@@ -20,6 +21,7 @@ export const onNavigate = (pathname) => {
   );
   while (rootDiv.firstChild) {
     rootDiv.removeChild(rootDiv.firstChild);
+
   }
   rootDiv.appendChild(routes[pathname]());
 };
@@ -47,4 +49,5 @@ document.getElementById('users-icon').addEventListener('click', () => {
   } else {
     document.getElementById('navegacion').removeAttribute('class', 'show');
   }
+
 });
