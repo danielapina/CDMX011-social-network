@@ -28,14 +28,10 @@ export default {
             <form id="register-form">
               <img class="leaf-img" src="img/leafs-desktop.png" alt="leafs" />
               <h2 class="titles" id="title-form">Registro</h2>
-              <label for="user-name">Nombre de usuario</label>
-              <input type="text" id="user-name" />
               <label for="email">Correo electronico</label>
               <input type="email" id="user-email" />
               <label for="password">Contraseña</label>
               <input type="password" id="user-password" />
-              <label for="confirm-password">Confirmar contraseña</label>
-              <input type="confirm-password" id="confirm-password" />
               <button id="form-button">Enviar</button>
             </form>
             <div class="img-register-desktop">

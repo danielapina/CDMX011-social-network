@@ -4,13 +4,14 @@ console.log(template);
 const database = firebase.firestore();
 console.log(database);
 
+
 // Routeo ----------------------------------------------------------------------------
 const routes = {
   '/': template.home.template,
   '/register': template.register.template,
   '/login': template.login.template,
 }
-//-------------------------------icon burguer
+//-------------------------------icon burguer-----------------------------------------
 document.getElementById("users-icon").addEventListener("click", () => {
   const mostrar = document.getElementById("navegacion").className;
   if (mostrar == "") {
@@ -26,7 +27,11 @@ const rootDiv = document.getElementById('root');
 rootDiv.innerHTML = routes[window.location.pathname];
 
 const onNavigate = (pathname) => {
-  window.history.pushState({}, pathname, window.location.origin + pathname);
+  window.history.pushState(
+    {},
+    pathname,
+    window.location.origin + pathname
+  );
   rootDiv.innerHTML = routes[pathname];
 };
 console.log(onNavigate);
@@ -50,3 +55,22 @@ window.addEventListener("load", () => {
   rootDiv.innerHTML = routes[window.location.pathname];
 
 })
+//--------------------------------------------
+// Este es el punto de entrada de tu aplicacionconst database = firebase.firestore();console.log(database);
+
+const registerForm = document.getElementById('register-form');
+registerForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+
+  const email = registerForm['user-email'].value;
+  const password = registerForm['user-password'].value;
+
+  auth
+    .createUserWithEmailAndPassword(email, password)
+    .then(userCredential => {
+      registerForm.reset();
+      console.log('sign up');
+
+    });
+
+});
