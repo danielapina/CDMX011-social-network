@@ -26,11 +26,14 @@ export const onNavigate = (pathname) => {
 
 const component = routes[window.location.pathname];
 
-window.onpopstate = () => {
-  rootDiv.appendChild(component());
-};
-
 rootDiv.appendChild(component());
+
+window.onpopstate = () => {
+  while (rootDiv.firstChild) {
+    rootDiv.removeChild(rootDiv.firstChild);
+  }
+  rootDiv.appendChild(routes[window.location.pathname]());
+};
 
 // Este es el punto de entrada de tu aplicacion
 // const database = firebase.firestore();

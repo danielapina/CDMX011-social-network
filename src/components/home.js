@@ -2,7 +2,6 @@
 import { onNavigate } from '../main.js';
 
 export const home = () => {
-  const rootDiv = document.getElementById('root');
   const html = `
     <div id="home-page">
       <div class="banner">
@@ -26,7 +25,6 @@ export const home = () => {
 
   const divHome = document.createElement('div');
   divHome.innerHTML = html;
-  rootDiv.appendChild(divHome);
 
-  return rootDiv;
+  return divHome;
 };

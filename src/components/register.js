@@ -1,7 +1,6 @@
-import { onNavigate } from './main.js';
+//import { onNavigate } from './main.js';
 
 export const register = () => {
-  const rootDiv = document.getElementById('root');
   const html = `
   <div id="register-page">
      <form id="register-form">
@@ -20,7 +19,6 @@ export const register = () => {
 `;
   const divRegister = document.createElement('div');
   divRegister.innerHTML = html;
-  rootDiv.appendChild(divRegister);
 
-  return rootDiv;
+  return divRegister;
 };
