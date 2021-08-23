@@ -7,7 +7,6 @@ import { login } from './components/login.js';
 const rootDiv = document.getElementById('root');
 
 const routes = {
-
   '/': home,
   '/register': register,
   '/login': login,
@@ -19,11 +18,10 @@ export const onNavigate = (pathname) => {
     pathname,
     window.location.origin + pathname,
   );
-  while (rootDiv.firstChild) {
+  while (rootDiv.firstChild) { // Mientras contenga informacion
     rootDiv.removeChild(rootDiv.firstChild);
-
   }
-  rootDiv.appendChild(routes[pathname]());
+  rootDiv.appendChild(routes[pathname]()); // () 'La función'
 };
 
 const component = routes[window.location.pathname];
@@ -49,5 +47,4 @@ document.getElementById('users-icon').addEventListener('click', () => {
   } else {
     document.getElementById('navegacion').removeAttribute('class', 'show');
   }
-
 });

@@ -21,7 +21,7 @@ const registerForm = document.getElementById('register-form');
 
 registerForm.addEventListener('submit', (e) => {
   e.preventDefault();
-  onNavigate();
+
   const email = document.getElementById('user-email').value;
   const password = document.getElementById('user-password').value;
   console.log(email, password);

@@ -1,9 +1,9 @@
-//import { onNavigate } from './main.js';
+// import { onNavigate } from './main.js';
 
 export const register = () => {
   const html = `
   <div id="register-page">
-     <form id="register-form">
+     <form class ="form-inicial">
        <img class="leaf-img" src="img/leafs-desktop.png" alt="leafs" />
        <h2 class="titles" id="title-form">Registro</h2>
        <label for="email">Correo electronico</label>
@@ -19,6 +19,46 @@ export const register = () => {
 `;
   const divRegister = document.createElement('div');
   divRegister.innerHTML = html;
+
+  function sendUser() {
+    const email = divRegister.querySelector('#user-email').value;
+    const password = divRegister.querySelector('#user-password').value;
+
+    console.log(`Email: ${email}Password: ${password}`);
+
+    firebase.auth().createUserWithEmailAndPassword(email, password)
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        console.log(user);
+        // ...
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        alert(errorMessage);
+        // ..
+      });
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        // User is signed in, see docs for a list of available properties
+        // https://firebase.google.com/docs/reference/js/firebase.User
+        const uid = user.uid;
+        console.log(uid+'Entre IF');
+        // ...
+      } else {
+        // User is signed out
+        // ...
+        console.log('Entre ELSE');
+      }
+    });
+  }
+
+  const btnForm = divRegister.querySelector('#form-button');
+  btnForm.addEventListener('click', (e) => {
+    e.preventDefault();
+    sendUser();
+  });
 
   return divRegister;
 };

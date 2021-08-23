@@ -132,7 +132,7 @@ main {
   padding-bottom: 9vmin;
 }
 /*Aquí comienza la edición del registro*/
-#register-page {
+#register-page, #login-page{
   display: flex;
   flex-wrap: nowrap;
   flex-basis: 35%;
@@ -151,7 +151,7 @@ main {
   text-align: center;
   padding: 1vh;
 }
-#register-form {
+.form-inicial {
   /*align-self: flex-start;*/
   display: flex;
   flex-flow: row wrap;
@@ -161,7 +161,7 @@ main {
   margin: 0;
   width: 35%; /*Esto para despotck*/
 }
-#register-form input {
+.form-inicial input {
   color: #405927;
   width: 20em;
   height: 2em;
@@ -172,8 +172,7 @@ main {
   padding: 0.5em 2em;
   margin: 1vh 6vw;
 }
-
-#register-form label {
+.form-inicial label {
   font-family: "Work Sans", sans-serif;
   font-style: normal;
   font-weight: normal;
@@ -202,6 +201,9 @@ button {
   color: #000000;
 }
 #madre-tierra {
+  display: none;
+}
+#heart{
   display: none;
 }
 .leaf-img {
@@ -243,6 +245,9 @@ footer img {
   .menu-icon {
     display: none;
   }
+  #btn-register-movil{
+    display: none;
+  }
   #process-desktop {
     display: block;
   }
@@ -250,6 +255,9 @@ footer img {
     display: none;
   }
   #madre-tierra {
+    display: block;
+  }
+  #heart{
     display: block;
   }
   .div-navegation{

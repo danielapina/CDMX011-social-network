@@ -8,7 +8,7 @@ export const home = () => {
         <p class="banner-welcome">
           Cuidar de la naturaleza es cuidar de nosotros.
         </p>
-        <button class="btns-login btn-routing" value='/register'>¡Regístrate!</button>
+        <button class="btns-login btn-routing" id='btn-register-movil' value='/register'>¡Regístrate!</button>
       </div>
       <div class="process">
         <h2 id="title-process">¿Cómo Funciona?</h2>
@@ -23,8 +23,14 @@ export const home = () => {
   const btnRegister = document.getElementById('btn-register');
   btnRegister.addEventListener('click', () => onNavigate('/register'));
 
+  const btnLogin = document.getElementById('btn-login');
+  btnLogin.addEventListener('click', () => onNavigate('/login'));
+
   const divHome = document.createElement('div');
   divHome.innerHTML = html;
+
+  const btnRegisterMovil = divHome.querySelector('#btn-register-movil'); // Esta apunta a divHome;
+  btnRegisterMovil.addEventListener('click', () => onNavigate('/register'));
 
   return divHome;
 };
