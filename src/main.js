@@ -1,15 +1,45 @@
-import template from './template.js';
-// Este es el punto de entrada de tu aplicacion
-console.log(template);
-const database = firebase.firestore();
-console.log(database);
+// eslint-disable-next-line import/no-cycle
+import { home } from './components/home.js';
+import { register } from './components/register.js';
+// eslint-disable-next-line import/no-cycle
+import { login } from './components/login.js';
 
-// Routeo ----------------------------------------------------------------------------
+const rootDiv = document.getElementById('root');
+
 const routes = {
-  '/': template.home.template,
-  '/register': template.register.template,
-  '/login': template.login.template,
+
+  '/': home,
+  '/register': register,
+  '/login': login,
 };
+
+export const onNavigate = (pathname) => {
+  window.history.pushState(
+    {},
+    pathname,
+    window.location.origin + pathname,
+  );
+  while (rootDiv.firstChild) {
+    rootDiv.removeChild(rootDiv.firstChild);
+
+  }
+  rootDiv.appendChild(routes[pathname]());
+};
+
+const component = routes[window.location.pathname];
+
+rootDiv.appendChild(component());
+
+window.onpopstate = () => {
+  while (rootDiv.firstChild) {
+    rootDiv.removeChild(rootDiv.firstChild);
+  }
+  rootDiv.appendChild(routes[window.location.pathname]());
+};
+
+// Este es el punto de entrada de tu aplicacion
+// const database = firebase.firestore();
+// console.log(database);
 
 // -------------------------------icon burguer
 document.getElementById('users-icon').addEventListener('click', () => {
@@ -19,30 +49,5 @@ document.getElementById('users-icon').addEventListener('click', () => {
   } else {
     document.getElementById('navegacion').removeAttribute('class', 'show');
   }
-});
 
-//-------------------------------------
-const rootDiv = document.getElementById('root');
-rootDiv.innerHTML = routes[window.location.pathname];
-
-const onNavigate = (pathname) => {
-  window.history.pushState({}, pathname, window.location.origin + pathname);
-  rootDiv.innerHTML = routes[pathname];
-};
-console.log(onNavigate);
-
-window.onpopstate = () => {
-  rootDiv.innerHTML = routes[window.location.pathname];
-};
-
-const btnRouting = document.querySelectorAll('.btn-routing');
-console.log(btnRouting);
-for (let i = 0; i < btnRouting.length; i++) {
-  btnRouting[i].addEventListener('click', (evt) => {
-    evt.preventDefault();
-    onNavigate(btnRouting[i].value);
-  });
-}
-window.addEventListener('load', () => {
-  rootDiv.innerHTML = routes[window.location.pathname];
 });

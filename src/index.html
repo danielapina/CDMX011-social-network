@@ -13,7 +13,6 @@
     href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500&family=Work+Sans:wght@100;200;300&display=swap"
     rel="stylesheet" />
   <title>Green Friends</title>
-  <script src="template.js"></script>
 </head>
 
 <body>
@@ -23,8 +22,8 @@
 
     <div class="div-navegation">
       <ul id="navegacion">
-        <li><a><button class="blue btn-routing" value='/register'>¡Regístrate!</button></a></li>
-        <li><a><button class="blue btn-routing" value='/login'>Login</button></a></li>
+        <li><a><button class="blue btn-routing" id="btn-register" value='/register'>¡Regístrate!</button></a></li>
+        <li><a><button class="blue btn-routing" id="btn-login" value='/login'>Login</button></a></li>
       </ul>
     </div>
   </header>
@@ -33,7 +32,6 @@
     <img src="img/footer.png" alt="logo-footer" />
     <p>By Diana, Piña & Estefany - Laboratoria 011 Mex</p>
   </footer>
-</body>
 
 <!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-app.js"></script>
@@ -44,6 +42,7 @@
 <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
 <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-auth.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-firestore.js"></script>
 
 <script>
@@ -62,7 +61,10 @@
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
   firebase.analytics();
+  const auth = firebase.auth();
 </script>
 <script type="module" src="main.js"></script>
+</body>
+
 
 </html>
