@@ -9,8 +9,9 @@ export const register = () => {
        <label for="email">Correo electronico</label>
        <input type="email" id="user-email" />
        <label for="password">Contraseña</label>
-       <input type="password" id="user-password" />
+       <input type="password" id="user-password" placeholder='Minimo 6 caracteres' />
        <button id="form-button">Enviar</button>
+       <button id="btn-google">GOOGLE</button>
      </form>
      <div class="img-register-desktop">
        <img id="madre-tierra" src="img/madreTierra.png" alt="MadreTierra" />
@@ -23,7 +24,6 @@ export const register = () => {
   function sendUser() {
     const email = divRegister.querySelector('#user-email').value;
     const password = divRegister.querySelector('#user-password').value;
-
     console.log(`Email: ${email}Password: ${password}`);
 
     firebase.auth().createUserWithEmailAndPassword(email, password)
@@ -39,20 +39,19 @@ export const register = () => {
         alert(errorMessage);
         // ..
       });
-    firebase.auth().onAuthStateChanged((user) => {
-      if (user) {
-        // User is signed in, see docs for a list of available properties
-        // https://firebase.google.com/docs/reference/js/firebase.User
-        const uid = user.uid;
-        console.log(uid+'Entre IF');
-        // ...
-      } else {
-        // User is signed out
-        // ...
-        console.log('Entre ELSE');
-      }
-    });
   }
+  // GOOGLE
+  const auth = firebase.auth();
+  const btnGoogle = divRegister.querySelector('#btn-google');
+  btnGoogle.addEventListener('click', (e) => {
+    e.preventDefault();
+    const provider = new firebase.auth.GoogleAuthProvider();
+    auth.signInWithPopup(provider)
+      .then((result) => {
+        console.log('Registro con google');
+      })
+      .catch((err) => { console.log(err); });
+  });
 
   const btnForm = divRegister.querySelector('#form-button');
   btnForm.addEventListener('click', (e) => {

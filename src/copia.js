@@ -34,3 +34,18 @@ registerForm.addEventListener('submit', (e) => {
       console.log('sign up');
     });
 });
+
+// Se supone que va en Login :) ------------------------------------
+    /*firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        // User is signed in, see docs for a list of available properties
+        // https://firebase.google.com/docs/reference/js/firebase.User
+        const uid = user.uid;
+        console.log(uid+'Entre IF');
+        // ...
+      } else {
+        // User is signed out
+        // ...
+        console.log('Entre ELSE');
+      }
+    });*/
