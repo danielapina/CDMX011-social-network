@@ -4,7 +4,6 @@ export const login = () => {
   const html = `
   <div id="login-page">
      <form class ="form-inicial">
-       <img class="leaf-img" src="img/leafs-desktop.png" alt="leafs" />
        <h2 class="titles" id="title-form">Login</h2>
        <label for="email">Correo electronico</label>
        <input type="email" id="user-email" />
