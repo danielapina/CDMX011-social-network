@@ -3,6 +3,7 @@ import { home } from './components/home.js';
 import { register } from './components/register.js';
 // eslint-disable-next-line import/no-cycle
 import { login } from './components/login.js';
+import { profile } from './components/profile.js';
 
 const rootDiv = document.getElementById('root');
 
@@ -10,6 +11,7 @@ const routes = {
   '/': home,
   '/register': register,
   '/login': login,
+  '/profile': profile,
 };
 
 export const onNavigate = (pathname) => {

@@ -64,7 +64,7 @@ header ul li {
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.50));
 }
 main {
-  margin-top: 4em;
+  margin-top: 3.5em;
 }
 .banner {
   background-image: url(img/fondo-verde-este-si\ 2.png);
@@ -126,6 +126,7 @@ main {
 /*id de la imagen del movil*/
 #process-movil {
   width: 60vmin;
+  margin-bottom: 2vh;
 }
 #process-desktop {
   display: none;
@@ -145,8 +146,8 @@ main {
   font-size: 8vmin;
 }
 #title-form {
-  margin-top: 1.5vh;
-  margin-bottom: 1.2vh;
+ 
+  margin-bottom:3.5vh;
   text-align: center;
   padding: 1vh;
 }
@@ -155,10 +156,11 @@ main {
   display: flex;
   flex-flow: row wrap;
   flex-direction: column;
- /* justify-content: center;
-  justify-items: center;*/
+  justify-content: center;
+  align-items: center;
+  /*justify-items: center;*/
   margin: auto;
-  margin-left: 6.5vw;
+  margin-left: 9vw;
   /*width: 35%; Esto para despotck*/
 }
 .form-inicial input {
@@ -199,6 +201,7 @@ button {
   border: none;
   margin: 2em;
 }
+
 .blue {
   background: #93bdb8;
   color: #000000;
@@ -206,6 +209,23 @@ button {
 #google-icon{
   width: 3vmax;
   height: 3vmax;
+  margin: 0;
+  margin-right: 1vw;
+}
+.google{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+ 
+}
+.submit-btn{
+  padding: 0 1vw;
+  font-size: 2.5vh;
+  
+}
+#heart-movil{
+width: 30vw;
+margin-bottom: 2vh;
 }
 #madre-tierra {
   display: none;
@@ -217,10 +237,10 @@ button {
   position: absolute;
   z-index: -1;
   float: left;
-  width: 25em;
+  width: 65vw;
 }
 #root {
-  min-height: calc(80vh - 80px);
+  min-height: calc(85vh - 85px);
 }
 footer {
   margin-top: 0%;
@@ -247,9 +267,11 @@ footer img {
   }
   header ul {
     display: block;
+    width: 40vw;
   }
   #logoGF{
     margin-bottom: 1.8em;
+    margin-left: 0;
   }
   .menu-icon {
     display: none;
@@ -267,6 +289,10 @@ footer img {
   .form-inicial{
     padding: 4vmax;
     padding-top: 2vmax;
+    margin-left: 0;
+  }
+  .leaf-img{
+    width: 45vw;
   }
   .form-inicial button{
     margin: 1vh 10vw;
@@ -284,8 +310,24 @@ footer img {
   }
   #heart{
     display: block;
+    margin-right: 4vw;
+  }
+  #heart-movil{
+    display: none;
   }
   .div-navegation{
-   width: 50%;
+   width: 40%;
+   margin-left: 14vw;
+ 
+   
+  }
+  #google-icon{
+    width: 2vmax;
+    height: 2vmax;
+    margin: 0;
+    margin-right: 1vw;
+  }
+  #root {
+    min-height: calc(80vh - 80px);
   }
 }
