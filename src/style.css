@@ -1,13 +1,242 @@
 * {
-    margin: auto;
-  }
-  body {
-    background-color: #e5e5e5;
-    /*font-family: 'Comfortaa', cursive;
+  margin: auto;
+}
+body {
+  background-color: #e5e5e5;
+  /*font-family: 'Comfortaa', cursive;
       font-family: 'Work Sans', sans-serif;*/
-  }
+}
+header {
+  flex-wrap: wrap;
+  background-color: #405927;
+  width: 100%;
+  height: 8.5vmin;
+  width: auto;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  padding: 1.3em 0;
+  margin-bottom: 0%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+#logoGF {
+  height: 6vmin;
+  float: left;
+  margin-left: 3vw;
+  margin-top: 0;
+}
+header ul {
+  display: none;
+}
+.div-navegation{
+  width:100%;
  
+}
+.div-navegation button{
+  margin: 4vmin;
+}
+header ul.show {
+  display: block;
+  background-color: #405927;
+  width:100%;
+  height: 15vmin;
+  /* margin-left: 100%;*/
+  transition: ease-in-out 0.8s linear;
+  align-content: space-between;
+}
+header ul li {
+  display: inline-block;
+}
+/*Botones contenidos dentro de img-icon*/
+.btn-routing {
+  margin-top: 1.5vh !important;
+  padding-top: 0 !important;
+}
+.menu-icon {
+  display: block;
+  cursor: pointer;
+}
+#img-users {
+  width: 9vw;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.50));
+}
+main {
+  margin-top: 4em;
+}
+.banner {
+  background-image: url(img/fondo-verde-este-si\ 2.png);
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 50vmin;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin-top: -0.5em;
+}
+/*Frase de bienvenida del banner*/
+.banner-welcome {
+  font-family: "Comfortaa", cursive;
+  color: #405927;
+  font-weight: 700;
+  font-size: 7vmin;
+  padding: 5vmin;
+  padding-bottom: 0;
+  margin-bottom: 2vmin;
+  margin-top: 2vmin;
+  text-align: center;
+}
+.btns-login {
+  border: none;
+  background-color: #93bdb8;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+  color: #44464a;
+  font-family: "Work Sans", sans-serif;
+  padding: 0.7vmin 1vmin;
+  font-size: 4vmin;
+  font-weight: 300;
+  font-weight: bold;
+}
+/*Sección de la imagen del proceso con titulo*/
+.process {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+#title-process {
+  font-family: "Comfortaa", cursive;
+  font-weight: bold;
+  text-align: center;
+  color: #405927;
+  font-size: 6vmin;
+  margin: 4vmin 0vmin;
+} /*Sección de la imagen del proceso*/
+.process-img {
+  display: flex;
+  align-content: center;
+}
+/*id de la imagen del movil*/
+#process-movil {
+  width: 60vmin;
+}
+#process-desktop {
+  display: none;
+  padding-bottom: 9vmin;
+}
+/*Aquí comienza la edición del registro*/
+#register-page, #login-page{
+  display: flex;
+  flex-wrap: nowrap;
+  flex-basis: 35%;
+  margin-left: 6em;
+  margin-top: 15vh;
+}
+.titles {
+  font-family: "Comfortaa", cursive;
+  color: #0e6359;
+  font-weight: normal;
+  font-size: 7vmin;
+}
+#title-form {
+  margin-top: 1.5vh;
+  margin-bottom: 1.2vh;
+  text-align: center;
+  padding: 1vh;
+}
+.form-inicial {
+  /*align-self: flex-start;*/
+  display: flex;
+  flex-flow: row wrap;
+  flex-direction: column;
+  justify-content: center;
+  justify-items: center;
+  margin: 0;
+  width: 35%; /*Esto para despotck*/
+}
+.form-inicial input {
+  color: #405927;
+  width: 20em;
+  height: 2em;
+  background: rgba(242, 197, 28, 0.6);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+  border: none;
+  padding: 0.5em 2em;
+  margin: 1vh 6vw;
+}
+.form-inicial label {
+  font-family: "Work Sans", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 29px;
+  color: #000000;
+}
+button {
+  width: 18vmax;
+  height: 3.7vmax;
+  font-family: "Work Sans", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 3vh;
+  /*line-height: 22px;*/
+  text-align: center;
+  color: whitesmoke;
+  background: #0e6359;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+  border: none;
+  margin: 2em;
+}
+.blue {
+  background: #93bdb8;
+  color: #000000;
+}
+#madre-tierra {
+  display: none;
+}
+#heart{
+  display: none;
+}
+.leaf-img {
+  position: absolute;
+  z-index: -1;
+  float: left;
+  width: 25em;
+}
+#root {
+  min-height: calc(80vh - 80px);
+}
+footer {
+  margin-top: 0%;
+  width: 100%;
+  background-color: #405927;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  font-family: "Work Sans", sans-serif;
+  color: #e5e5e5;
+  padding-bottom: 0.7em;
+  height: min-content;
+}
+
+footer img {
+  width: 8vmin;
+  margin-top: 0.3em;
+  margin-bottom: 0.3em;
+}
+
+@media only screen and (min-width: 1026px) {
   header {
+<<<<<<< HEAD
     flex-wrap: wrap;
     background-color: #405927;
     width: 100%;
@@ -35,9 +264,13 @@
   header ul{
     
     display: none;
+=======
+    height: 3em;
+>>>>>>> main
   }
-  header ul.show{
+  header ul {
     display: block;
+<<<<<<< HEAD
     background-color: #405927;
     height: 30vmin;
     position:relative;
@@ -123,142 +356,35 @@
   .process-img {
     display: flex;
     align-content: center;
+=======
+>>>>>>> main
   }
-  /*id de la imagen del movil*/
-  #process-movil {
-    width: 60vmin;
-   
+  #logoGF{
+    margin-bottom: 1.8em;
   }
-  #process-desktop{
+  .menu-icon {
     display: none;
-    padding-bottom: 9vmin;
   }
-  /*Aquí comienza la edición del registro*/
-  #register-page{
-    display: flex;
-    flex-wrap: nowrap;
-    flex-basis: 35%;
-    margin-left: 6em;
-    margin-top:15vh;
-  }
-  .titles {
-    font-family: "Comfortaa", cursive;
-    color: #0e6359;
-    font-weight: normal;
-    font-size: 7vmin;
-  }
-  #title-form {
-    margin-top: 1.5vh;
-    margin-bottom: 1.2vh;
-    text-align: center;
-    padding: 1vh;
-  }
-  #register-form {
-    /*align-self: flex-start;*/
-    display: flex;
-    flex-flow: row wrap;
-    flex-direction: column;
-    justify-content: center;
-    justify-items: center;
-    margin: 0;
-    width: 35%; /*Esto para despotck*/
-  }
-  #register-form input {
-    color: #405927;
-    width: 20em;
-    height: 2em;
-    background: rgba(242, 197, 28, 0.6);
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 15px;
-    border: none;
-    padding: 0.5em 2em;
-    margin: 1vh 6vw;
-  }
-  
-  #register-form label {
-    font-family: "Work Sans", sans-serif;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 24px;
-    line-height: 29px;
-    color: #000000;
-  }
-button {
+  button {
     width: 15vmax;
     height: 2.5vmax;
-    font-family: "Work Sans", sans-serif;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 3vh;
-    /*line-height: 22px;*/
-    text-align: center;
-    color: whitesmoke;
-    background: #0e6359;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 15px;
-    border: none;
-    margin: 2em;
   }
-  .blue{
-    background: #93BDB8;
-    color: #000000;
+  #btn-register-movil{
+    display: none;
   }
-  #madre-tierra{
-      display:none;
+  #process-desktop {
+    display: block;
   }
-  .leaf-img {
-    position: absolute;
-    z-index: -1;
-    float: left;
-    width: 25em;
+  #process-movil {
+    display: none;
   }
-  #root{
-  min-height: calc(80vh - 80px);
+  #madre-tierra {
+    display: block;
   }
-  footer {
-    margin-top: 0%;
-    width: 100%;
-    background-color: #405927;
-    display: flex;
-    text-align: center;
-    flex-direction: column;
-    font-family: "Work Sans", sans-serif;
-    color: #e5e5e5;
-    padding-bottom: 0.7em;
-   height: min-content;
- 
-
+  #heart{
+    display: block;
   }
-
-  footer img {
-    width: 8vmin;
-    margin-top: 0.3em;
-    margin-bottom: 0.3em;
+  .div-navegation{
+   width: 50%;
   }
-
-@media only screen and ( min-width: 1026px ){
-    
-  
-  header{
-      background-color: #000000;
-      height: 5em;
-    }
-    header ul{
-      display:block;
-    }
-    .menu-icon{
-      display: none;
-    }
-    /*.btn-routing{
-      display:block;
-    }*/
-    #process-desktop{
-      display:block;
-    }
-    #process-movil{
-      display:none;
-    }
-    #madre-tierra{
-     display:block;
-    }
 }

@@ -1,9 +1,12 @@
-import template from './template.js';
-// Este es el punto de entrada de tu aplicacion
-console.log(template);
-const database = firebase.firestore();
-console.log(database);
+// eslint-disable-next-line import/no-cycle
+import { home } from './components/home.js';
+import { register } from './components/register.js';
+// eslint-disable-next-line import/no-cycle
+import { login } from './components/login.js';
 
+const rootDiv = document.getElementById('root');
+
+<<<<<<< HEAD
 
 // Routeo ----------------------------------------------------------------------------
 const routes = {
@@ -18,10 +21,29 @@ document.getElementById("users-icon").addEventListener("click", () => {
     document.getElementById("navegacion").setAttribute("class", "show");
   } else {
     document.getElementById("navegacion").removeAttribute("class", "show");
+=======
+const routes = {
+  '/': home,
+  '/register': register,
+  '/login': login,
+};
+
+export const onNavigate = (pathname) => {
+  window.history.pushState(
+    {},
+    pathname,
+    window.location.origin + pathname,
+  );
+  while (rootDiv.firstChild) { // Mientras contenga informacion
+    rootDiv.removeChild(rootDiv.firstChild);
+>>>>>>> main
   }
-});
+  rootDiv.appendChild(routes[pathname]()); // () 'La función'
+};
 
+const component = routes[window.location.pathname];
 
+<<<<<<< HEAD
 //-------------------------------------
 const rootDiv = document.getElementById('root');
 rootDiv.innerHTML = routes[window.location.pathname];
@@ -38,11 +60,18 @@ console.log(onNavigate);
 // Este ayuda a llamar a la funcion apenas carge la pagina
 //window.onload = onNavigate('/');
 //window.history.go(1);
+=======
+rootDiv.appendChild(component());
+>>>>>>> main
 
 window.onpopstate = () => {
-  rootDiv.innerHTML = routes[window.location.pathname];
+  while (rootDiv.firstChild) {
+    rootDiv.removeChild(rootDiv.firstChild);
+  }
+  rootDiv.appendChild(routes[window.location.pathname]());
 };
 
+<<<<<<< HEAD
 const btnRouting = document.querySelectorAll('.btn-routing');
 console.log(btnRouting);
 for (let i = 0; i < btnRouting.length; i++) {
@@ -74,3 +103,18 @@ registerForm.addEventListener('submit', (e) => {
     });
 
 });
+=======
+// Este es el punto de entrada de tu aplicacion
+// const database = firebase.firestore();
+// console.log(database);
+
+// -------------------------------icon burguer
+document.getElementById('users-icon').addEventListener('click', () => {
+  const mostrar = document.getElementById('navegacion').className;
+  if (mostrar === '') {
+    document.getElementById('navegacion').setAttribute('class', 'show');
+  } else {
+    document.getElementById('navegacion').removeAttribute('class', 'show');
+  }
+});
+>>>>>>> main
