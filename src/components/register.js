@@ -1,4 +1,5 @@
-// import { onNavigate } from './main.js';
+// eslint-disable-next-line import/no-cycle
+import { onNavigate } from '../main.js';
 
 export const register = () => {
   const html = `
@@ -21,27 +22,28 @@ export const register = () => {
   const divRegister = document.createElement('div');
   divRegister.innerHTML = html;
 
-  function sendUser() {
-    const email = divRegister.querySelector('#user-email').value;
-    const password = divRegister.querySelector('#user-password').value;
-    console.log(`Email: ${email}Password: ${password}`);
+  const auth = firebase.auth();
+  const registerForm = divRegister.querySelector('.form-inicial');
 
-    firebase.auth().createUserWithEmailAndPassword(email, password)
+  registerForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const email = document.getElementById('user-email').value;
+    const password = document.getElementById('user-password').value;
+    console.log(email, password);
+
+    auth
+      .createUserWithEmailAndPassword(email, password)
       .then((userCredential) => {
-        // Signed in
-        const user = userCredential.user;
-        console.log(user);
-        // ...
+        onNavigate('/login');
       })
       .catch((error) => {
-        const errorCode = error.code;
         const errorMessage = error.message;
         alert(errorMessage);
-        // ..
       });
-  }
+  });
+
   // GOOGLE
-  const auth = firebase.auth();
   const btnGoogle = divRegister.querySelector('#btn-google');
   btnGoogle.addEventListener('click', (e) => {
     e.preventDefault();
@@ -51,12 +53,6 @@ export const register = () => {
         console.log('Registro con google');
       })
       .catch((err) => { console.log(err); });
-  });
-
-  const btnForm = divRegister.querySelector('#form-button');
-  btnForm.addEventListener('click', (e) => {
-    e.preventDefault();
-    sendUser();
   });
 
   return divRegister;

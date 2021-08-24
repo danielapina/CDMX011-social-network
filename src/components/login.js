@@ -3,13 +3,13 @@
 export const login = () => {
   const html = `
   <div id="login-page">
-     <form class ="form-inicial">
+     <form class id='login' ="form-inicial">
        <img class="leaf-img" src="img/leafs-desktop.png" alt="leafs" />
        <h2 class="titles" id="title-form">Login</h2>
        <label for="email">Correo electronico</label>
-       <input type="email" id="user-email" />
+       <input type="email" id="login-email" />
        <label for="password">Contraseña</label>
-       <input type="password" id="user-password" />
+       <input type="password" id="login-password" />
        <button id="form-button">Enviar</button>
      </form>
      <div class="img-register-desktop">
@@ -20,17 +20,25 @@ export const login = () => {
   const divLogin = document.createElement('div');
   divLogin.innerHTML = html;
 
-  firebase.auth().onAuthStateChanged((user) => {
-    if (user) {
-      // User is signed in, see docs for a list of available properties
-      // https://firebase.google.com/docs/reference/js/firebase.User
-      var uid = user.uid;
-      // ...
-      console.log
-    } else {
-      // User is signed out
-      // ...
-    }
+  const auth = firebase.auth();
+  const registerForm = divLogin.querySelector('#login');
+
+  registerForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const email = document.getElementById('login-email').value;
+    const password = document.getElementById('login-password').value;
+    console.log(email, password);
+
+    auth
+      .signInWithEmailAndPassword(email, password)
+      .then((userCredential) => {
+        console.log('sign in');
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        alert(errorMessage);
+      });
   });
 
   return divLogin;

@@ -240,6 +240,8 @@ footer img {
   }
   header ul {
     display: block;
+    width:30vw;
+    display:inline-block;
   }
   #logoGF{
     margin-bottom: 1.8em;
