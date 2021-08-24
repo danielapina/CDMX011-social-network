@@ -6,22 +6,6 @@ import { login } from './components/login.js';
 
 const rootDiv = document.getElementById('root');
 
-<<<<<<< HEAD
-
-// Routeo ----------------------------------------------------------------------------
-const routes = {
-  '/': template.home.template,
-  '/register': template.register.template,
-  '/login': template.login.template,
-}
-//-------------------------------icon burguer-----------------------------------------
-document.getElementById("users-icon").addEventListener("click", () => {
-  const mostrar = document.getElementById("navegacion").className;
-  if (mostrar == "") {
-    document.getElementById("navegacion").setAttribute("class", "show");
-  } else {
-    document.getElementById("navegacion").removeAttribute("class", "show");
-=======
 const routes = {
   '/': home,
   '/register': register,
@@ -36,33 +20,13 @@ export const onNavigate = (pathname) => {
   );
   while (rootDiv.firstChild) { // Mientras contenga informacion
     rootDiv.removeChild(rootDiv.firstChild);
->>>>>>> main
   }
   rootDiv.appendChild(routes[pathname]()); // () 'La función'
 };
 
 const component = routes[window.location.pathname];
 
-<<<<<<< HEAD
-//-------------------------------------
-const rootDiv = document.getElementById('root');
-rootDiv.innerHTML = routes[window.location.pathname];
-
-const onNavigate = (pathname) => {
-  window.history.pushState(
-    {},
-    pathname,
-    window.location.origin + pathname
-  );
-  rootDiv.innerHTML = routes[pathname];
-};
-console.log(onNavigate);
-// Este ayuda a llamar a la funcion apenas carge la pagina
-//window.onload = onNavigate('/');
-//window.history.go(1);
-=======
 rootDiv.appendChild(component());
->>>>>>> main
 
 window.onpopstate = () => {
   while (rootDiv.firstChild) {
@@ -71,39 +35,6 @@ window.onpopstate = () => {
   rootDiv.appendChild(routes[window.location.pathname]());
 };
 
-<<<<<<< HEAD
-const btnRouting = document.querySelectorAll('.btn-routing');
-console.log(btnRouting);
-for (let i = 0; i < btnRouting.length; i++) {
-  btnRouting[i].addEventListener('click', (evt) => {
-    evt.preventDefault();
-    onNavigate(btnRouting[i].value);
-  });
-}
-window.addEventListener("load", () => {
-  rootDiv.innerHTML = routes[window.location.pathname];
-
-})
-//--------------------------------------------
-// Este es el punto de entrada de tu aplicacionconst database = firebase.firestore();console.log(database);
-
-const registerForm = document.getElementById('register-form');
-registerForm.addEventListener('submit', (e) => {
-  e.preventDefault();
-
-  const email = registerForm['user-email'].value;
-  const password = registerForm['user-password'].value;
-
-  auth
-    .createUserWithEmailAndPassword(email, password)
-    .then(userCredential => {
-      registerForm.reset();
-      console.log('sign up');
-
-    });
-
-});
-=======
 // Este es el punto de entrada de tu aplicacion
 // const database = firebase.firestore();
 // console.log(database);
@@ -117,4 +48,3 @@ document.getElementById('users-icon').addEventListener('click', () => {
     document.getElementById('navegacion').removeAttribute('class', 'show');
   }
 });
->>>>>>> main
