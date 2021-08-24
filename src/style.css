@@ -136,14 +136,13 @@ main {
   display: flex;
   flex-wrap: nowrap;
   flex-basis: 35%;
-  margin-left: 6em;
   margin-top: 15vh;
 }
 .titles {
   font-family: "Comfortaa", cursive;
   color: #0e6359;
   font-weight: normal;
-  font-size: 7vmin;
+  font-size: 8vmin;
 }
 #title-form {
   margin-top: 1.5vh;
@@ -156,15 +155,16 @@ main {
   display: flex;
   flex-flow: row wrap;
   flex-direction: column;
-  justify-content: center;
-  justify-items: center;
-  margin: 0;
-  width: 35%; /*Esto para despotck*/
+ /* justify-content: center;
+  justify-items: center;*/
+  margin: auto;
+  margin-left: 6.5vw;
+  /*width: 35%; Esto para despotck*/
 }
 .form-inicial input {
   color: #405927;
   width: 20em;
-  height: 2em;
+  height: 3em;
   background: rgba(242, 197, 28, 0.6);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 15px;
@@ -176,9 +176,12 @@ main {
   font-family: "Work Sans", sans-serif;
   font-style: normal;
   font-weight: normal;
-  font-size: 24px;
+  font-size: 25px;
   line-height: 29px;
   color: #000000;
+}
+.form-inicial button{
+  margin: 1vh 25vw;
 }
 button {
   width: 18vmax;
@@ -199,6 +202,10 @@ button {
 .blue {
   background: #93bdb8;
   color: #000000;
+}
+#google-icon{
+  width: 3vmax;
+  height: 3vmax;
 }
 #madre-tierra {
   display: none;
@@ -251,8 +258,20 @@ footer img {
     width: 15vmax;
     height: 2.5vmax;
   }
+  #register-page, #login-page{
+    margin-left: 6em;
+  }
   #btn-register-movil{
     display: none;
+  }
+  .form-inicial{
+    padding: 4vmax;
+    padding-top: 2vmax;
+  }
+  .form-inicial button{
+    margin: 1vh 10vw;
+    margin-top: 5vh;
+    width: 10vmax;
   }
   #process-desktop {
     display: block;

@@ -4,14 +4,14 @@ export const register = () => {
   const html = `
   <div id="register-page">
      <form class ="form-inicial">
-       <img class="leaf-img" src="img/leafs-desktop.png" alt="leafs" />
+      <!-- <img class="leaf-img" src="img/leafs-desktop.png" alt="leafs" />-->
        <h2 class="titles" id="title-form">Registro</h2>
        <label for="email">Correo electronico</label>
        <input type="email" id="user-email" />
        <label for="password">Contraseña</label>
        <input type="password" id="user-password" placeholder='Minimo 6 caracteres' />
        <button id="form-button">Enviar</button>
-       <button id="btn-google">GOOGLE</button>
+       <button id="btn-google"><img src="img/google.png" alt="google" id="google-icon">Continuar con</button>
      </form>
      <div class="img-register-desktop">
        <img id="madre-tierra" src="img/madreTierra.png" alt="MadreTierra" />
