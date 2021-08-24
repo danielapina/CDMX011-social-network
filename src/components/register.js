@@ -1,17 +1,20 @@
-// import { onNavigate } from './main.js';
+import { onNavigate } from '../main.js';
 
 export const register = () => {
   const html = `
   <div id="register-page">
      <form class ="form-inicial">
-      <!-- <img class="leaf-img" src="img/leafs-desktop.png" alt="leafs" />-->
+      <img class="leaf-img" src="img/leafs-desktop.png" alt="leafs" />
        <h2 class="titles" id="title-form">Registro</h2>
        <label for="email">Correo electronico</label>
        <input type="email" id="user-email" />
        <label for="password">Contraseña</label>
-       <input type="password" id="user-password" placeholder='Minimo 6 caracteres' />
-       <button id="form-button">Enviar</button>
-       <button id="btn-google"><img src="img/google.png" alt="google" id="google-icon">Continuar con</button>
+       <input type="password" id="user-password" placeholder='Mínimo 6 carácteres' />
+       <label for="password"> Confirma Contraseña</label>
+       <input type="password" id="user-password" placeholder='Mínimo 6 carácteres' />
+       <br>
+       <button id="form-button"class="submit-btn">Enviar</button>
+       <button id="btn-google"class="submit-btn google"><img src="img/google.png" alt="google" id="google-icon">Sign Up</button>
      </form>
      <div class="img-register-desktop">
        <img id="madre-tierra" src="img/madreTierra.png" alt="MadreTierra" />
@@ -31,10 +34,11 @@ export const register = () => {
         // Signed in
         const user = userCredential.user;
         console.log(user);
+        onNavigate('/profile');
+
         // ...
       })
       .catch((error) => {
-        const errorCode = error.code;
         const errorMessage = error.message;
         alert(errorMessage);
         // ..
@@ -49,6 +53,7 @@ export const register = () => {
     auth.signInWithPopup(provider)
       .then((result) => {
         console.log('Registro con google');
+        onNavigate('/profile');
       })
       .catch((err) => { console.log(err); });
   });
