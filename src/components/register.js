@@ -74,5 +74,28 @@ export const register = () => {
     e.preventDefault();
     sendUser();
   });
+  // -------------------------------icon mostrar password
+  divRegister.querySelector('#hide1').addEventListener('click', (e) => {
+    const passwordInput = divRegister.querySelector('#user-password');
+    if (e.target.classList.contains('show')) {
+      e.target.classList.remove('show');
+      passwordInput.type = 'text';
+    } else {
+      e.target.classList.add('show');
+      passwordInput.type = 'password';
+    }
+  });
+  // -------------------------------icon mostrar confirm-password
+  divRegister.querySelector('#hide2').addEventListener('click', (e) => {
+    const passwordInput = divRegister.querySelector('#confirm-password');
+    if (e.target.classList.contains('show')) {
+      e.target.classList.remove('show');
+      passwordInput.type = 'text';
+    } else {
+      e.target.classList.add('show');
+      passwordInput.type = 'password';
+    }
+  });
+
   return divRegister;
 };

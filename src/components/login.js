@@ -44,7 +44,6 @@ export const login = () => {
       .catch((error) => {
         const errorMessage = error.message;
         alert(errorMessage);
-        // ..
       });
   });
   // GOOGLE
