@@ -10,9 +10,15 @@ export const register = () => {
        <label for="email">Correo electronico</label>
        <input type="email" id="user-email" placeholder='alguien@ejemplo.com'/>
        <label for="password">Contraseña</label>
+       <div class = "show-passwords">
        <input type="password" id="user-password" placeholder='Mínimo 6 carácteres' />
+       <i id="hide1" class="fas fa-eye"></i>
+       </div>
        <label for="password"> Confirma Contraseña</label>
+       <div class = "show-passwords">
        <input type="password" id="confirm-password" placeholder='Mínimo 6 carácteres' />
+       <i id="hide2" class="fas fa-eye"></i>
+       </div>
        <br>
        <button id="form-button"class="submit-btn">Enviar</button>
        <button id="btn-google"class="submit-btn google"><img src="img/google.png" alt="google" id="google-icon">Sign Up</button>

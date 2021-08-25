@@ -50,3 +50,25 @@ document.getElementById('users-icon').addEventListener('click', () => {
     document.getElementById('navegacion').removeAttribute('class', 'show');
   }
 });
+// -------------------------------icon mostrar password
+document.querySelector('#hide1').addEventListener('click', (e) => {
+  const passwordInput = document.querySelector('#user-password');
+  if (e.target.classList.contains('show')) {
+    e.target.classList.remove('show');
+    passwordInput.type = 'text';
+  } else {
+    e.target.classList.add('show');
+    passwordInput.type = 'password';
+  }
+});
+// -------------------------------icon mostrar confirm-pass
+document.querySelector('#hide2').addEventListener('click', (e) => {
+  const passwordInput = document.querySelector('#confirm-password');
+  if (e.target.classList.contains('show')) {
+    e.target.classList.remove('show');
+    passwordInput.type = 'text';
+  } else {
+    e.target.classList.add('show');
+    passwordInput.type = 'password';
+  }
+});
