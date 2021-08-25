@@ -6,7 +6,7 @@ export const login = () => {
      <form  id="login-form" class ="form-inicial">
        <h2 class="titles" id="title-form">¡Hola Green Friend!</h2>
        <img id="heart-movil" src="img/heart.png" alt="heart" />
-       <label for="email">Correo electronico</label>
+       <label for="email">Correo electrónico</label>
        <input type="email" id="login-email" />
        <label for="password">Contraseña</label>
        <input type="password" id="login-password" />
