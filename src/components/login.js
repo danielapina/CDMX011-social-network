@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-cycle
 import { onNavigate } from '../main.js';
 
 export const login = () => {
@@ -7,9 +8,9 @@ export const login = () => {
        <h2 class="titles" id="title-form">¡Hola Green Friend!</h2>
        <img id="heart-movil" src="img/heart.png" alt="heart" />
        <label for="email">Correo electronico</label>
-       <input type="email" id="login-email" />
+       <input type="email" id="login-email" placeholder='alguien@ejemplo.com'/>
        <label for="password">Contraseña</label>
-       <input type="password" id="login-password" />
+       <input type="password" id="login-password" placeholder="******"/>
        <br>
        <button id="form-button" class="submit-btn">Enviar</button>
        <button id="btn-google"class="submit-btn google"><img src="img/google.png" alt="google" id="google-icon">Login</button>
@@ -43,7 +44,6 @@ export const login = () => {
       .catch((error) => {
         const errorMessage = error.message;
         alert(errorMessage);
-        // ..
       });
   });
   // GOOGLE
