@@ -64,7 +64,7 @@ export const register = () => {
     const provider = new firebase.auth.GoogleAuthProvider();
     auth.signInWithPopup(provider)
       .then((result) => {
-        console.log('Registro con google');
+        console.log('Registro con google', result);
         onNavigate('/profile');
       })
       .catch((err) => { alert(err); });

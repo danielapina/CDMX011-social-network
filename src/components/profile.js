@@ -1,11 +1,11 @@
 // import { onNavigate } from './main.js';
 
 export const profile = () => {
-    const html = `
+  const html = `
          <h2>Profile</h2>
   `;
-    const divProfile = document.createElement('div');
-    divProfile.innerHTML = html;
+  const divProfile = document.createElement('div');
+  divProfile.innerHTML = html;
 
-    return divProfile;
+  return divProfile;
 };
