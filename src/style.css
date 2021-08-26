@@ -304,6 +304,9 @@ footer img {
   .menu-icon {
     display: none;
   }
+  main {
+    margin-top: 5.5em;
+  }
   button {
     width: 15vmax;
     height: 2.5vmax;

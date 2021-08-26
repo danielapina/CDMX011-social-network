@@ -41,12 +41,6 @@ window.onload = () => {
       document.getElementById('navegacion').removeAttribute('class', 'show');
     }
   });
-
-  const btnRegister = document.getElementById('btn-register');
-  btnRegister.addEventListener('click', () => onNavigate('/register'));
-
-  const btnLogin = document.getElementById('btn-login');
-  btnLogin.addEventListener('click', () => onNavigate('/login'));
 };
 
 window.onpopstate = () => {
