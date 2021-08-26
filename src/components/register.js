@@ -3,6 +3,18 @@ import { onNavigate } from '../main.js';
 
 export const register = () => {
   const html = `
+  <header>
+  <a href="/"><img src="img/logo-desktop.png" alt="logotipo" id="logoGF" /></a>
+  <span class="menu-icon" id="users-icon"><img id="img-users" src="img/users.png" alt=""></span>
+
+  <div class="div-navegation">
+    <ul id="navegacion">
+      <li><a><button class="blue btn-routing" id="btn-register" value='/register'>¡Regístrate!</button></a></li>
+      <li><a><button class="blue btn-routing" id="btn-login" value='/login'>Login</button></a></li>
+    </ul>
+  </div>
+ </header>
+
   <div id="register-page">
      <form class ="form-inicial" >
       <img class="leaf-img" src="img/leafs-desktop.png" alt="leafs" />
@@ -28,12 +40,14 @@ export const register = () => {
      </div>
    </div>
 `;
-  const btnRegister = document.getElementById('btn-register');
-  btnRegister.addEventListener('click', () => onNavigate('/register'));
-  const btnLogin = document.getElementById('btn-login');
-  btnLogin.addEventListener('click', () => onNavigate('/login'));
   const divRegister = document.createElement('div');
   divRegister.innerHTML = html;
+
+  const btnRegister = divRegister.querySelector('#btn-register');
+  btnRegister.addEventListener('click', () => onNavigate('/register'));
+  const btnLogin = divRegister.querySelector('#btn-login');
+  btnLogin.addEventListener('click', () => onNavigate('/login'));
+
   function sendUser() {
     const email = divRegister.querySelector('#user-email').value;
     const password = divRegister.querySelector('#user-password').value;
@@ -64,7 +78,7 @@ export const register = () => {
     const provider = new firebase.auth.GoogleAuthProvider();
     auth.signInWithPopup(provider)
       .then((result) => {
-        console.log('Registro con google');
+        console.log('Registro con google', result);
         onNavigate('/profile');
       })
       .catch((err) => { alert(err); });
