@@ -40,6 +40,7 @@ export const login = () => {
       .signInWithEmailAndPassword(email, password)
       .then((userCredential) => {
         onNavigate('/profile');
+        console.log(userCredential);
       })
       .catch((error) => {
         const errorMessage = error.message;
@@ -54,7 +55,7 @@ export const login = () => {
     const provider = new firebase.auth.GoogleAuthProvider();
     auth.signInWithPopup(provider)
       .then((result) => {
-        console.log('Registro con google');
+        console.log('Registro con google', result);
         onNavigate('/profile');
       })
       .catch((err) => { alert(err); });

@@ -20,11 +20,6 @@ export const home = () => {
     </div>
    
    `;
-  const btnRegister = document.getElementById('btn-register');
-  btnRegister.addEventListener('click', () => onNavigate('/register'));
-
-  const btnLogin = document.getElementById('btn-login');
-  btnLogin.addEventListener('click', () => onNavigate('/login'));
 
   const divHome = document.createElement('div');
   divHome.innerHTML = html;
