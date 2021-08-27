@@ -92,7 +92,7 @@ main {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  margin-top: -0.5em;
+  margin-top: 10vmin;;
 }
 /*Frase de bienvenida del banner*/
 .banner-welcome {
