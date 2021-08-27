@@ -32,7 +32,10 @@ export const register = () => {
        <label for="password"> Confirma Contraseña</label>
        <div class = "show-passwords">
        <input type="password" id="confirm-password" placeholder='Mínimo 6 carácteres' />
-       <i id="hide2" class="fas fa-eye" style="color: #0e6359;"></i>
+       <span class = "eyes-confirm">
+       <i id="show2" class="fas fa-eye" style="color: #0e6359;"></i>
+       <i id="hide2" class="fas fa-eye-slash" style="color: #0e6359;"></i>
+       </span>
        </div>
        <br>
        <button id="form-button"class="submit-btn">Enviar</button>
@@ -58,16 +61,16 @@ export const register = () => {
     if (password === confirmPassword) {
       firebase.auth().createUserWithEmailAndPassword(email, password)
         .then((userCredential) => {
-        // Signed in
+          // Signed in
           const user = userCredential.user;
           console.log(user);
           onNavigate('/profile');
-        // ...
+          // ...
         })
         .catch((error) => {
           const errorMessage = error.message;
           alert(errorMessage);
-        // ..
+          // ..
         });
     } else {
       alert('Las Contraseñas no coinciden, vuelve a intentar.');
@@ -93,6 +96,7 @@ export const register = () => {
   });
   // -------------------------------icon mostrar password
   divRegister.querySelector('.eyes').addEventListener('click', (e) => {
+    e.preventDefault();
     const passwordInput = divRegister.querySelector('#user-password');
     const hide = divRegister.querySelector('#hide1');
     const show = divRegister.querySelector('#show1');
@@ -106,15 +110,21 @@ export const register = () => {
       show.style.display = 'block';
     }
   });
+
   // -------------------------------icon mostrar confirm-password
-  divRegister.querySelector('#hide2').addEventListener('click', (e) => {
+  divRegister.querySelector('.eyes-confirm').addEventListener('click', (e) => {
+    e.preventDefault();
     const passwordInput = divRegister.querySelector('#confirm-password');
-    if (e.target.classList.contains('show')) {
-      e.target.classList.remove('show');
+    const hide = divRegister.querySelector('#hide2');
+    const show = divRegister.querySelector('#show2');
+    if (passwordInput.type === 'password') {
       passwordInput.type = 'text';
+      hide.style.display = 'block';
+      show.style.display = 'none';
     } else {
-      e.target.classList.add('show');
       passwordInput.type = 'password';
+      hide.style.display = 'none';
+      show.style.display = 'block';
     }
   });
 
