@@ -29,7 +29,19 @@ export const onNavigate = (pathname) => {
 
 const component = routes[window.location.pathname];
 
-rootDiv.appendChild(component());
+window.onload = () => {
+  rootDiv.appendChild(component());
+
+  // -------------------------------icon burguer
+  document.getElementById('users-icon').addEventListener('click', () => {
+    const mostrar = document.getElementById('navegacion').className;
+    if (mostrar === '') {
+      document.getElementById('navegacion').setAttribute('class', 'show');
+    } else {
+      document.getElementById('navegacion').removeAttribute('class', 'show');
+    }
+  });
+};
 
 window.onpopstate = () => {
   while (rootDiv.firstChild) {
@@ -41,13 +53,3 @@ window.onpopstate = () => {
 // Este es el punto de entrada de tu aplicacion
 // const database = firebase.firestore();
 // console.log(database);
-
-// -------------------------------icon burguer
-document.getElementById('users-icon').addEventListener('click', () => {
-  const mostrar = document.getElementById('navegacion').className;
-  if (mostrar === '') {
-    document.getElementById('navegacion').setAttribute('class', 'show');
-  } else {
-    document.getElementById('navegacion').removeAttribute('class', 'show');
-  }
-});
