@@ -46,6 +46,16 @@ export const login = () => {
   const btnLogin = divLogin.querySelector('#btn-login');
   btnLogin.addEventListener('click', () => onNavigate('/login'));
 
+  // -------------------------------icon burguer
+  divLogin.querySelector('#users-icon').addEventListener('click', () => {
+    const mostrar = divLogin.querySelector('#navegacion').className;
+    if (mostrar === '') {
+      divLogin.querySelector('#navegacion').setAttribute('class', 'show');
+    } else {
+      divLogin.querySelector('#navegacion').removeAttribute('class', 'show');
+    }
+  });
+
   const loginForm = divLogin.querySelector('#login-form');
   loginForm.addEventListener('submit', (e) => {
     e.preventDefault();

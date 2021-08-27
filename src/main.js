@@ -31,16 +31,6 @@ const component = routes[window.location.pathname];
 
 window.onload = () => {
   rootDiv.appendChild(component());
-
-  // -------------------------------icon burguer
-  document.getElementById('users-icon').addEventListener('click', () => {
-    const mostrar = document.getElementById('navegacion').className;
-    if (mostrar === '') {
-      document.getElementById('navegacion').setAttribute('class', 'show');
-    } else {
-      document.getElementById('navegacion').removeAttribute('class', 'show');
-    }
-  });
 };
 
 window.onpopstate = () => {

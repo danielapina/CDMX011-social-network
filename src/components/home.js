@@ -45,5 +45,15 @@ export const home = () => {
   const btnRegisterMovil = divHome.querySelector('#btn-register-movil'); // Esta apunta a divHome;
   btnRegisterMovil.addEventListener('click', () => onNavigate('/register'));
 
+  // -------------------------------icon burguer
+  divHome.querySelector('#users-icon').addEventListener('click', () => {
+    const mostrar = divHome.querySelector('#navegacion').className;
+    if (mostrar === '') {
+      divHome.querySelector('#navegacion').setAttribute('class', 'show');
+    } else {
+      divHome.querySelector('#navegacion').removeAttribute('class', 'show');
+    }
+  });
+
   return divHome;
 };
