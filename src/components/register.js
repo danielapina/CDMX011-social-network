@@ -12,12 +12,15 @@ export const register = () => {
        <label for="password">Contraseña</label>
        <div class = "show-passwords">
        <input type="password" id="user-password" placeholder='Mínimo 6 carácteres' />
-       <i id="hide1" class="fas fa-eye"></i>
+       <span class = "eyes">
+       <i id="show1" class="fas fa-eye" style="color: #0e6359;"></i>
+       <i id="hide1" class="fas fa-eye-slash" style="color: #0e6359;"></i>
+       </span>
        </div>
        <label for="password"> Confirma Contraseña</label>
        <div class = "show-passwords">
        <input type="password" id="confirm-password" placeholder='Mínimo 6 carácteres' />
-       <i id="hide2" class="fas fa-eye"></i>
+       <i id="hide2" class="fas fa-eye" style="color: #0e6359;"></i>
        </div>
        <br>
        <button id="form-button"class="submit-btn">Enviar</button>
@@ -75,14 +78,18 @@ export const register = () => {
     sendUser();
   });
   // -------------------------------icon mostrar password
-  divRegister.querySelector('#hide1').addEventListener('click', (e) => {
+  divRegister.querySelector('.eyes').addEventListener('click', (e) => {
     const passwordInput = divRegister.querySelector('#user-password');
-    if (e.target.classList.contains('show')) {
-      e.target.classList.remove('show');
+    const hide = divRegister.querySelector('#hide1');
+    const show = divRegister.querySelector('#show1');
+    if (passwordInput.type === 'password') {
       passwordInput.type = 'text';
+      hide.style.display = 'block';
+      show.style.display = 'none';
     } else {
-      e.target.classList.add('show');
       passwordInput.type = 'password';
+      hide.style.display = 'none';
+      show.style.display = 'block';
     }
   });
   // -------------------------------icon mostrar confirm-password

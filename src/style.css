@@ -283,12 +283,20 @@ footer img {
   margin: 0;
 
 }
+.eyes{
+  margin:0;
+ padding:0;
+}
 #hide1,#hide2{
- margin-right:0vw;
- padding:0vmax;
- /*background-color: rgba(242, 197, 28, 0.6);*/
- border-radius: 50%;
+ margin:0;
+ padding:0;
  cursor:pointer;
+ display:none;
+}
+#show1{
+  margin:0;
+  padding:0;
+  cursor:pointer;
 }
 
 @media only screen and (min-width: 1026px) {
