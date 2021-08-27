@@ -22,7 +22,13 @@ export const login = () => {
        <label for="email">Correo electronico</label>
        <input type="email" id="login-email" placeholder='alguien@ejemplo.com'/>
        <label for="password">Contraseña</label>
+       <div class = "show-passwords">
        <input type="password" id="login-password" placeholder="******"/>
+       <span class = "eyes-login">
+       <i id="show3" class="fas fa-eye" style="color: #0e6359;"></i>
+       <i id="hide3" class="fas fa-eye-slash" style="color: #0e6359;"></i>
+       </span>
+       </div>
        <br>
        <button id="form-button" class="submit-btn">Enviar</button>
        <button id="btn-google"class="submit-btn google"><img src="img/google.png" alt="google" id="google-icon">Login</button>
@@ -71,6 +77,22 @@ export const login = () => {
         onNavigate('/profile');
       })
       .catch((err) => { alert(err); });
+  });
+  // -------------------------------icon mostrar password de login
+  divLogin.querySelector('.eyes-login').addEventListener('click', (e) => {
+    e.preventDefault();
+    const passwordInput = divLogin.querySelector('#login-password');
+    const hide = divLogin.querySelector('#hide3');
+    const show = divLogin.querySelector('#show3');
+    if (passwordInput.type === 'password') {
+      passwordInput.type = 'text';
+      hide.style.display = 'block';
+      show.style.display = 'none';
+    } else {
+      passwordInput.type = 'password';
+      hide.style.display = 'none';
+      show.style.display = 'block';
+    }
   });
 
   return divLogin;
