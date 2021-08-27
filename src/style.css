@@ -1,11 +1,25 @@
 * {
   margin: auto;
 }
-
 body {
   background-color: #e5e5e5;
   /*font-family: 'Comfortaa', cursive;
       font-family: 'Work Sans', sans-serif;*/
+}
+button {
+  width: 18vmax;
+  height: 3.7vmax;
+  margin: 2em;
+  font-family: "Work Sans", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 3vh;
+  text-align: center;
+  color: whitesmoke;
+  background: #0e6359;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 header {
   flex-wrap: wrap;
@@ -22,36 +36,8 @@ header {
   justify-content: space-around;
   align-items: center;
 }
-#logoGF {
-  height: 6vmin;
-  float: left;
-  margin-left: 3vw;
-  margin-top: 0;
-}
 header ul {
   display: none;
-}
-button {
-  width: 18vmax;
-  height: 3.7vmax;
-  font-family: "Work Sans", sans-serif;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 3vh;
-  /*line-height: 22px;*/
-  text-align: center;
-  color: whitesmoke;
-  background: #0e6359;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 15px;
-  border: none;
-  margin: 2em;
-}
-.div-navegation {
-  width: 100%;
-}
-.div-navegation button {
-  margin: 4vmin;
 }
 header ul.show {
   display: block;
@@ -64,6 +50,18 @@ header ul.show {
 }
 header ul li {
   display: inline-block;
+}
+#logoGF {
+  height: 6vmin;
+  float: left;
+  margin-left: 3vw;
+  margin-top: 0;
+}
+.div-navegation {
+  width: 100%;
+}
+.div-navegation button {
+  margin: 4vmin;
 }
 /*Botones contenidos dentro de img-icon*/
 .btn-routing {
@@ -92,7 +90,7 @@ main {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  margin-top: 10vmin;;
+  margin-top: 10vmin;
 }
 /*Frase de bienvenida del banner*/
 .banner-welcome {
@@ -255,7 +253,6 @@ footer {
   padding-bottom: 0.7em;
   height: min-content;
 }
-
 footer img {
   width: 8vmin;
   margin-top: 0.3em;
@@ -290,15 +287,15 @@ footer img {
  position: absolute;
 }
 #hide1,#hide2, #hide3{
- margin-top: .8vh !important;
- margin:0;
+ display:none;
+ /*margin-top: .8vh ;*/
+ margin:.8vh 0 0 0 !important;
  padding:0;
  cursor:pointer;
- display:none;
 }
 #show1 , #show2, #show3{
-  margin-top: .8vh !important;
-  margin:0;
+  /*margin-top: .8vh ;*/
+  margin:.8vh 0 0 0 !important;
   padding:0;
   cursor:pointer;
 }
