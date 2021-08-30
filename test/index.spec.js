@@ -1,8 +1,15 @@
-// importamos la funcion que vamos a testear
-import { myFunction } from '../src/lib/index';
+/**
+ * @jest-environment jsdom
+ */
+import './global/firebase.js';
+import { login } from '../src/components/login.js';
 
-describe('myFunction', () => {
-  it('debería ser una función', () => {
-    expect(typeof myFunction).toBe('function');
+describe('login', () => {
+  document.body.innerHTML = '<div id="root"></div>';
+  it('should render', () => {
+    const rootDiv = document.getElementById('root');
+    const component = login();
+    rootDiv.appendChild(component);
+    expect(rootDiv.innerHTML).toMatchSnapshot();
   });
 });

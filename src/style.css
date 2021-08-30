@@ -1,0 +1,373 @@
+* {
+  margin: auto;
+}
+body {
+  background-color: #e5e5e5;
+  /*font-family: 'Comfortaa', cursive;
+      font-family: 'Work Sans', sans-serif;*/
+}
+button {
+  width: 18vmax;
+  height: 3.7vmax;
+  margin: 2em;
+  font-family: "Work Sans", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 3vh;
+  text-align: center;
+  color: whitesmoke;
+  background: #0e6359;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+header {
+  flex-wrap: wrap;
+  background-color: #405927;
+  width: 100%;
+  height: 8.5vmin;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  padding: 1.3em 0;
+  margin-bottom: 0%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+header ul {
+  display: none;
+}
+header ul.show {
+  display: block;
+  background-color: #405927;
+  width: 100%;
+  height: 15vmin;
+  /* margin-left: 100%;*/
+  transition: ease-in-out 0.8s linear;
+  align-content: space-between;
+}
+header ul li {
+  display: inline-block;
+}
+#logoGF {
+  height: 6vmin;
+  float: left;
+  margin-left: 3vw;
+  margin-top: 0;
+}
+.div-navegation {
+  width: 100%;
+}
+.div-navegation button {
+  margin: 4vmin;
+}
+/*Botones contenidos dentro de img-icon*/
+.btn-routing {
+  margin-top: 1.5vh !important;
+  padding-top: 0 !important;
+}
+.menu-icon {
+  display: block;
+  cursor: pointer;
+}
+#img-users {
+  width: 9vw;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.5));
+}
+main {
+  margin-top: 3.5em;
+}
+.banner {
+  background-image: url(img/fondo-verde-este-si\ 2.png);
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 50vmin;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10vmin;
+}
+/*Frase de bienvenida del banner*/
+.banner-welcome {
+  font-family: "Comfortaa", cursive;
+  color: #405927;
+  font-weight: 700;
+  font-size: 7vmin;
+  padding: 5vmin;
+  padding-bottom: 0;
+  margin-bottom: 2vmin;
+  margin-top: 2vmin;
+  text-align: center;
+}
+.btns-login {
+  border: none;
+  background-color: #93bdb8;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+  color: #44464a;
+  font-family: "Work Sans", sans-serif;
+  padding: 0.7vmin 1vmin;
+  font-size: 4vmin;
+  font-weight: 300;
+  font-weight: bold;
+}
+/*Sección de la imagen del proceso con titulo*/
+.process {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+#title-process {
+  font-family: "Comfortaa", cursive;
+  font-weight: bold;
+  text-align: center;
+  color: #405927;
+  font-size: 6vmin;
+  margin: 4vmin 0vmin;
+} /*Sección de la imagen del proceso*/
+.process-img {
+  display: flex;
+  align-content: center;
+}
+/*id de la imagen del movil*/
+#process-movil {
+  width: 60vmin;
+  margin-bottom: 2vh;
+}
+#process-desktop {
+  display: none;
+  padding-bottom: 9vmin;
+}
+/*Aquí comienza la edición del registro*/
+#register-page,
+#login-page {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-basis: 35%;
+  margin-top: 15vh;
+}
+.titles {
+  font-family: "Comfortaa", cursive;
+  color: #0e6359;
+  font-weight: normal;
+  font-size: 8vmin;
+}
+#title-form {
+  margin-bottom: 3.5vh;
+  text-align: center;
+  padding: 1vh;
+}
+.form-inicial {
+  /*align-self: flex-start;*/
+  display: flex;
+  flex-flow: row wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /*justify-items: center;*/
+  margin: auto;
+  margin-left: 9vw;
+  margin-right: 0;
+  /*width: 35%; Esto para despotck*/
+}
+.form-inicial input {
+  color: #405927;
+  width: 20em;
+  height: 3em;
+  background: rgba(242, 197, 28, 0.6);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+  border: none;
+  padding: 0.5em 2em;
+  margin: 1vh 6vw;
+}
+.form-inicial label {
+  font-family: "Work Sans", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 25px;
+  line-height: 29px;
+  color: #000000;
+}
+.form-inicial button {
+  margin: 1vh 25vw;
+}
+.blue {
+  background: #93bdb8;
+  color: #000000;
+}
+#google-icon {
+  width: 3vmax;
+  height: 3vmax;
+  margin: 0;
+  margin-right: 1vw;
+}
+.google {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #e5e5e5;
+  border: 2px solid #0E6359;
+  color:#0E6359;
+  font-weight:500;
+}
+.submit-btn {
+  padding: 0 1vw;
+  font-size: 2.5vh;
+}
+#heart-movil {
+  width: 30vw;
+  margin-bottom: 2vh;
+}
+#madre-tierra {
+  display: none;
+}
+#heart {
+  display: none;
+}
+.leaf-img {
+  position: absolute;
+  z-index: -1;
+  float: left;
+  width: 65vw;
+}
+#root {
+  min-height: calc(85vh - 85px);
+}
+footer {
+  margin-top: 0%;
+  width: 100%;
+  background-color: #405927;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  font-family: "Work Sans", sans-serif;
+  color: #e5e5e5;
+  padding-bottom: 0.7em;
+  height: min-content;
+}
+footer img {
+  width: 8vmin;
+  margin-top: 0.3em;
+  margin-bottom: 0.3em;
+}
+.show-passwords{
+  display: inline-block;
+  /*width: 20em;
+  height: 3em;*/
+  background: rgba(242, 197, 28, 0.6);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+  border: none;
+  padding: 0.45em 2em;
+  margin: 1vh 6vw;
+}
+#user-password, #confirm-password,#login-password{
+  color: #405927;
+  width: 15em;
+  height: 2em;
+  background: transparent;
+  box-shadow: none;
+  border-radius: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.eyes,.eyes-confirm,.eyes-login{
+  margin:0;
+ padding:0;
+ position: absolute;
+}
+#hide1,#hide2, #hide3{
+ display:none;
+ /*margin-top: .8vh ;*/
+ margin:.8vh 0 0 0 !important;
+ padding:0;
+ cursor:pointer;
+}
+#show1 , #show2, #show3{
+  /*margin-top: .8vh ;*/
+  margin:.8vh 0 0 0 !important;
+  padding:0;
+  cursor:pointer;
+}
+@media only screen and (min-width: 1026px) {
+  header {
+    height: 3em;
+  }
+  header ul {
+    display: block;
+    width: 40vw;
+  }
+  #logoGF {
+    margin-bottom: 1.8em;
+    margin-left: 0;
+  }
+  .menu-icon {
+    display: none;
+  }
+  main {
+    margin-top: 5.5em;
+  }
+  button {
+    width: 15vmax;
+    height: 2.5vmax;
+  }
+  #register-page,
+  #login-page {
+    margin-left: 6em;
+  }
+  #btn-register-movil {
+    display: none;
+  }
+  .form-inicial {
+    padding: 4vmax;
+    padding-top: 2vmax;
+    margin-left: 0;
+  }
+  .leaf-img {
+    width: 45vw;
+  }
+  .form-inicial button {
+    margin: 1vh 10vw;
+    margin-top: 5vh;
+    width: 10vmax;
+  }
+  #process-desktop {
+    display: block;
+  }
+  #process-movil {
+    display: none;
+  }
+  #madre-tierra {
+    display: block;
+  }
+  #heart {
+    display: block;
+    margin-right: 4vw;
+  }
+  #heart-movil {
+    display: none;
+  }
+  .div-navegation {
+    width: 40%;
+    margin-left: 14vw;
+  }
+  #google-icon {
+    width: 2vmax;
+    height: 2vmax;
+    margin: 0;
+    margin-right: 1vw;
+  }
+  #root {
+    min-height: calc(80vh - 80px);
+  }
+}
