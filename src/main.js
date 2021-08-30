@@ -21,10 +21,12 @@ export const onNavigate = (pathname) => {
     pathname,
     window.location.origin + pathname,
   );
-  while (rootDiv.firstChild) { // Mientras contenga informacion
-    rootDiv.removeChild(rootDiv.firstChild);
+  if (rootDiv) {
+    while (rootDiv.firstChild) { // Mientras contenga informacion
+      rootDiv.removeChild(rootDiv.firstChild);
+    }
+    rootDiv.appendChild(routes[pathname]()); // () 'La función'
   }
-  rootDiv.appendChild(routes[pathname]()); // () 'La función'
 };
 
 const component = routes[window.location.pathname];
@@ -34,12 +36,5 @@ window.onload = () => {
 };
 
 window.onpopstate = () => {
-  while (rootDiv.firstChild) {
-    rootDiv.removeChild(rootDiv.firstChild);
-  }
-  rootDiv.appendChild(routes[window.location.pathname]());
+  rootDiv.appendChild(component());
 };
-
-// Este es el punto de entrada de tu aplicacion
-// const database = firebase.firestore();
-// console.log(database);
