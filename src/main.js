@@ -35,9 +35,6 @@ window.onload = () => {
 };
 
 window.onpopstate = () => {
-  while (rootDiv.firstChild) {
-    rootDiv.removeChild(rootDiv.firstChild);
-  }
   rootDiv.appendChild(routes[window.location.pathname]());
 };
 
