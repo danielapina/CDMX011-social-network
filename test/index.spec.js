@@ -4,12 +4,16 @@
 import './global/firebase.js';
 import { login } from '../src/components/login.js';
 
-describe('login', () => {
-  document.body.innerHTML = '<div id="root"></div>';
-  it('should render', () => {
-    const rootDiv = document.getElementById('root');
-    const component = login();
-    rootDiv.appendChild(component);
-    expect(rootDiv.innerHTML).toMatchSnapshot();
+describe('Coleccion de test sobre HOME', () => {
+  const homeRender = home();
+  test('Button register', () => {
+    const btnRegister = homeRender.querySelector('#btn-register');
+    btnRegister.click();
+    expect(btnRegister.outerHTML).toBe('<button class="blue btn-routing" id="btn-register" value="/register">¡Regístrate!</button>');
+  });
+  test('Icon Burguer', () => {
+    const btnIcon = homeRender.querySelector('#users-icon');
+    btnIcon.click();
+    expect(btnIcon.outerHTML).toBe('<span class="menu-icon" id="users-icon"><img id="img-users" src="img/users.png" alt=""></span>');
   });
 });

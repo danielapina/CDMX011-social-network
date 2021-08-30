@@ -30,7 +30,6 @@ export const onNavigate = (pathname) => {
 };
 
 const component = routes[window.location.pathname];
-
 window.onload = () => {
   rootDiv.appendChild(component());
 };
