@@ -1,6 +1,4 @@
 // eslint-disable-next-line import/no-cycle
-import { signUp, getUser } from '../lib/firebaseClient.js';
-// eslint-disable-next-line import/no-cycle
 import { onNavigate } from '../main.js';
 
 export const register = () => {
@@ -8,7 +6,6 @@ export const register = () => {
   <header>
   <a href="/"><img src="img/logo-desktop.png" alt="logotipo" id="logoGF" /></a>
   <span class="menu-icon" id="users-icon"><img id="img-users" src="img/users.png" alt=""></span>
-
   <div class="div-navegation">
     <ul id="navegacion">
       <li><a><button class="blue btn-routing" id="btn-register" value='/register'>¡Regístrate!</button></a></li>
@@ -16,7 +13,6 @@ export const register = () => {
     </ul>
   </div>
  </header>
-
   <div id="register-page">
      <form class ="form-inicial" >
       <img class="leaf-img" src="img/leafs-desktop.png" alt="leafs" />
@@ -71,10 +67,13 @@ export const register = () => {
     const password = divRegister.querySelector('#user-password').value;
     const confirmPassword = divRegister.querySelector('#confirm-password').value;
     if (password === confirmPassword) {
-      signUp(email, password)
-        .then(() => {
-          console.log(getUser());
+      firebase.auth().createUserWithEmailAndPassword(email, password)
+        .then((userCredential) => {
+          // Signed in
+          const user = userCredential.user;
+          console.log(user);
           onNavigate('/profile');
+          // ...
         })
         .catch((error) => {
           const errorMessage = error.message;
