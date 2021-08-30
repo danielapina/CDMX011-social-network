@@ -21,14 +21,15 @@ export const onNavigate = (pathname) => {
     pathname,
     window.location.origin + pathname,
   );
-  while (rootDiv.firstChild) { // Mientras contenga informacion
-    rootDiv.removeChild(rootDiv.firstChild);
+  if (rootDiv) {
+    while (rootDiv.firstChild) { // Mientras contenga informacion
+      rootDiv.removeChild(rootDiv.firstChild);
+    }
+    rootDiv.appendChild(routes[pathname]()); // () 'La función'
   }
-  rootDiv.appendChild(routes[pathname]()); // () 'La función'
 };
 
 const component = routes[window.location.pathname];
-
 window.onload = () => {
   rootDiv.appendChild(component());
 };
