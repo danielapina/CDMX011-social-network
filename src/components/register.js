@@ -14,7 +14,7 @@ export const register = () => {
   </div>
  </header>
   <div id="register-page">
-     <form class ="form-inicial" >
+     <form id="register-form" class ="form-inicial" >
       <img class="leaf-img" src="img/leafs-desktop.png" alt="leafs" />
        <h2 class="titles" id="title-form">Registro</h2>
        <label for="email">Correo electronico</label>
@@ -62,7 +62,9 @@ export const register = () => {
     }
   });
 
-  function sendUser() {
+  const btnForm = divRegister.querySelector('#register-form');
+  btnForm.addEventListener('submit', (e) => {
+    e.preventDefault();
     const email = divRegister.querySelector('#user-email').value;
     const password = divRegister.querySelector('#user-password').value;
     const confirmPassword = divRegister.querySelector('#confirm-password').value;
@@ -73,17 +75,16 @@ export const register = () => {
           const user = userCredential.user;
           console.log(user);
           onNavigate('/profile');
-          // ...
         })
         .catch((error) => {
           const errorMessage = error.message;
           alert(errorMessage);
-          // ..
         });
     } else {
       alert('Las Contraseñas no coinciden, vuelve a intentar.');
     }
-  }
+  });
+
   // GOOGLE
   const auth = firebase.auth();
   const btnGoogle = divRegister.querySelector('#btn-google');
@@ -97,11 +98,7 @@ export const register = () => {
       })
       .catch((err) => { alert(err); });
   });
-  const btnForm = divRegister.querySelector('#form-button');
-  btnForm.addEventListener('click', (e) => {
-    e.preventDefault();
-    sendUser();
-  });
+
   // -------------------------------icon mostrar password
   divRegister.querySelector('.eyes').addEventListener('click', (e) => {
     e.preventDefault();
