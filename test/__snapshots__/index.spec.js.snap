@@ -34,7 +34,6 @@ exports[`Coleccion de test soble LOGIN should render 1`] = `
   <header>
   <a href=\\"/\\"><img src=\\"img/logo-desktop.png\\" alt=\\"logotipo\\" id=\\"logoGF\\"></a>
   <span class=\\"menu-icon\\" id=\\"users-icon\\"><img id=\\"img-users\\" src=\\"img/users.png\\" alt=\\"\\"></span>
-
   <div class=\\"div-navegation\\">
     <ul id=\\"navegacion\\">
       <li><a><button class=\\"blue btn-routing\\" id=\\"btn-register\\" value=\\"/register\\">¡Regístrate!</button></a></li>
@@ -42,7 +41,6 @@ exports[`Coleccion de test soble LOGIN should render 1`] = `
     </ul>
   </div>
 </header>
-
   <div id=\\"login-page\\">
      <form id=\\"login-form\\" class=\\"form-inicial\\">
        <h2 class=\\"titles\\" id=\\"title-form\\">¡Hola Green Friend!</h2>
@@ -102,15 +100,13 @@ exports[`Coleccion de test soble REGISTER should render 1`] = `
   <header>
   <a href=\\"/\\"><img src=\\"img/logo-desktop.png\\" alt=\\"logotipo\\" id=\\"logoGF\\"></a>
   <span class=\\"menu-icon\\" id=\\"users-icon\\"><img id=\\"img-users\\" src=\\"img/users.png\\" alt=\\"\\"></span>
-
   <div class=\\"div-navegation\\">
-    <ul id=\\"navegacion\\">
+    <ul id=\\"navegacion\\" class=\\"show\\">
       <li><a><button class=\\"blue btn-routing\\" id=\\"btn-register\\" value=\\"/register\\">¡Regístrate!</button></a></li>
       <li><a><button class=\\"blue btn-routing\\" id=\\"btn-login\\" value=\\"/login\\">Login</button></a></li>
     </ul>
   </div>
 </header>
-
   <div id=\\"login-page\\">
      <form id=\\"login-form\\" class=\\"form-inicial\\">
        <h2 class=\\"titles\\" id=\\"title-form\\">¡Hola Green Friend!</h2>
@@ -137,7 +133,6 @@ exports[`Coleccion de test soble REGISTER should render 1`] = `
   <header>
   <a href=\\"/\\"><img src=\\"img/logo-desktop.png\\" alt=\\"logotipo\\" id=\\"logoGF\\"></a>
   <span class=\\"menu-icon\\" id=\\"users-icon\\"><img id=\\"img-users\\" src=\\"img/users.png\\" alt=\\"\\"></span>
-
   <div class=\\"div-navegation\\">
     <ul id=\\"navegacion\\">
       <li><a><button class=\\"blue btn-routing\\" id=\\"btn-register\\" value=\\"/register\\">¡Regístrate!</button></a></li>
@@ -145,9 +140,8 @@ exports[`Coleccion de test soble REGISTER should render 1`] = `
     </ul>
   </div>
  </header>
-
   <div id=\\"register-page\\">
-     <form class=\\"form-inicial\\">
+     <form id=\\"register-form\\" class=\\"form-inicial\\">
       <img class=\\"leaf-img\\" src=\\"img/leafs-desktop.png\\" alt=\\"leafs\\">
        <h2 class=\\"titles\\" id=\\"title-form\\">Registro</h2>
        <label for=\\"email\\">Correo electronico</label>
