@@ -74,7 +74,7 @@ export const register = () => {
           // Signed in
           const user = userCredential.user;
           console.log(user);
-          onNavigate('/profile');
+          onNavigate('/wall');
         })
         .catch((error) => {
           const errorMessage = error.message;
@@ -94,7 +94,7 @@ export const register = () => {
     auth.signInWithPopup(provider)
       .then((result) => {
         console.log('Registro con google', result);
-        onNavigate('/profile');
+        onNavigate('/wall');
       })
       .catch((err) => { alert(err); });
   });
