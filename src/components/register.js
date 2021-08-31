@@ -6,7 +6,6 @@ export const register = () => {
   <header>
   <a href="/"><img src="img/logo-desktop.png" alt="logotipo" id="logoGF" /></a>
   <span class="menu-icon" id="users-icon"><img id="img-users" src="img/users.png" alt=""></span>
-
   <div class="div-navegation">
     <ul id="navegacion">
       <li><a><button class="blue btn-routing" id="btn-register" value='/register'>¡Regístrate!</button></a></li>
@@ -14,9 +13,8 @@ export const register = () => {
     </ul>
   </div>
  </header>
-
   <div id="register-page">
-     <form class ="form-inicial" >
+     <form id="register-form" class ="form-inicial" >
       <img class="leaf-img" src="img/leafs-desktop.png" alt="leafs" />
        <h2 class="titles" id="title-form">Registro</h2>
        <label for="email">Correo electronico</label>
@@ -64,7 +62,9 @@ export const register = () => {
     }
   });
 
-  function sendUser() {
+  const btnForm = divRegister.querySelector('#register-form');
+  btnForm.addEventListener('submit', (e) => {
+    e.preventDefault();
     const email = divRegister.querySelector('#user-email').value;
     const password = divRegister.querySelector('#user-password').value;
     const confirmPassword = divRegister.querySelector('#confirm-password').value;
@@ -74,18 +74,17 @@ export const register = () => {
           // Signed in
           const user = userCredential.user;
           console.log(user);
-          onNavigate('/profile');
-          // ...
+          onNavigate('/wall');
         })
         .catch((error) => {
           const errorMessage = error.message;
           alert(errorMessage);
-          // ..
         });
     } else {
       alert('Las Contraseñas no coinciden, vuelve a intentar.');
     }
-  }
+  });
+
   // GOOGLE
   const auth = firebase.auth();
   const btnGoogle = divRegister.querySelector('#btn-google');
@@ -95,15 +94,11 @@ export const register = () => {
     auth.signInWithPopup(provider)
       .then((result) => {
         console.log('Registro con google', result);
-        onNavigate('/profile');
+        onNavigate('/wall');
       })
       .catch((err) => { alert(err); });
   });
-  const btnForm = divRegister.querySelector('#form-button');
-  btnForm.addEventListener('click', (e) => {
-    e.preventDefault();
-    sendUser();
-  });
+
   // -------------------------------icon mostrar password
   divRegister.querySelector('.eyes').addEventListener('click', (e) => {
     e.preventDefault();

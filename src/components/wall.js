@@ -1,6 +1,6 @@
 // import { onNavigate } from './main.js';
 
-export const profile = () => {
+export const wall = () => {
   const html = `
   <header>
   <a href="/"><img src="img/logo-desktop.png" alt="logotipo" id="logoGF" /></a>
@@ -14,8 +14,8 @@ export const profile = () => {
 </header>
          <h2>Profile</h2>
   `;
-  const divProfile = document.createElement('div');
-  divProfile.innerHTML = html;
+  const divWall = document.createElement('div');
+  divWall.innerHTML = html;
 
-  return divProfile;
+  return divWall;
 };

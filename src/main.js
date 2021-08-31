@@ -4,7 +4,7 @@ import { home } from './components/home.js';
 import { register } from './components/register.js';
 // eslint-disable-next-line import/no-cycle
 import { login } from './components/login.js';
-import { profile } from './components/profile.js';
+import { wall } from './components/wall.js';
 
 const rootDiv = document.getElementById('root');
 
@@ -12,7 +12,7 @@ const routes = {
   '/': home,
   '/register': register,
   '/login': login,
-  '/profile': profile,
+  '/wall': wall,
 };
 
 export const onNavigate = (pathname) => {
@@ -37,7 +37,3 @@ window.onload = () => {
 window.onpopstate = () => {
   rootDiv.appendChild(routes[window.location.pathname]());
 };
-
-// Este es el punto de entrada de tu aplicacion
-// const database = firebase.firestore();
-// console.log(database);
