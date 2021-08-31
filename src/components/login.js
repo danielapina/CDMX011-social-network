@@ -65,7 +65,7 @@ export const login = () => {
     auth
       .signInWithEmailAndPassword(email, password)
       .then((userCredential) => {
-        onNavigate('/profile');
+        onNavigate('/wall');
         console.log(userCredential);
       })
       .catch((error) => {
@@ -82,7 +82,7 @@ export const login = () => {
     auth.signInWithPopup(provider)
       .then((result) => {
         console.log('Registro con google', result);
-        onNavigate('/profile');
+        onNavigate('/wall');
       })
       .catch((err) => { alert(err); });
   });
