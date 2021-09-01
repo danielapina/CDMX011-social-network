@@ -7,7 +7,7 @@ body {
       font-family: 'Work Sans', sans-serif;*/
 }
 button {
-  width: 18vmax;
+  width: 21vmax;
   height: 3.7vmax;
   margin: 2em;
   font-family: "Work Sans", sans-serif;
@@ -44,7 +44,6 @@ header ul.show {
   background-color: #405927;
   width: 100%;
   height: 15vmin;
-  /* margin-left: 100%;*/
   transition: ease-in-out 0.8s linear;
   align-content: space-between;
 }
@@ -77,7 +76,7 @@ header ul li {
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.5));
 }
 main {
-  margin-top: 3.5em;
+  margin-top: 3em;
 }
 .banner {
   background-image: url(img/fondo-verde-este-si\ 2.png);
@@ -106,16 +105,19 @@ main {
 }
 .btns-login {
   border: none;
+  margin-left:1em !important;
   background-color: #93bdb8;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 15px;
-  color: #44464a;
+  color: #272829;
   font-family: "Work Sans", sans-serif;
-  padding: 0.7vmin 1vmin;
-  font-size: 4vmin;
-  font-weight: 300;
-  font-weight: bold;
+  padding: 0.8vmin 1vmin;
+  font-size: 3vmax;
+  font-weight: 100;
+  font-weight: normal;
+  
 }
+
 /*Sección de la imagen del proceso con titulo*/
 .process {
   display: flex;
@@ -207,7 +209,7 @@ main {
   width: 3vmax;
   height: 3vmax;
   margin: 0;
-  margin-right: 1vw;
+  margin-left: 1vw;
 }
 .google {
   display: flex;
@@ -299,6 +301,13 @@ footer img {
   padding:0;
   cursor:pointer;
 }
+
+#error-message-register, #error-message {
+  font-family: "Work Sans", sans-serif;
+  color: rgb(189, 27, 27);
+  font-weight: normal;
+  font-size: 1.3em;
+}
 @media only screen and (min-width: 1026px) {
   header {
     height: 3em;
@@ -313,6 +322,9 @@ footer img {
   }
   .menu-icon {
     display: none;
+  }
+  .banner{
+    margin-top: 8vmin;
   }
   main {
     margin-top: 5.5em;
@@ -365,7 +377,7 @@ footer img {
     width: 2vmax;
     height: 2vmax;
     margin: 0;
-    margin-right: 1vw;
+    margin-left: .2vw;
   }
   #root {
     min-height: calc(80vh - 80px);
