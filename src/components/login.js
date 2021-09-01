@@ -9,7 +9,7 @@ export const login = () => {
   <div class="div-navegation">
     <ul id="navegacion">
       <li><a><button class="blue btn-routing" id="btn-register" value='/register'>¡Regístrate!</button></a></li>
-      <li><a><button class="blue btn-routing" id="btn-login" value='/login'>Login</button></a></li>
+      <li><a><button class="blue btn-routing" id="btn-login" value='/login'>Iniciar Sesión</button></a></li>
     </ul>
   </div>
 </header>
@@ -17,7 +17,7 @@ export const login = () => {
      <form  id="login-form" class ="form-inicial">
        <h2 class="titles" id="title-form">¡Hola Green Friend!</h2>
        <img id="heart-movil" src="img/heart.png" alt="heart" />
-       <label for="email">Correo electronico</label>
+       <label for="email">Correo electrónico</label>
        <input type="email" id="login-email" placeholder='alguien@ejemplo.com'/>
        <label for="password">Contraseña</label>
        <div class = "show-passwords">
@@ -28,8 +28,9 @@ export const login = () => {
        </span>
        </div>
        <br>
+       <p id="error-message"></p>
        <button id="form-button-login" class="submit-btn">Enviar</button>
-       <button id="btn-google"class="submit-btn google"><img src="img/google.png" alt="google" id="google-icon">Login</button>
+       <button id="btn-google"class="submit-btn google">Entra con  <img src="img/google.png" alt="google" id="google-icon"></button>
      </form>
      <div class="img-register-desktop">
        <img id="heart" src="img/heart.png" alt="heart" />
@@ -70,7 +71,7 @@ export const login = () => {
       })
       .catch((error) => {
         const errorMessage = error.message;
-        alert(errorMessage);
+        divLogin.querySelector('#error-message').innerHTML = errorMessage;
       });
   });
   // GOOGLE
@@ -84,7 +85,7 @@ export const login = () => {
         console.log('Registro con google', result);
         onNavigate('/wall');
       })
-      .catch((err) => { alert(err); });
+      .catch((err) => { divLogin.querySelector('#error-message').innerHTML = err; });
   });
   // -------------------------------icon mostrar password de login
   divLogin.querySelector('.eyes-login').addEventListener('click', (e) => {
