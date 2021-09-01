@@ -2,12 +2,12 @@
  * @jest-environment jsdom
  */
 import './global/firebase.js';
-import './global/firebaseRegister.js';
+// import './global/firebaseRegister.js';
 import { home } from '../src/components/home.js';
 import { login } from '../src/components/login.js';
 import { register } from '../src/components/register.js';
 
-describe('Coleccion de test sobre HOME', () => {
+describe('Coleccion de test sobre HOME', () => { // ----HOME---------------------------------------------------
   const homeRender = home();
   document.body.innerHTML = '<div id="root"></div>';
   test('should render', () => {
@@ -33,7 +33,7 @@ describe('Coleccion de test sobre HOME', () => {
   });
 });
 
-describe('Coleccion de test soble LOGIN', () => {
+describe('Coleccion de test sobre LOGIN', () => { // -------LOGIN----------------------------------------------
   document.body.innerHTML = '<div id="root"></div>';
   const component = login();
   test('should render', () => {
@@ -71,9 +71,29 @@ describe('Coleccion de test soble LOGIN', () => {
     btnIcon.click();
     expect(btnIcon.outerHTML).toBe('<span class="menu-icon" id="users-icon"><img id="img-users" src="img/users.png" alt=""></span>');
   });
+  test('Eyes opened show password', () => {
+    const btnEyes = component.querySelector('.eyes-login');
+    btnEyes.click();
+    expect(btnEyes.outerHTML).toBe(
+      `<span class="eyes-login">
+       <i id="show3" class="fas fa-eye" style="color: rgb(14, 99, 89); display: none;"></i>
+       <i id="hide3" class="fas fa-eye-slash" style="color: rgb(14, 99, 89); display: block;"></i>
+       </span>`,
+    );
+  });
+  test('Eyes NO SHOW', () => {
+    const btnEyes = component.querySelector('.eyes-login');
+    btnEyes.click();
+    expect(btnEyes.outerHTML).toBe(
+      `<span class="eyes-login">
+       <i id="show3" class="fas fa-eye" style="color: rgb(14, 99, 89); display: block;"></i>
+       <i id="hide3" class="fas fa-eye-slash" style="color: rgb(14, 99, 89); display: none;"></i>
+       </span>`,
+    );
+  });
 });
 
-describe('Coleccion de test soble REGISTER', () => {
+describe('Coleccion de test soble REGISTER', () => { // -------REGISTER-------------------------------------------
   document.body.innerHTML = '<div id="root"></div>';
   const component = register();
   test('should render', () => {
@@ -98,8 +118,8 @@ describe('Coleccion de test soble REGISTER', () => {
     document.getElementById('user-password').value = password;
     document.getElementById('confirm-password').value = confirmPassword;
 
-    document.getElementById('form-button').click();
-
+    // document.getElementById('form-button').click(); // Aqui llaama al form de Login
+    component.querySelector('#form-button').click();
     expect(mockRegister).toHaveBeenCalledWith(email, password);
   });
   test('Icon Burguer', () => {
@@ -112,5 +132,45 @@ describe('Coleccion de test soble REGISTER', () => {
     btnIcon.click();
     btnIcon.click();
     expect(btnIcon.outerHTML).toBe('<span class="menu-icon" id="users-icon"><img id="img-users" src="img/users.png" alt=""></span>');
+  });
+  test('Eyes opened show password 1st', () => {
+    const btnEyes = component.querySelector('.eyes');
+    btnEyes.click();
+    expect(btnEyes.outerHTML).toBe(
+      `<span class="eyes">
+       <i id="show1" class="fas fa-eye" style="color: rgb(14, 99, 89); display: none;"></i>
+       <i id="hide1" class="fas fa-eye-slash" style="color: rgb(14, 99, 89); display: block;"></i>
+       </span>`,
+    );
+  });
+  test('Eyes NO SHOW 1st', () => {
+    const btnEyes = component.querySelector('.eyes');
+    btnEyes.click();
+    expect(btnEyes.outerHTML).toBe(
+      `<span class="eyes">
+       <i id="show1" class="fas fa-eye" style="color: rgb(14, 99, 89); display: block;"></i>
+       <i id="hide1" class="fas fa-eye-slash" style="color: rgb(14, 99, 89); display: none;"></i>
+       </span>`,
+    );
+  });
+  test('Eyes opened show password confirm', () => {
+    const btnEyes = component.querySelector('.eyes-confirm');
+    btnEyes.click();
+    expect(btnEyes.outerHTML).toBe(
+      `<span class="eyes-confirm">
+       <i id="show2" class="fas fa-eye" style="color: rgb(14, 99, 89); display: none;"></i>
+       <i id="hide2" class="fas fa-eye-slash" style="color: rgb(14, 99, 89); display: block;"></i>
+       </span>`,
+    );
+  });
+  test('Eyes NO SHOW confirm', () => {
+    const btnEyes = component.querySelector('.eyes-confirm');
+    btnEyes.click();
+    expect(btnEyes.outerHTML).toBe(
+      `<span class="eyes-confirm">
+       <i id="show2" class="fas fa-eye" style="color: rgb(14, 99, 89); display: block;"></i>
+       <i id="hide2" class="fas fa-eye-slash" style="color: rgb(14, 99, 89); display: none;"></i>
+       </span>`,
+    );
   });
 });
