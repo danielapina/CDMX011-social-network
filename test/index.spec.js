@@ -65,9 +65,8 @@ describe('Coleccion de test sobre LOGIN', () => { // -------LOGIN---------------
     btnIcon.click();
     expect(btnIcon.outerHTML).toBe('<span class="menu-icon" id="users-icon"><img id="img-users" src="img/users.png" alt=""></span>');
   });
-  test('Remove show de Icon Burguer', () => {
+  test('Remove show de Icon Burguer LOGIN', () => {
     const btnIcon = component.querySelector('#users-icon');
-    btnIcon.click();
     btnIcon.click();
     expect(btnIcon.outerHTML).toBe('<span class="menu-icon" id="users-icon"><img id="img-users" src="img/users.png" alt=""></span>');
   });
@@ -127,10 +126,10 @@ describe('Coleccion de test soble REGISTER', () => { // -------REGISTER---------
     btnIcon.click();
     expect(btnIcon.outerHTML).toBe('<span class="menu-icon" id="users-icon"><img id="img-users" src="img/users.png" alt=""></span>');
   });
-  test('Remove show de Icon Burguer', () => {
+  test('Remove show de Icon Burguer REGISTER', () => {
     const btnIcon = component.querySelector('#users-icon');
     btnIcon.click();
-    btnIcon.click();
+    console.log(btnIcon.outerHTML);
     expect(btnIcon.outerHTML).toBe('<span class="menu-icon" id="users-icon"><img id="img-users" src="img/users.png" alt=""></span>');
   });
   test('Eyes opened show password 1st', () => {

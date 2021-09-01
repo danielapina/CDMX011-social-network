@@ -78,7 +78,8 @@ export const register = () => {
         })
         .catch((error) => {
           const errorMessage = error.message;
-          alert(errorMessage);
+          console.log(errorMessage);
+          // alert(errorMessage);
         });
     } else {
       alert('Las Contraseñas no coinciden, vuelve a intentar.');
