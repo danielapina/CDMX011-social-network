@@ -36,7 +36,7 @@ export const register = () => {
        </span>
        </div>
        <br>
-       <button id="form-button"class="submit-btn">Enviar</button>
+       <button id="form-button-register" class="submit-btn">Enviar</button>
        <button id="btn-google"class="submit-btn google"><img src="img/google.png" alt="google" id="google-icon">Sign Up</button>
      </form>
      <div class="img-register-desktop">

@@ -56,7 +56,7 @@ describe('Coleccion de test sobre LOGIN', () => { // -------LOGIN---------------
     document.getElementById('login-email').value = email;
     document.getElementById('login-password').value = password;
 
-    document.getElementById('form-button').click();
+    document.getElementById('form-button-login').click();
 
     expect(mockLogin).toHaveBeenCalledWith(email, password);
   });
@@ -118,8 +118,7 @@ describe('Coleccion de test soble REGISTER', () => { // -------REGISTER---------
     document.getElementById('user-password').value = password;
     document.getElementById('confirm-password').value = confirmPassword;
 
-    // document.getElementById('form-button').click(); // Aqui llaama al form de Login
-    component.querySelector('#form-button').click();
+    document.getElementById('form-button-register').click();
     expect(mockRegister).toHaveBeenCalledWith(email, password);
   });
   test('Icon Burguer', () => {
