@@ -117,7 +117,6 @@ main {
   font-weight: normal;
   
 }
-
 /*Sección de la imagen del proceso con titulo*/
 .process {
   display: flex;
@@ -179,7 +178,7 @@ main {
   margin-right: 0;
   /*width: 35%; Esto para despotck*/
 }
-.form-inicial input {
+.form-inicial input, select {
   color: #405927;
   width: 20em;
   height: 3em;
@@ -200,6 +199,15 @@ main {
 }
 .form-inicial button {
   margin: 1vh 25vw;
+}
+.form-inicial textarea {
+  color: #405927;
+  background: rgba(242, 197, 28, 0.6);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+  border: none;
+  padding: 0.5em 2em;
+  margin: 1vh 6vw;
 }
 .blue {
   background: #93bdb8;
@@ -234,7 +242,7 @@ main {
 #heart {
   display: none;
 }
-.leaf-img {
+.leaf-img .cloud-bg{
   position: absolute;
   z-index: -1;
   float: left;
@@ -242,23 +250,6 @@ main {
 }
 #root {
   min-height: calc(85vh - 85px);
-}
-footer {
-  margin-top: 0%;
-  width: 100%;
-  background-color: #405927;
-  display: flex;
-  text-align: center;
-  flex-direction: column;
-  font-family: "Work Sans", sans-serif;
-  color: #e5e5e5;
-  padding-bottom: 0.7em;
-  height: min-content;
-}
-footer img {
-  width: 8vmin;
-  margin-top: 0.3em;
-  margin-bottom: 0.3em;
 }
 .show-passwords{
   display: inline-block;
@@ -282,7 +273,6 @@ footer img {
   padding: 0;
   margin: 0;
 }
-
 .eyes,.eyes-confirm,.eyes-login{
   margin:0;
  padding:0;
@@ -301,12 +291,71 @@ footer img {
   padding:0;
   cursor:pointer;
 }
-
 #error-message-register, #error-message {
   font-family: "Work Sans", sans-serif;
   color: rgb(189, 27, 27);
   font-weight: normal;
   font-size: 1.3em;
+}
+#btn-exit{
+  display:none;
+}
+#logout-movil{
+  display: block;
+  width: 9vw;
+}
+#wall{
+  display: flex;
+  flex-flow: row wrap;
+  flex-direction: column;
+  align-items: center;
+}
+#welcome-wall{
+  margin-top: 12vh;
+  display: flex;
+  /* justify-content: space-around; */
+}
+#wall-image{
+  height: 9vmax;
+  margin-right: 15vmax;
+}
+#message-welcome{
+  font-family: "Work Sans", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 25px;
+  line-height: 29px;
+  color: #000000;
+}
+#post{
+  margin-top: 10vh;
+}
+#nubes-desktop{
+  display: none;
+}
+#nubes-movil{
+  display: block;
+}
+.beige {
+  background: #D9D5A0;
+  color: #000000;
+}
+footer {
+  margin-top: 0%;
+  width: 100%;
+  background-color: #405927;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  font-family: "Work Sans", sans-serif;
+  color: #e5e5e5;
+  padding-bottom: 0.7em;
+  height: min-content;
+}
+footer img {
+  width: 8vmin;
+  margin-top: 0.3em;
+  margin-bottom: 0.3em;
 }
 @media only screen and (min-width: 1026px) {
   header {
@@ -381,5 +430,17 @@ footer img {
   }
   #root {
     min-height: calc(80vh - 80px);
+  }
+  #btn-exit{
+    display:block;
+  }
+  #logout-movil{
+    display: none;
+  }
+  #nubes-desktop{
+    display: block;
+  }
+  #nubes-movil{
+    display: none;
   }
 }

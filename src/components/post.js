@@ -7,14 +7,14 @@ export const post = () => {
         <span class="menu-icon" id="users-icon"><img id="img-users" src="img/users.png" alt=""></span>
 
         <nav class="div-navegation">
-            <button class="btn-routing" id="btn-exit">Cerrar sesión</button>
+            <button class="btn-routing beige" id="btn-exit">Cerrar sesión</button>
             <img id="logout-movil" src="img/logout.png" alt="cerrar sesion">
         </nav>
     </header>
     <div id="post">
-        <form>
-            <img class="cloud-bg" src="img/nubes-movil.png" alt="nubes" />
-            <img class="cloud-bg" src="img/nubes-desktop.png" alt="nubes" />
+        <form class ="form-inicial">
+           <!-- <img id="nubes-movil" class="cloud-bg" src="img/nubes-movil.png" alt="nubes" />
+            <img id="nubes-desktop" class="cloud-bg" src="img/nubes-desktop.png" alt="nubes" /> -->
             <h2 class="titles">Crear publicación</h2>
             <label for="select">Temática</label>
             <select name="select">
