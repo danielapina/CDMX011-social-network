@@ -50,5 +50,13 @@ export const wall = () => {
       onNavigate('/post');
     });
   }
+  const dataBase = firebase.firestore();
+  const getPost = () => dataBase.colletion('post').get();
+  window.addEventListener('DOMContentLoaded', async (e) =>{
+    e.preventDefault();
+    const posts = await getPost();
+    console.log(posts);
+  });
+
   return divWall;
 };

@@ -20,3 +20,5 @@ export const signIn = (email, password) => firebase.auth()
 export const signOut = () => firebase.auth().signOut();
 
 export const getUser = () => firebase.auth().currentUser;
+
+export const dataBase = () => firebase.firestore();

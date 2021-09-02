@@ -1,5 +1,5 @@
 /* eslint-disable import/no-cycle */
-import { signOut } from '../lib/firebaseClient.js';
+import { getUser, signOut } from '../lib/firebaseClient.js';
 import { onNavigate } from '../main.js';
 
 export const post = () => {
@@ -13,12 +13,12 @@ export const post = () => {
         </nav>
     </header>
     <div id="post">
-        <form class ="form-inicial">
+        <form class ="form-inicial" id="form-post">
             <img id="nubes-movil" class="cloud-bg" src="img/nubes-movil.png" alt="nubes" />
             <img id="nubes-desktop" class="cloud-bg" src="img/nubes-desktop.png" alt="nubes" /> 
             <h2 class="titles">Crear publicación</h2>
             <label for="select">Temática</label>
-            <select name="select">
+            <select name="select" id='topic-post'>
             <option hidden selected>Selecciona una opción</option>
                 <option value="recycle">Reciclaje</option>
                 <option value="diy">Hazlo tu mismo</option>
@@ -27,10 +27,10 @@ export const post = () => {
                 <option value="enviroment">Medio ambiente</option>
             </select>
             <label for="text-post">Coloca tu idea ecofriendly</label>
-            <textarea name="textarea" rows="10" cols="40"id="text-post">Escribe aquí tus ideas!</textarea>
+            <textarea required id ='idea-post' name="textarea" rows="10" cols="40"id="text-post" placeholder = 'Escribe aquí tus ideas!' autofocus></textarea>
             <div class ='btns-post'>
             <button class="btn-routing" id="btn-return">Regresar</button>
-            <button class="btn-routing" id="btn-post">Publicar</button>
+            <button type='submit' class="btn-routing" id="btn-post">Publicar</button>
             </div>
         </form>
     </div>
@@ -56,6 +56,34 @@ export const post = () => {
   btnReturnWall.addEventListener('click', (e) => {
     e.preventDefault();
     onNavigate('/wall');
+  });
+
+  const dataBase = firebase.firestore();
+  const formPost = divPost.querySelector('#form-post');
+  const newPost = (user, topic, idea) => dataBase.collection('post').doc().set({
+    user,
+    topic,
+    idea,
+  });
+
+  const getPost = () => dataBase.colletion('post').get();
+  window.addEventListener('DOMContentLoaded', async (e) => {
+    console.log(e);
+    const posts = await getPost();
+    console.log(posts);
+  });
+  console.log(getPost);
+
+  formPost.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const topic = formPost['topic-post'].value;
+    const idea = formPost['idea-post'].value;
+    const user = getUser().email;
+
+    await newPost(user, topic, idea);
+
+    // onNavigate('/wall');
+    console.log(user, topic, idea);
   });
   return divPost;
 };
