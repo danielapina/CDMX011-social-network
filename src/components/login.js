@@ -1,3 +1,4 @@
+import { signIn, getUser } from '../lib/firebaseClient.js';
 // eslint-disable-next-line import/no-cycle
 import { onNavigate } from '../main.js';
 
@@ -60,14 +61,11 @@ export const login = () => {
     e.preventDefault();
     const email = divLogin.querySelector('#login-email').value;
     const password = divLogin.querySelector('#login-password').value;
-    console.log(email, password);
 
-    const auth = firebase.auth();
-    auth
-      .signInWithEmailAndPassword(email, password)
-      .then((userCredential) => {
+    signIn(email, password)
+      .then(() => {
         onNavigate('/wall');
-        console.log(userCredential);
+        console.log(getUser());
       })
       .catch((error) => {
         const errorMessage = error.message;
