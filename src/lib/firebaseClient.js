@@ -1,5 +1,3 @@
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: 'AIzaSyAkNdxq3vmaFtbmmT1grzUMxp0rwwpgW9A',
   authDomain: 'red-social-ee6aa.firebaseapp.com',
@@ -12,6 +10,13 @@ const firebaseConfig = {
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-// firebase.analytics();
-// const auth = firebase.auth();
-export default firebase;
+
+export const signUp = (email, password) => firebase.auth()
+  .createUserWithEmailAndPassword(email, password);
+
+export const signIn = (email, password) => firebase.auth()
+  .signInWithEmailAndPassword(email, password);
+
+export const signOut = () => firebase.auth().signOut();
+
+export const getUser = () => firebase.auth().currentUser;

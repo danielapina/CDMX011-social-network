@@ -1,3 +1,4 @@
+import { signUp, getUser } from '../lib/firebaseClient.js';
 // eslint-disable-next-line import/no-cycle
 import { onNavigate } from '../main.js';
 
@@ -9,7 +10,7 @@ export const register = () => {
   <div class="div-navegation">
     <ul id="navegacion">
       <li><a><button class="blue btn-routing" id="btn-register" value='/register'>¡Regístrate!</button></a></li>
-      <li><a><button class="blue btn-routing" id="btn-login" value='/login'>Login</button></a></li>
+      <li><a><button class="blue btn-routing" id="btn-login" value='/login'>Iniciar Sesión</button></a></li>
     </ul>
   </div>
  </header>
@@ -17,7 +18,7 @@ export const register = () => {
      <form id="register-form" class ="form-inicial" >
       <img class="leaf-img" src="img/leafs-desktop.png" alt="leafs" />
        <h2 class="titles" id="title-form">Registro</h2>
-       <label for="email">Correo electronico</label>
+       <label for="email">Correo electrónico</label>
        <input type="email" id="user-email" placeholder='alguien@ejemplo.com'/>
        <label for="password">Contraseña</label>
        <div class = "show-passwords">
@@ -36,8 +37,9 @@ export const register = () => {
        </span>
        </div>
        <br>
-       <button id="form-button"class="submit-btn">Enviar</button>
-       <button id="btn-google"class="submit-btn google"><img src="img/google.png" alt="google" id="google-icon">Sign Up</button>
+       <p id="error-message-register"></p>
+       <button id="form-button-register"class="submit-btn">Enviar</button>
+       <button id="btn-google"class="submit-btn google"><img src="img/google.png" alt="google" id="google-icon">Regístrate</button>
      </form>
      <div class="img-register-desktop">
        <img id="madre-tierra" src="img/madreTierra.png" alt="MadreTierra" />
@@ -69,19 +71,17 @@ export const register = () => {
     const password = divRegister.querySelector('#user-password').value;
     const confirmPassword = divRegister.querySelector('#confirm-password').value;
     if (password === confirmPassword) {
-      firebase.auth().createUserWithEmailAndPassword(email, password)
-        .then((userCredential) => {
-          // Signed in
-          const user = userCredential.user;
-          console.log(user);
+      signUp(email, password)
+        .then(() => {
           onNavigate('/wall');
+          console.log(getUser());
         })
         .catch((error) => {
           const errorMessage = error.message;
-          alert(errorMessage);
+          divRegister.querySelector('#error-message-register').innerHTML = errorMessage;
         });
     } else {
-      alert('Las Contraseñas no coinciden, vuelve a intentar.');
+      divRegister.querySelector('#error-message-register').innerHTML = 'Las Contraseñas no coinciden, vuelve a intentar.';
     }
   });
 
@@ -96,7 +96,7 @@ export const register = () => {
         console.log('Registro con google', result);
         onNavigate('/wall');
       })
-      .catch((err) => { alert(err); });
+      .catch((err) => { divRegister.querySelector('#error-message-register').innerHTML = err; });
   });
 
   // -------------------------------icon mostrar password
