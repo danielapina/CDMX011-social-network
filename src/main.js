@@ -1,3 +1,4 @@
+/* eslint-disable import/no-cycle */
 // eslint-disable-next-line import/no-cycle
 import { home } from './components/home.js';
 // eslint-disable-next-line import/no-cycle
@@ -38,4 +39,8 @@ window.onload = () => {
 
 window.onpopstate = () => {
   rootDiv.appendChild(routes[window.location.pathname]());
+  while (rootDiv.firstChild) { // Este es para poder usar las flechitas y borrar el pasado
+    rootDiv.removeChild(rootDiv.firstChild);
+  }
+  rootDiv.appendChild(component());
 };
