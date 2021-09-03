@@ -20,11 +20,11 @@ export const post = () => {
             <label for="select">Temática</label>
             <select name="select" id='topic-post'>
             <option hidden selected>Selecciona una opción</option>
-                <option value="recycle">Reciclaje</option>
-                <option value="diy">Hazlo tu mismo</option>
-                <option value="product">Productos ecológicos</option>
-                <option value="organic">Orgánicos</option>
-                <option value="enviroment">Medio ambiente</option>
+                <option value="Reciclaje">Reciclaje</option>
+                <option value="Hazlo tu mismo">Hazlo tu mismo</option>
+                <option value="Productos ecológicos">Productos ecológicos</option>
+                <option value="Orgánicos">Orgánicos</option>
+                <option value="Medio ambiente">Medio ambiente</option>
             </select>
             <label for="text-post">Coloca tu idea ecofriendly</label>
             <textarea required id ='idea-post' name="textarea" rows="10" cols="40"id="text-post" placeholder = 'Escribe aquí tus ideas!' autofocus></textarea>
