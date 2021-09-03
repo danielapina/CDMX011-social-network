@@ -61,27 +61,10 @@ export const post = () => {
   // -------------------------------posts------------------
   const dataBase = firebase.firestore();
   const formPost = divPost.querySelector('#form-post');
-  const postContainer = divPost.querySelector('#post-container');
   const newPost = (user, topic, idea) => dataBase.collection('post').doc().set({
     user,
     topic,
     idea,
-  });
-
-  const getPost = () => dataBase.colletion('post').get();
-  window.addEventListener('DOMContentLoaded', async (e) => {
-    console.log(e);
-    const querySnapshot = await getPost();
-    querySnapshot.forEach((doc) => {
-      console.log(doc.data());
-
-      const data = doc.data();
-
-      postContainer.innerHTML += `<div>
-      <h3>${data.topic}</h3>
-      </div>`;
-    });
-    // console.log(posts);
   });
 
   formPost.addEventListener('submit', async (e) => {
@@ -92,7 +75,7 @@ export const post = () => {
 
     await newPost(user, topic.value, idea.value);
 
-    // onNavigate('/wall');
+    onNavigate('/wall');
     // console.log(user, topic, idea);
   });
   return divPost;

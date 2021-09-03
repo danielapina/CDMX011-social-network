@@ -17,7 +17,11 @@ export const wall = () => {
       <img src="img/guacamayo.png" alt="" id="wall-image">
       <p id="message-welcome">Bienvenido <span id='user-email-welcome'></span> !!</p>
       </div>
-      <button id="btn-post">Crear publicación</button>
+      <div>
+        <button id="btn-post">Crear publicación</button>
+        <button id="load-post">Todos los post</button>
+      </div>
+      <div id="post-container"></div>
     </section>
   `;
   const divWall = document.createElement('div');
@@ -51,11 +55,33 @@ export const wall = () => {
     });
   }
   const dataBase = firebase.firestore();
-  const getPost = () => dataBase.colletion('post').get();
-  window.addEventListener('DOMContentLoaded', async (e) => {
-    e.preventDefault();
-    const posts = await getPost();
-    console.log(posts);
+  const postContainer = divWall.querySelector('#post-container');
+  const btnAllPost = divWall.querySelector('#load-post');
+  // btnReturnWall.addEventListener('click', (e) => {
+
+  // const getPost = () => dataBase.collection('post').get();
+  const onGetPost = (callback) => dataBase.collection('post').onSnapshot(callback);
+
+  btnAllPost.addEventListener('click', async (e) => {
+    onGetPost((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        console.log(doc.data());
+
+        const data = doc.data();
+
+        postContainer.innerHTML += `<div>
+        <h3>${data.user}</h3> 
+        <h3>${data.topic}</h3>
+         <p>${data.idea}</p>
+         <div>
+          <button id ='btn-delete'>Eliminar</button>
+          <button id ='btn-edit'>Editar</button>
+         </div>
+         </div>`;
+      });
+    });
+    console.log(`ENTREEEE${e}`);
+    // console.log(posts);
   });
 
   return divWall;
