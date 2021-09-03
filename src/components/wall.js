@@ -1,6 +1,7 @@
 /* eslint-disable import/no-cycle */
 import { signOut, getUser } from '../lib/firebaseClient.js';
 import { onNavigate } from '../main.js';
+import { getAllPost } from '../lib/posts.js';
 
 export const wall = () => {
   const html = `
@@ -57,7 +58,24 @@ export const wall = () => {
   const dataBase = firebase.firestore();
   const postContainer = divWall.querySelector('#post-container');
   const btnAllPost = divWall.querySelector('#load-post');
-  // btnReturnWall.addEventListener('click', (e) => {
+  // aqui cargan todo lo post
+  getAllPost().onSnapshot((allpost) => {
+    const documents = [];
+    allpost.forEach((doc) => {
+      documents.push({ id: doc.id, infopost: doc.data() });
+    });
+    documents.forEach((thePost) => {
+      const { topic, idea, user } = thePost.infopost;
+      postContainer.innerHTML += `<div class="div-post">
+        <h3>${user}</h3> 
+        <h4>Temática: ${topic}</h4>
+         <p>${idea}</p>
+         <div>
+          
+         </div>
+         </div>`;
+    });
+  });
 
   // const getPost = () => dataBase.collection('post').get();
   const getThePost = (id) => dataBase.collection('post').doc(id).get();
