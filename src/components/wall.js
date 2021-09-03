@@ -1,6 +1,7 @@
 /* eslint-disable import/no-cycle */
 import { signOut, getUser } from '../lib/firebaseClient.js';
 import { onNavigate } from '../main.js';
+import { getAllPost } from '../lib/posts.js';
 
 export const wall = () => {
   const html = `
@@ -57,27 +58,64 @@ export const wall = () => {
   const dataBase = firebase.firestore();
   const postContainer = divWall.querySelector('#post-container');
   const btnAllPost = divWall.querySelector('#load-post');
-  // btnReturnWall.addEventListener('click', (e) => {
+  // aqui cargan todo lo post
+  getAllPost().onSnapshot((allpost) => {
+    const documents = [];
+    allpost.forEach((doc) => {
+      documents.push({ id: doc.id, infopost: doc.data() });
+    });
+    documents.forEach((thePost) => {
+      const { topic, idea, user } = thePost.infopost;
+      postContainer.innerHTML += `<div class="div-post">
+        <h3>${user}</h3> 
+        <h4>Temática: ${topic}</h4>
+         <p>${idea}</p>
+         <div>
+          
+         </div>
+         </div>`;
+    });
+  });
 
   // const getPost = () => dataBase.collection('post').get();
+  const getThePost = (id) => dataBase.collection('post').doc(id).get();
+
   const onGetPost = (callback) => dataBase.collection('post').onSnapshot(callback);
+
+  const deletePost = (id) => dataBase.collection('post').doc(id).delete();
 
   btnAllPost.addEventListener('click', async (e) => {
     onGetPost((querySnapshot) => {
+      postContainer.innerHTML = '';
       querySnapshot.forEach((doc) => {
         console.log(doc.data());
 
-        const data = doc.data();
+        const dataPost = doc.data();
+        dataPost.id = doc.id;
 
-        postContainer.innerHTML += `<div>
-        <h3>${data.user}</h3> 
-        <h3>${data.topic}</h3>
-         <p>${data.idea}</p>
+        postContainer.innerHTML += `<div class="div-post">
+        <h3>${dataPost.user}</h3> 
+        <h4>Temática: ${dataPost.topic}</h4>
+         <p>${dataPost.idea}</p>
          <div>
-          <button id ='btn-delete'>Eliminar</button>
-          <button id ='btn-edit'>Editar</button>
+          <button class ='btn-delete' data-id="${dataPost.id}" >Eliminar</button>
+          <button class ='btn-edit 'data-id="${dataPost.id}">Editar</button>
          </div>
          </div>`;
+
+        const btnsDelete = document.querySelectorAll('.btn-delete');
+        btnsDelete.forEach((btn) => {
+          btn.addEventListener('click', async (ele) => {
+            await deletePost(ele.target.dataset.id);
+          });
+        });
+        const btnsEdit = document.querySelectorAll('.btn-edit');
+        btnsEdit.forEach((btn) => {
+          btn.addEventListener('click', async (ele) => {
+            const thePost = await getThePost(ele.target.dataset.id);
+            console.log(thePost.data());
+          });
+        });
       });
     });
     console.log(`ENTREEEE${e}`);
