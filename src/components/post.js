@@ -33,6 +33,7 @@ export const post = () => {
             <button type='submit' class="btn-routing" id="btn-post">Publicar</button>
             </div>
         </form>
+        <div id="post-container"></div>
     </div>
     `;
   const divPost = document.createElement('div');
@@ -57,9 +58,10 @@ export const post = () => {
     e.preventDefault();
     onNavigate('/wall');
   });
-
+  // -------------------------------posts------------------
   const dataBase = firebase.firestore();
   const formPost = divPost.querySelector('#form-post');
+  const postContainer = divPost.querySelector('#post-container');
   const newPost = (user, topic, idea) => dataBase.collection('post').doc().set({
     user,
     topic,
@@ -69,21 +71,29 @@ export const post = () => {
   const getPost = () => dataBase.colletion('post').get();
   window.addEventListener('DOMContentLoaded', async (e) => {
     console.log(e);
-    const posts = await getPost();
-    console.log(posts);
+    const querySnapshot = await getPost();
+    querySnapshot.forEach((doc) => {
+      console.log(doc.data());
+
+      const data = doc.data();
+
+      postContainer.innerHTML += `<div>
+      <h3>${data.topic}</h3>
+      </div>`;
+    });
+    // console.log(posts);
   });
-  console.log(getPost);
 
   formPost.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const topic = formPost['topic-post'].value;
-    const idea = formPost['idea-post'].value;
+    const topic = formPost['topic-post'];
+    const idea = formPost['idea-post'];
     const user = getUser().email;
 
-    await newPost(user, topic, idea);
+    await newPost(user, topic.value, idea.value);
 
     // onNavigate('/wall');
-    console.log(user, topic, idea);
+    // console.log(user, topic, idea);
   });
   return divPost;
 };

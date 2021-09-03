@@ -52,7 +52,7 @@ export const wall = () => {
   }
   const dataBase = firebase.firestore();
   const getPost = () => dataBase.colletion('post').get();
-  window.addEventListener('DOMContentLoaded', async (e) =>{
+  window.addEventListener('DOMContentLoaded', async (e) => {
     e.preventDefault();
     const posts = await getPost();
     console.log(posts);
