@@ -1,3 +1,4 @@
+import { signIn, getUser } from '../lib/firebaseClient.js';
 // eslint-disable-next-line import/no-cycle
 import { onNavigate } from '../main.js';
 
@@ -6,20 +7,18 @@ export const login = () => {
   <header>
   <a href="/"><img src="img/logo-desktop.png" alt="logotipo" id="logoGF" /></a>
   <span class="menu-icon" id="users-icon"><img id="img-users" src="img/users.png" alt=""></span>
-
   <div class="div-navegation">
     <ul id="navegacion">
       <li><a><button class="blue btn-routing" id="btn-register" value='/register'>¡Regístrate!</button></a></li>
-      <li><a><button class="blue btn-routing" id="btn-login" value='/login'>Login</button></a></li>
+      <li><a><button class="blue btn-routing" id="btn-login" value='/login'>Iniciar Sesión</button></a></li>
     </ul>
   </div>
 </header>
-
   <div id="login-page">
      <form  id="login-form" class ="form-inicial">
        <h2 class="titles" id="title-form">¡Hola Green Friend!</h2>
        <img id="heart-movil" src="img/heart.png" alt="heart" />
-       <label for="email">Correo electronico</label>
+       <label for="email">Correo electrónico</label>
        <input type="email" id="login-email" placeholder='alguien@ejemplo.com'/>
        <label for="password">Contraseña</label>
        <div class = "show-passwords">
@@ -30,8 +29,9 @@ export const login = () => {
        </span>
        </div>
        <br>
-       <button id="form-button" class="submit-btn">Enviar</button>
-       <button id="btn-google"class="submit-btn google"><img src="img/google.png" alt="google" id="google-icon">Login</button>
+       <p id="error-message"></p>
+       <button id="form-button-login" class="submit-btn">Enviar</button>
+       <button id="btn-google"class="submit-btn google">Entra con  <img src="img/google.png" alt="google" id="google-icon"></button>
      </form>
      <div class="img-register-desktop">
        <img id="heart" src="img/heart.png" alt="heart" />
@@ -61,18 +61,15 @@ export const login = () => {
     e.preventDefault();
     const email = divLogin.querySelector('#login-email').value;
     const password = divLogin.querySelector('#login-password').value;
-    console.log(email, password);
 
-    const auth = firebase.auth();
-    auth
-      .signInWithEmailAndPassword(email, password)
-      .then((userCredential) => {
-        onNavigate('/profile');
-        console.log(userCredential);
+    signIn(email, password)
+      .then(() => {
+        onNavigate('/wall');
+        console.log(getUser());
       })
       .catch((error) => {
         const errorMessage = error.message;
-        alert(errorMessage);
+        divLogin.querySelector('#error-message').innerHTML = errorMessage;
       });
   });
   // GOOGLE
@@ -84,9 +81,9 @@ export const login = () => {
     auth.signInWithPopup(provider)
       .then((result) => {
         console.log('Registro con google', result);
-        onNavigate('/profile');
+        onNavigate('/wall');
       })
-      .catch((err) => { alert(err); });
+      .catch((err) => { divLogin.querySelector('#error-message').innerHTML = err; });
   });
   // -------------------------------icon mostrar password de login
   divLogin.querySelector('.eyes-login').addEventListener('click', (e) => {
