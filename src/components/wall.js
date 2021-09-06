@@ -71,8 +71,8 @@ export const wall = () => {
         <h3>${user}</h3> 
         <h4>Temática: ${topic}</h4>
          <p>${idea}</p>
-         <div>
-         <img class="like" src="img/likes.png" alt="like"><span id="like-counter">Likes</span>
+         <div class= "div-editPost">
+         <img class="like" src="img/likes.png" alt="like"><span class="like-counter">Likes</span>
          <button class ='btn-delete btn-wall' data-id="${id}" >Eliminar</button>
          <button class ='btn-edit btn-wall' data-id="${id}">Editar</button>
          </div>
@@ -95,7 +95,7 @@ export const wall = () => {
         const thePost = await getThePost(ele.target.dataset.id);
         console.log(thePost.data());
 
-        edit(thePost.data())
+        // edit(thePost.data())
         onNavigate('/post');
       });
     });
