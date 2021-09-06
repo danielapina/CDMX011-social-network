@@ -322,6 +322,8 @@ main {
   color: #000000;
 }
 .div-post{
+  /*display: flex;*/
+
   background: #FFFFFF;
   border: 3px solid #0E6359;
   box-sizing: border-box;
@@ -329,6 +331,7 @@ main {
   margin-bottom: 3vmax;
   padding:2vmax;
   font-family: "Work Sans", sans-serif;
+  width: 90%;
 }
 .div-post h3{
 font-family: Comfortaa;
@@ -336,11 +339,24 @@ font-style: normal;
 font-weight: 300;
 font-size: 2vmax;
 color: #0E6359;
-
+}
+.btn-wall{
+  color: #44464A;
+  background: #E7ECF6;
+  border: 1.5px solid #0E6359;
+  box-sizing: border-box;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+  width: 25%;
+  margin: .5em;
+  
+}
+.like{
+width: 8vmin;
 }
 footer {
   margin-top: 0%;
-  width: 100%;
+  width: auto;
   background-color: #405927;
   display: flex;
   text-align: center;
@@ -443,4 +459,7 @@ footer img {
   #nubes-movil{
     display: none;
   }
+  .like{
+    width: 4vmin;
+    }
 }
