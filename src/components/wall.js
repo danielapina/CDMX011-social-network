@@ -1,7 +1,7 @@
 /* eslint-disable import/no-cycle */
 import { signOut, getUser } from '../lib/firebaseClient.js';
 import { onNavigate } from '../main.js';
-import { getAllPost } from '../lib/posts.js';
+import { getAllPost, db } from '../lib/posts.js';
 
 export const wall = () => {
   const html = `
@@ -20,21 +20,20 @@ export const wall = () => {
       </div>
       <div>
         <button id="btn-post">Crear publicación</button>
-        <button id="load-post">Todos los post</button>
       </div>
       <div id="post-container"></div>
     </section>
   `;
   const divWall = document.createElement('div');
   divWall.innerHTML = html;
-
+  // Se puede hacer de otra forma
   if (getUser() === null) {
     onNavigate('/');
     alert('Inicia Sesion');
   } else {
     const emailWelcome = divWall.querySelector('#user-email-welcome');
     emailWelcome.innerHTML = getUser().email;
-
+    // para cerrar sesion
     const btnExit = divWall.querySelector('#btn-exit-wall');
     btnExit.addEventListener('click', (event) => {
       event.preventDefault();
@@ -48,78 +47,58 @@ export const wall = () => {
       signOut();
       onNavigate('/');
     });
-
+    // para botón "crear publicación"
     const btnNewPost = divWall.querySelector('#btn-post');
     btnNewPost.addEventListener('click', (event) => {
       event.preventDefault();
       onNavigate('/post');
     });
   }
-  const dataBase = firebase.firestore();
   const postContainer = divWall.querySelector('#post-container');
-  const btnAllPost = divWall.querySelector('#load-post');
   // aqui cargan todo lo post
+  // onSnapshot para que lo traiga en tiempo real
   getAllPost().onSnapshot((allpost) => {
     const documents = [];
     allpost.forEach((doc) => {
       documents.push({ id: doc.id, infopost: doc.data() });
     });
-    documents.forEach((thePost) => {
-      const { topic, idea, user } = thePost.infopost;
+    // la línea 66 es para que se actualice y no sobreescriba.
+    postContainer.innerHTML = '';
+    documents.forEach((eachPost) => {
+      const { topic, idea, user } = eachPost.infopost;
+      const id = eachPost.id;
       postContainer.innerHTML += `<div class="div-post">
         <h3>${user}</h3> 
         <h4>Temática: ${topic}</h4>
          <p>${idea}</p>
          <div>
-          
+         <img class="like" src="img/likes.png" alt="like"><span id="like-counter">Likes</span>
+         <button class ='btn-delete btn-wall' data-id="${id}" >Eliminar</button>
+         <button class ='btn-edit btn-wall' data-id="${id}">Editar</button>
          </div>
          </div>`;
     });
-  });
-
-  // const getPost = () => dataBase.collection('post').get();
-  const getThePost = (id) => dataBase.collection('post').doc(id).get();
-
-  const onGetPost = (callback) => dataBase.collection('post').onSnapshot(callback);
-
-  const deletePost = (id) => dataBase.collection('post').doc(id).delete();
-
-  btnAllPost.addEventListener('click', async (e) => {
-    onGetPost((querySnapshot) => {
-      postContainer.innerHTML = '';
-      querySnapshot.forEach((doc) => {
-        console.log(doc.data());
-
-        const dataPost = doc.data();
-        dataPost.id = doc.id;
-
-        postContainer.innerHTML += `<div class="div-post">
-        <h3>${dataPost.user}</h3> 
-        <h4>Temática: ${dataPost.topic}</h4>
-         <p>${dataPost.idea}</p>
-         <div>
-          <button class ='btn-delete' data-id="${dataPost.id}" >Eliminar</button>
-          <button class ='btn-edit 'data-id="${dataPost.id}">Editar</button>
-         </div>
-         </div>`;
-
-        const btnsDelete = document.querySelectorAll('.btn-delete');
-        btnsDelete.forEach((btn) => {
-          btn.addEventListener('click', async (ele) => {
-            await deletePost(ele.target.dataset.id);
-          });
-        });
-        const btnsEdit = document.querySelectorAll('.btn-edit');
-        btnsEdit.forEach((btn) => {
-          btn.addEventListener('click', async (ele) => {
-            const thePost = await getThePost(ele.target.dataset.id);
-            console.log(thePost.data());
-          });
-        });
+    const getThePost = (id) => db.collection('post').doc(id).get();
+    const deletePost = (id) => db.collection('post').doc(id).delete();
+    const btnsDelete = document.querySelectorAll('.btn-delete');
+    btnsDelete.forEach((btn) => {
+      btn.addEventListener('click', async (ele) => {
+        const result = window.confirm('¿Estás seguro de querer eliminar el post?');
+        if (result === true) {
+          await deletePost(ele.target.dataset.id);
+        }
       });
     });
-    console.log(`ENTREEEE${e}`);
-    // console.log(posts);
+    const btnsEdit = document.querySelectorAll('.btn-edit');
+    btnsEdit.forEach((btn) => {
+      btn.addEventListener('click', async (ele) => {
+        const thePost = await getThePost(ele.target.dataset.id);
+        console.log(thePost.data());
+
+        // edit(thePost.data())
+        onNavigate('/post');
+      });
+    });
   });
 
   return divWall;

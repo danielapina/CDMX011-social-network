@@ -78,5 +78,9 @@ export const post = () => {
     onNavigate('/wall');
     // console.log(user, topic, idea);
   });
+  // una funcion  ue reciba los datos del post a edital
+  // export funtion etid(datosParaEditar){{
+  // manejo para editar
+  // }
   return divPost;
 };
