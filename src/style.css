@@ -321,6 +321,23 @@ main {
   background: #D9D5A0;
   color: #000000;
 }
+.div-post{
+  background: #FFFFFF;
+  border: 3px solid #0E6359;
+  box-sizing: border-box;
+  border-radius: 15px;
+  margin-bottom: 3vmax;
+  padding:2vmax;
+  font-family: "Work Sans", sans-serif;
+}
+.div-post h3{
+font-family: Comfortaa;
+font-style: normal;
+font-weight: 300;
+font-size: 2vmax;
+color: #0E6359;
+
+}
 footer {
   margin-top: 0%;
   width: 100%;
