@@ -1,5 +1,6 @@
 /* eslint-disable import/no-cycle */
 import { getUser, signOut } from '../lib/firebaseClient.js';
+import { newPost } from '../lib/posts.js';
 import { onNavigate } from '../main.js';
 
 export const post = () => {
@@ -59,14 +60,8 @@ export const post = () => {
     onNavigate('/wall');
   });
   // -------------------------------posts------------------
-  const dataBase = firebase.firestore();
-  const formPost = divPost.querySelector('#form-post');
-  const newPost = (user, topic, idea) => dataBase.collection('post').doc().set({
-    user,
-    topic,
-    idea,
-  });
 
+  const formPost = divPost.querySelector('#form-post');
   formPost.addEventListener('submit', async (e) => {
     e.preventDefault();
     const topic = formPost['topic-post'];
@@ -76,11 +71,6 @@ export const post = () => {
     await newPost(user, topic.value, idea.value);
 
     onNavigate('/wall');
-    // console.log(user, topic, idea);
   });
-  // una funcion  ue reciba los datos del post a edital
-  // export funtion etid(datosParaEditar){{
-  // manejo para editar
-  // }
   return divPost;
 };

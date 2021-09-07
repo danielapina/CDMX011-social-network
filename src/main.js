@@ -32,6 +32,14 @@ export const onNavigate = (pathname) => {
   }
 };
 
+firebase.auth().onAuthStateChanged((user) => {
+  if (user) {
+    onNavigate('/wall');
+  } else {
+    onNavigate('/');
+  }
+});
+
 const component = routes[window.location.pathname];
 
 window.onload = () => {
