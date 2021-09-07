@@ -39,8 +39,6 @@ export const home = () => {
   const btnRegister = divHome.querySelector('#btn-register');
   btnRegister.addEventListener('click', () => onNavigate('/register'));
 
-  const diana;
-
   const btnLogin = divHome.querySelector('#btn-login');
   btnLogin.addEventListener('click', () => onNavigate('/login'));
 

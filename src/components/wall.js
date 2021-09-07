@@ -1,6 +1,7 @@
 /* eslint-disable import/no-cycle */
 import { signOut, getUser } from '../lib/firebaseClient.js';
 import { onNavigate } from '../main.js';
+import { edit } from './edit.js';
 import {
   getAllPost, getThePost, deletePost,
 } from '../lib/posts.js';
@@ -81,7 +82,8 @@ export const wall = () => {
          <button class ='btn-delete btn-wall' data-id="${id}" >Eliminar</button>
          <button class ='btn-edit btn-wall' data-id="${id}">Editar</button>
          </div>
-         </div>`;
+         </div>
+        `;
     });
     const btnsDelete = document.querySelectorAll('.btn-delete');
     btnsDelete.forEach((btn) => {
@@ -93,13 +95,19 @@ export const wall = () => {
       });
     });
     const btnsEdit = document.querySelectorAll('.btn-edit');
+    const rootDiv = document.getElementById('root');
     btnsEdit.forEach((btn) => {
       btn.addEventListener('click', async (ele) => {
         const thePost = await getThePost(ele.target.dataset.id);
         console.log(thePost.data());
+        const post = thePost.data();
+        const id = thePost.id;
 
+        while (rootDiv.firstChild) { // Mientras contenga informacion
+          rootDiv.removeChild(rootDiv.firstChild);
+        }
+        rootDiv.appendChild(edit(id, post.topic, post.idea));
         // edit(thePost.data())
-        onNavigate('/post');
       });
     });
   });

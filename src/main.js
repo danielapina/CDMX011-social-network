@@ -7,6 +7,7 @@ import { register } from './components/register.js';
 import { login } from './components/login.js';
 import { wall } from './components/wall.js';
 import { post } from './components/post.js';
+import { edit } from './components/edit.js';
 
 const rootDiv = document.getElementById('root');
 
@@ -16,6 +17,7 @@ const routes = {
   '/login': login,
   '/wall': wall,
   '/post': post,
+  '/edit': edit,
 };
 
 export const onNavigate = (pathname) => {
