@@ -19,8 +19,8 @@ export const post = () => {
             <img id="nubes-desktop" class="cloud-bg" src="img/nubes-desktop.png" alt="nubes" /> 
             <h2 class="titles">Crear publicación</h2>
             <label for="select">Temática</label>
-            <select name="select" id='topic-post'>
-            <option hidden selected>Selecciona una opción</option>
+            <select required name="select" id='topic-post'>
+            <option hidden selected >Selecciona una opción</option>
                 <option value="Reciclaje">Reciclaje</option>
                 <option value="Hazlo tu mismo">Hazlo tu mismo</option>
                 <option value="Productos ecológicos">Productos ecológicos</option>
@@ -29,6 +29,7 @@ export const post = () => {
             </select>
             <label for="text-post">Coloca tu idea ecofriendly</label>
             <textarea required id ='idea-post' name="textarea" rows="10" cols="40"id="text-post" placeholder = 'Escribe aquí tus ideas!' autofocus></textarea>
+            <p id="err-msg"></p>
             <div class ='btns-post'>
             <button class="btn-routing" id="btn-return">Regresar</button>
             <button type='submit' class="btn-routing" id="btn-post">Publicar</button>
@@ -62,15 +63,18 @@ export const post = () => {
   // -------------------------------posts------------------
 
   const formPost = divPost.querySelector('#form-post');
+  const errMessage = divPost.querySelector('#err-msg');
   formPost.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const topic = formPost['topic-post'];
-    const idea = formPost['idea-post'];
-    const user = getUser().email;
-
-    await newPost(user, topic.value, idea.value);
-
-    onNavigate('/wall');
+    const topic = formPost['topic-post'].value;
+    const idea = formPost['idea-post'].value;
+    if (idea === ' ' || idea.length === 0 || topic === 'Selecciona una opción') {
+      errMessage.innerHTML = 'Favor de llenar todos los campos';
+    } else {
+      const user = getUser().email;
+      await newPost(user, topic, idea);
+      onNavigate('/wall');
+    }
   });
   return divPost;
 };
