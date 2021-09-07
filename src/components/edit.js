@@ -70,14 +70,14 @@ export const edit = (id, topic, idea) => {
 
   formPost.addEventListener('submit', async (e) => { // El evento submit tiene que estar al formulario
     e.preventDefault();
-    const newTopic = formPost['topic-post-edit'];
-    const newIdea = formPost['idea-post-edit'];
+    const newTopic = formPost['topic-post-edit'].value;
+    const newIdea = formPost['idea-post-edit'].value;
     if (newIdea === ' ' || newIdea.length === 0) {
       errMessage.innerHTML = 'Favor de llenar todos los campos';
     } else {
       await updatePost(id, {
-        topic: newTopic.value,
-        idea: newIdea.value,
+        topic: newTopic,
+        idea: newIdea,
       });
       onNavigate('/wall');
     }
