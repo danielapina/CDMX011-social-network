@@ -38,6 +38,7 @@ header {
 }
 header ul {
   display: none;
+  margin-left: -1.5em;
 }
 header ul.show {
   display: block;
@@ -46,6 +47,7 @@ header ul.show {
   height: 15vmin;
   transition: ease-in-out 0.8s linear;
   align-content: space-between;
+  margin-left: -1.5em;
 }
 header ul li {
   display: inline-block;
@@ -285,28 +287,34 @@ main {
 #logout-movil{
   display: block;
 }
+#btn-post{
+  font-size: 3.7vw;
+}
 #wall{
   display: flex;
   flex-flow: row wrap;
   flex-direction: column;
   align-items: center;
+  margin-top: 8vh;
 }
 #welcome-wall{
-  margin-top: 12vh;
+  margin-top: 9vh;
+  margin-bottom:2vh;
   display: flex;
   /* justify-content: space-around; */
 }
 #wall-image{
   height: 9vmax;
-  margin-right: 15vmax;
+  margin-right: .5vmax;
+  margin-left:2vmax;
 }
 #message-welcome{
   font-family: "Work Sans", sans-serif;
   font-style: normal;
   font-weight: normal;
-  font-size: 25px;
-  line-height: 29px;
+  font-size: 5vw;
   color: #000000;
+  text-align: center;
 }
 #post{
   margin-top: 10vh;
@@ -321,14 +329,23 @@ main {
   background: #D9D5A0;
   color: #000000;
 }
+.post-container{
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  align-content: center;
+}
 .div-post{
+  /*display: flex;*/
   background: #FFFFFF;
   border: 3px solid #0E6359;
   box-sizing: border-box;
   border-radius: 15px;
   margin-bottom: 3vmax;
-  padding:2vmax;
+  padding:1vmax;
   font-family: "Work Sans", sans-serif;
+  width: 85vmin;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 .div-post h3{
 font-family: Comfortaa;
@@ -336,11 +353,35 @@ font-style: normal;
 font-weight: 300;
 font-size: 2vmax;
 color: #0E6359;
-
+}
+.div-editPost{
+  display: flex;
+  flex-direction: row;
+  justify-content:flex-end;
+  align-items:flex-end;
+  margin-bottom: 0;
+}
+.btn-wall{
+  color: #44464A;
+  background: #E7ECF6;
+  border: 1.5px solid #0E6359;
+  box-sizing: border-box;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+  width: 25%;
+  margin: .5em;
+  font-size: 3.5vw;
+  
+}
+.like-counter{
+  margin-right: 10vw;
+}
+.like{
+width: 8vmin;
 }
 footer {
   margin-top: 0%;
-  width: 100%;
+  width: auto;
   background-color: #405927;
   display: flex;
   text-align: center;
@@ -442,5 +483,21 @@ footer img {
   }
   #nubes-movil{
     display: none;
+  }
+  .like{
+    width: 4vmin;
+    }
+  .btn-wall{
+    font-size: 1vw;
+  }
+  #wall-image{
+    margin-right: 5vmax;
+    margin-left:2vmax;
+  }
+  #message-welcome{
+    font-size: 3vw;
+  }
+  #btn-post{
+    font-size: 1.4vw;
   }
 }
