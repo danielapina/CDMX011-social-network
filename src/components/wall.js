@@ -3,7 +3,7 @@ import { signOut, getUser } from '../lib/firebaseClient.js';
 import { onNavigate } from '../main.js';
 import { edit } from './edit.js';
 import {
-  getAllPost, getThePost, deletePost,
+  getAllPost, getThePost, deletePost, updatePost, increment,
 } from '../lib/posts.js';
 
 export const wall = () => {
@@ -78,7 +78,7 @@ export const wall = () => {
         <h4>Temática: ${topic}</h4>
          <p>${idea}</p>
          <div class= "div-editPost">
-         <img class="like" src="img/likes.png" alt="like"><span class="like-counter">${likes}Likes</span>
+         <img class="like count-likes" src="img/likes.png" alt="like" data-id="${id}"><span class="like-counter">${likes}Likes</span>
          <button class ='btn-delete btn-wall' data-id="${id}" >Eliminar</button>
          <button class ='btn-edit btn-wall' data-id="${id}">Editar</button>
          </div>
@@ -99,15 +99,24 @@ export const wall = () => {
     btnsEdit.forEach((btn) => {
       btn.addEventListener('click', async (ele) => {
         const thePost = await getThePost(ele.target.dataset.id);
-        console.log(thePost.data());
         const post = thePost.data();
         const id = thePost.id;
-
+        console.log(post, id);
         while (rootDiv.firstChild) { // Mientras contenga informacion
           rootDiv.removeChild(rootDiv.firstChild);
         }
         rootDiv.appendChild(edit(id, post.topic, post.idea));
         // edit(thePost.data())
+      });
+    });
+    const countLikes = document.querySelectorAll('.count-likes');
+    countLikes.forEach((btn) => {
+      btn.addEventListener('click', async (eve) => {
+        eve.preventDefault();
+        const id = eve.target.dataset.id;
+        await updatePost(id, {
+          likes: increment(1),
+        });
       });
     });
   });

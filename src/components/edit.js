@@ -19,7 +19,7 @@ export const edit = (id, topic, idea) => {
               <img id="nubes-desktop" class="cloud-bg" src="img/nubes-desktop.png" alt="nubes" /> 
               <h2 class="titles">Crear publicación</h2>
               <label for="select">Temática</label>
-              <select name="select" id='topic-post'>
+              <select name="select" id='topic-post-edit'>
               <option hidden selected>Selecciona una opción</option>
                   <option value="Reciclaje">Reciclaje</option>
                   <option value="Hazlo tu mismo">Hazlo tu mismo</option>
@@ -28,7 +28,7 @@ export const edit = (id, topic, idea) => {
                   <option value="Medio ambiente">Medio ambiente</option>
               </select>
               <label for="text-post">Coloca tu idea ecofriendly</label>
-              <textarea required id ='idea-post' name="textarea" rows="10" cols="40"id="text-post" placeholder = 'Escribe aquí tus ideas!' autofocus></textarea>
+              <textarea required id ='idea-post-edit' name="textarea" rows="10" cols="40"id="text-post" placeholder = 'Escribe aquí tus ideas!' autofocus></textarea>
               <div class ='btns-post'>
               <button class="btn-routing" id="btn-return-edit">Cancelar</button>
               <button type='submit' class="btn-routing" id="btn-update">Guardar</button>
@@ -63,20 +63,19 @@ export const edit = (id, topic, idea) => {
 
   const formPost = divEdit.querySelector('#form-post');
 
-  formPost['topic-post'].value = topic;
-  formPost['idea-post'].value = idea;
+  formPost['topic-post-edit'].value = topic;
+  formPost['idea-post-edit'].value = idea;
   console.log(`aquii estoy ${topic} ${idea}`);
-  const btnUpdate = divEdit.querySelector('#btn-update');
-  btnUpdate.addEventListener('submit', async (e) => {
+
+  formPost.addEventListener('submit', async (e) => { // El evento submit tiene que estar al formulario
     e.preventDefault();
-    const newTopic = formPost['topic-post'];
-    const newIdea = formPost['idea-post'];
+    const newTopic = formPost['topic-post-edit'];
+    const newIdea = formPost['idea-post-edit'];
     await updatePost(id, {
       topic: newTopic.value,
       idea: newIdea.value,
     });
-    console.log(id, newTopic.value, newIdea.value);
-    // onNavigate('/wall');
+    onNavigate('/wall');
   });
 
   return divEdit;
