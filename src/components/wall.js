@@ -78,7 +78,7 @@ export const wall = () => {
         <h4>Temática: ${topic}</h4>
          <p>${idea}</p>
          <div class= "div-editPost">
-         <img class="like count-likes" src="img/likes.png" alt="like" data-id="${id}"><span class="like-counter">${likes}Likes</span>
+         <img class="like count-likes" src="img/likes.png" alt="like" data-id="${id}"><span class="like-counter">${likes}  Likes</span>
          <button class ='btn-delete btn-wall' data-id="${id}" >Eliminar</button>
          <button class ='btn-edit btn-wall' data-id="${id}">Editar</button>
          </div>
@@ -111,12 +111,24 @@ export const wall = () => {
     });
     const countLikes = document.querySelectorAll('.count-likes');
     countLikes.forEach((btn) => {
+      let giveLike = true;
       btn.addEventListener('click', async (eve) => {
         eve.preventDefault();
         const id = eve.target.dataset.id;
-        await updatePost(id, {
-          likes: increment(1),
-        });
+        console.log(giveLike);
+        if (giveLike) {
+          await updatePost(id, {
+            likes: increment(1),
+          });
+          giveLike = false;
+        } else
+        if (giveLike === false) {
+          await updatePost(id, {
+            likes: increment(-1),
+          });
+          giveLike = false;
+          console.log(giveLike);
+        }
       });
     });
   });
