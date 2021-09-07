@@ -74,7 +74,7 @@ export const wall = () => {
       const id = eachPost.id;
       postContainer.innerHTML += `<div class="div-post">
         <h3>${user}</h3> 
-        <span>${datePublic}</span>
+        <span class="date-public">${datePublic}</span>
         <h4>Temática: ${topic}</h4>
          <p>${idea}</p>
          <div class= "div-editPost">

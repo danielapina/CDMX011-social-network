@@ -29,6 +29,7 @@ export const edit = (id, topic, idea) => {
               </select>
               <label for="text-post">Coloca tu idea ecofriendly</label>
               <textarea required id ='idea-post-edit' name="textarea" rows="10" cols="40"id="text-post" placeholder = 'Escribe aquí tus ideas!' autofocus></textarea>
+              <p id="err-msg-edit"></p>
               <div class ='btns-post'>
               <button class="btn-routing" id="btn-return-edit">Cancelar</button>
               <button type='submit' class="btn-routing" id="btn-update">Guardar</button>
@@ -65,17 +66,21 @@ export const edit = (id, topic, idea) => {
 
   formPost['topic-post-edit'].value = topic;
   formPost['idea-post-edit'].value = idea;
-  console.log(`aquii estoy ${topic} ${idea}`);
+  const errMessage = divEdit.querySelector('#err-msg-edit');
 
   formPost.addEventListener('submit', async (e) => { // El evento submit tiene que estar al formulario
     e.preventDefault();
     const newTopic = formPost['topic-post-edit'];
     const newIdea = formPost['idea-post-edit'];
-    await updatePost(id, {
-      topic: newTopic.value,
-      idea: newIdea.value,
-    });
-    onNavigate('/wall');
+    if (newIdea === ' ' || newIdea.length === 0) {
+      errMessage.innerHTML = 'Favor de llenar todos los campos';
+    } else {
+      await updatePost(id, {
+        topic: newTopic.value,
+        idea: newIdea.value,
+      });
+      onNavigate('/wall');
+    }
   });
 
   return divEdit;

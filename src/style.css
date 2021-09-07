@@ -273,11 +273,11 @@ main {
   padding:0;
   cursor:pointer;
 }
-#error-message-register, #error-message {
+#error-message-register, #error-message, .form-inicial p {
   font-family: "Work Sans", sans-serif;
   color: rgb(189, 27, 27);
-  font-weight: normal;
-  font-size: 1.3em;
+  font-weight: bold;
+  font-size: 1em;
 }
 #btn-exit, #btn-exit-wall{
   display:none;
@@ -348,11 +348,14 @@ main {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 .div-post h3{
-font-family: Comfortaa;
-font-style: normal;
-font-weight: 300;
-font-size: 2vmax;
-color: #0E6359;
+  font-family: Comfortaa;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 3vh;
+  color: #0E6359;
+}
+.div-post p{
+  font-size: 2.8vh;
 }
 .div-editPost{
   display: flex;
@@ -483,6 +486,9 @@ footer img {
   }
   #nubes-movil{
     display: none;
+  }
+  .date-public{
+    margin-left: 60% ;
   }
   .like{
     width: 4vmin;
