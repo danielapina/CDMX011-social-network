@@ -79,11 +79,21 @@ export const wall = () => {
          <p>${idea}</p>
          <div class= "div-editPost">
          <img class="like count-likes" src="img/likes.png" alt="like" data-id="${id}"><span class="like-counter">${likes}  Likes</span>
-         <button class ='btn-delete btn-wall' data-id="${id}" >Eliminar</button>
-         <button class ='btn-edit btn-wall' data-id="${id}">Editar</button>
-         </div>
-         </div>
+        <span class="btnEditDelete"  data-id="${user}">
+        <button class ='btn-delete btn-wall' data-id="${id}" >Eliminar</button>
+        <button class ='btn-edit btn-wall' data-id="${id}">Editar</button>
+        </span>
+        </div>
+        </div>
         `;
+    });
+    document.querySelectorAll('.btnEditDelete').forEach((elem) => {
+      const email = elem.dataset.id;
+      const emailLogin = getUser().email;
+      if (email !== emailLogin) {
+        elem.style.visibility = 'hidden';
+        // elem.style.display = 'none';
+      }
     });
     const btnsDelete = document.querySelectorAll('.btn-delete');
     btnsDelete.forEach((btn) => {
