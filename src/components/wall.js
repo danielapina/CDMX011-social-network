@@ -79,6 +79,7 @@ export const wall = () => {
         <h4>Temática: ${topic}</h4>
          <p>${idea}</p>
          <div class= "div-editPost">
+
          <img class="like count-likes" src="img/likes.png" alt="like" data-id="${id}"><span class="like-counter">${likesEmail}  Likes</span>
          <button class ='btn-delete btn-wall' id="${user}" data-id="${id}" >Eliminar</button>
          <button class ='btn-edit btn-wall' id="${user}"  data-id="${id}">Editar</button>
