@@ -29,11 +29,7 @@ export const wall = () => {
   `;
   const divWall = document.createElement('div');
   divWall.innerHTML = html;
-  // Se puede hacer de otra forma
-  /* if (getUser() === null) {
-    onNavigate('/');
-    alert('Inicia Sesion');
-  } else { */
+
   const emailWelcome = divWall.querySelector('#user-email-welcome');
   emailWelcome.innerHTML = getUser().email;
   // para cerrar sesion
@@ -79,9 +75,10 @@ export const wall = () => {
         <h4>Temática: ${topic}</h4>
          <p>${idea}</p>
          <div class= "div-editPost">
-
-         <img class="like count-likes" src="img/likes.png" alt="like" data-id="${id}"><span class="like-counter">${likesEmail}  Likes</span>
+         <img class="like count-likes" src="img/likes.png" alt="like" data-id="${id}"><span class="like-counter"><span class="me-encorazona">${likesEmail} </span>Me Encorazona</span>
+         <img class ='btn-delete btn-wall-movil' id="${user}" data-id="${id}" src="img/bote-de-basura.png">
          <button class ='btn-delete btn-wall' id="${user}" data-id="${id}" >Eliminar</button>
+         <img class ='btn-edit btn-wall-movil' id="${user}"  data-id="${id}" src="img/lapiz.png">
          <button class ='btn-edit btn-wall' id="${user}"  data-id="${id}">Editar</button>
          </div>
          </div>
@@ -94,8 +91,6 @@ export const wall = () => {
 
     btnsDelete.forEach((elems) => {
       if (usermail !== elems.id) {
-        console.log(usermail);
-        console.log(elems.id);
         // eslint-disable-next-line no-param-reassign
         elems.style.visibility = 'hidden';
       }
@@ -130,7 +125,6 @@ export const wall = () => {
           rootDiv.removeChild(rootDiv.firstChild);
         }
         rootDiv.appendChild(edit(id, post.topic, post.idea));
-        // edit(thePost.data())
       });
     });
 
@@ -140,16 +134,11 @@ export const wall = () => {
         const id = event.target.dataset.id;
         getThePost(id)
           .then((doc) => {
-            console.log('entre');
             if (doc.data().likes.includes(usermail)) {
-              // eslint-disable-next-line no-param-reassign
-              // bttn.previousElementSibling.innerText = doc.data().likes.length - 1;
               return updatePost(id, {
                 likes: firebase.firestore.FieldValue.arrayRemove(usermail),
               });
             }
-            // eslint-disable-next-line no-param-reassign
-            // bttn.previousElementSibling.innerText = doc.data().likes.length + 1;
             return updatePost(id, {
               likes: firebase.firestore.FieldValue.arrayUnion(usermail),
             });
@@ -157,25 +146,6 @@ export const wall = () => {
           .catch((error) => {
             console.log('Error getting document:', error);
           });
-
-        //   const giveLike = false;
-        //   const countLikes = document.querySelectorAll('.count-likes');
-        //   countLikes.forEach((btn) => {
-        //     btn.addEventListener('click', async (eve) => {
-        //       eve.preventDefault();
-        //       const id = eve.target.dataset.id;
-        //       console.log(giveLike);
-
-        //       await updatePost(id, {
-        //         likes: '1',
-        //       });
-
-        //       await updatePost(id, {
-        //         likes: '0',
-        //       });
-        //     });
-        //   });
-        // });
       });
     });
   });
