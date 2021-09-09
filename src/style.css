@@ -387,12 +387,18 @@ main {
   margin: .5em;
   font-size: 3.5vw;
   font-weight: 600;
+  display:none;
+}
+.btn-wall-movil{
+  width: 9vmin;
 }
 .like-counter{
-  margin-right: 6vw;
+  margin-right: 10vw;
+  margin-left:0;
 }
 .like{
 width: 8vmin;
+margin-right: 1vw;
 }
 footer {
   margin-top: 0%;
@@ -520,6 +526,10 @@ footer img {
   }
   .btn-wall{
     font-size: 1vw;
+    display:block;
+  }
+  .btn-wall-movil{
+    display:none;
   }
   #wall-image{
     margin-right: 5vmax;
