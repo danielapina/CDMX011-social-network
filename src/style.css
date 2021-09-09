@@ -403,6 +403,9 @@ main {
 width: 8vmin;
 margin-right: 1vw;
 }
+.me-encorazona{
+  font-weight: bold;
+}
 footer {
   margin-top: 0%;
   width: auto;
@@ -491,6 +494,9 @@ footer img {
     margin: 0;
     margin-left: .2vw;
   }
+  .google {
+    font-size:1.2vw;
+  }
   #root {
     min-height: calc(80vh - 80px);
   }
@@ -525,7 +531,8 @@ footer img {
     width: 6vmin;
     }
   .like-counter{
-    margin-right: 20vw;
+    margin-right: 10vw;
+    width:100%;
   }
   .btn-wall{
     font-size: 1vw;
@@ -544,4 +551,5 @@ footer img {
   #btn-post{
     font-size: 1.4vw;
   }
+
 }
