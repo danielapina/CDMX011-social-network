@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable import/no-cycle */
 import { signOut, getUser } from '../lib/firebaseClient.js';
 import { onNavigate } from '../main.js';
@@ -63,7 +64,8 @@ export const wall = () => {
     });
     // la línea 66 es para que se actualice y no sobreescriba.
     postContainer.innerHTML = '';
-    documents.forEach((eachPost) => {
+    const documentOrder = documents.sort((post1, post2) => post2.infopost.dateComparative - post1.infopost.dateComparative);
+    documentOrder.forEach((eachPost) => {
       const {
         topic, idea, user, datePublic, likes,
       } = eachPost.infopost;
@@ -134,6 +136,7 @@ export const wall = () => {
         const id = event.target.dataset.id;
         getThePost(id)
           .then((doc) => {
+            console.log(`esto es DOC ${doc}`);
             if (doc.data().likes.includes(usermail)) {
               return updatePost(id, {
                 likes: firebase.firestore.FieldValue.arrayRemove(usermail),

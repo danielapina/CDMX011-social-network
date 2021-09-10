@@ -14,6 +14,7 @@ const year = today.getFullYear();
 const allDate = `${day} / ${month} / ${year}`;
 
 export const newPost = (user, topic, idea) => db.collection('post').doc().set({
+  dateComparative: new Date(),
   datePublic: allDate,
   user,
   topic,
