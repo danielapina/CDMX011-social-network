@@ -423,7 +423,12 @@ footer img {
   margin-top: 0.3em;
   margin-bottom: 0.3em;
 }
-@media only screen and (min-width: 1026px) {
+@media only screen and (min-width: 765px ) {
+
+  
+}
+
+@media only screen and (min-width: 1500px) {
   header {
     height: 3em;
   }
