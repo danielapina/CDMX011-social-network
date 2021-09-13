@@ -71,8 +71,9 @@ export const post = () => {
     if (idea === ' ' || idea.length === 0 || topic === 'Selecciona una opción') {
       errMessage.innerHTML = 'Favor de llenar todos los campos';
     } else {
+      const userUid = getUser().uid;
       const user = getUser().email;
-      await newPost(user, topic, idea);
+      await newPost(userUid, user, topic, idea);
       onNavigate('/wall');
     }
   });
