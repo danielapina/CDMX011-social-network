@@ -52,7 +52,6 @@ header ul.show {
   height: 15vmin;
   transition: ease-in-out 0.8s linear;
   margin-left: -10vmin;
-  margin-left:-10vmin;
   padding-left:10vmin;
   
   
@@ -363,7 +362,7 @@ main {
 }
 .div-post h3{
   text-transform: uppercase;
-  font-family: Comfortaa;
+  font-family: 'Comfortaa', sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 2.5vh;
@@ -371,7 +370,7 @@ main {
   margin-bottom: 3vmin;
 }
 .div-post h4{
-  font-family: "Comfortaa";
+  font-family: 'Comfortaa', sans-serif;
   font-style: normal;
   font-weight: 600;
   color: #0E6359;
@@ -509,6 +508,10 @@ footer img {
     flex-direction: row;
     align-items: space-around;
   }
+  button {
+    width: 15vmax;
+    height: 2.5vmax;
+  }
   .div-navegation button {
     margin: 2vmin;
     width: 16vw;
@@ -529,10 +532,6 @@ footer img {
   }
   main {
     margin-top: 5.5em;
-  }
-  button {
-    width: 15vmax;
-    height: 2.5vmax;
   }
   #register-page,
   #login-page {
