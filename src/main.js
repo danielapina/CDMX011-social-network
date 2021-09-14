@@ -8,6 +8,7 @@ import { login } from './components/login.js';
 import { wall } from './components/wall.js';
 import { post } from './components/createPost.js';
 import { edit } from './components/edit.js';
+import { profile } from './components/profile.js';
 
 const rootDiv = document.getElementById('root');
 
@@ -18,6 +19,7 @@ const routes = {
   '/wall': wall,
   '/post': post,
   '/edit': edit,
+  '/profile': profile,
 };
 
 export const onNavigate = (pathname) => {
@@ -36,7 +38,7 @@ export const onNavigate = (pathname) => {
 
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
-    onNavigate('/wall');
+    onNavigate(window.location.pathname);
   } else {
     onNavigate('/');
   }

@@ -19,8 +19,11 @@ export const wall = () => {
     </header>
     <section id="wall">
       <div id="welcome-wall">
-      <img src="img/guacamayo.png" alt="" id="wall-image">
-      <p id="message-welcome">Bienvenido <span id='user-email-welcome'></span> !!</p>
+      <div id ="go-to-profile">
+      <img class="guacamayo-movil" src="img/guacamayo.png" alt="">
+      <img class="erizo-desktop" src="img/erizo.png" alt="profile-pic">
+      </div>
+      <p id="message-welcome"> ¡Bienvenido <span id='user-email-welcome'></span>!</p>
       </div>
       <div>
         <button id="btn-post">Crear publicación</button>
@@ -54,6 +57,11 @@ export const wall = () => {
     onNavigate('/post');
   });
   // }
+  const btnProfile = divWall.querySelector('#go-to-profile');
+  btnProfile.addEventListener('click', (event) => {
+    event.preventDefault();
+    onNavigate('/profile');
+  });
   const postContainer = divWall.querySelector('#post-container');
   // aqui cargan todo lo post
   // onSnapshot para que lo traiga en tiempo real

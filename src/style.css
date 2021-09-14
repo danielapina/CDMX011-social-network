@@ -290,7 +290,7 @@ main {
   font-weight: bold;
   font-size: 1em;
 }
-#btn-exit, #btn-exit-wall{
+#btn-exit, #btn-exit-wall, #btn-exit-profile{
   display:none;
   margin-left: 20vmax;
   margin-top: 0;
@@ -298,29 +298,37 @@ main {
 #logout-movil{
   display: block;
 }
-#btn-post{
+#btn-post, #btn-return-wall{
   width:35vmin;
   font-size: 3vmin;
 }
-#wall{
+#wall, #profile{
   display: flex;
   flex-flow: row wrap;
   flex-direction: column;
   align-items: center;
   margin-top: 8vh;
 }
-#welcome-wall{
+#welcome-wall, #welcome-profile{
   margin-top: 9vh;
   margin-bottom:2vh;
   display: flex;
   /* justify-content: space-around; */
 }
-#wall-image{
+#welcome-profile{
+  flex-direction: column;
+}
+.guacamayo-movil{
   height: 9vmax;
   margin-right: .5vmax;
   margin-left:2vmax;
 }
-#message-welcome{
+.erizo-desktop{
+  display : none;
+  height: 9vmax;
+}
+
+#message-welcome, #mail-profile{
   font-family: "Work Sans", sans-serif;
   font-style: normal;
   font-weight: normal;
@@ -591,7 +599,7 @@ footer img {
   #root {
     min-height: calc(80vh - 80px);
   }
-  #btn-exit, #btn-exit-wall{
+  #btn-exit, #btn-exit-wall, #btn-exit-profile{
     display:block;
     margin-bottom: 0;
   }
@@ -633,7 +641,11 @@ footer img {
   .btn-wall-movil{
     display:none;
   }
-  #wall-image{
+  .guacamayo-movil{
+    display :none;
+  }
+  .erizo-desktop{
+    display : block ;
     margin-right: 5vmax;
     margin-left:2vmax;
   }
