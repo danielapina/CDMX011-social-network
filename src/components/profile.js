@@ -19,8 +19,8 @@ export const profile = () => {
     </header>
     <section id="profile">
       <div id="welcome-profile">
-      <img class="guacamayo-movil" src="img/guacamayo.png" alt="profile-pic" id="profile-image">
-      <img class="erizo-desktop" src="img/erizo.png" alt="profile-pic" id="profile-image">
+      <img class="guacamayo-movil profile-image" src="img/guacamayo.png" alt="profile-pic" >
+      <img class="erizo-desktop profile-image" src="img/erizo.png" alt="profile-pic" >
       <p id="mail-profile"><span id='user-email'></span></p>
       </div>
       <div>

@@ -315,7 +315,8 @@ main {
   display: flex;
   /* justify-content: space-around; */
 }
-#welcome-profile{
+#welcome-profile {
+  margin-top: 2vh;
   flex-direction: column;
 }
 .guacamayo-movil{
@@ -326,6 +327,12 @@ main {
 .erizo-desktop{
   display : none;
   height: 9vmax;
+}
+.profile-image{
+  align-self: center;
+  height: 15vmax;
+  width: 15vmax;
+  margin-bottom: 4vmin;
 }
 
 #message-welcome, #mail-profile{
@@ -651,6 +658,9 @@ footer img {
   }
   #message-welcome{
     font-size: 3vw;
+  }
+  #welcome-profile {
+    margin-top: 5vh;
   }
   #btn-post{
     font-size: 3.8vmin;
