@@ -1,0 +1,690 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300&display=swap');
+* {
+  margin: auto;
+}
+body {
+  background-color: #e5e5e5;
+  /*font-family: 'Comfortaa', cursive;
+      font-family: 'Work Sans', sans-serif;*/
+}
+button {
+  width: 21vmax;
+  height: 3.7vmax;
+  margin: 2em;
+  font-family: "Work Sans", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 3vh;
+  text-align: center;
+  color: whitesmoke;
+  background: #0e6359;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: #405927;
+  width: 100%;
+  height: 8.5vmin;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  padding: 1.3em 0;
+  margin-bottom: 0%;
+  
+}
+header ul {
+  display: none;
+  
+}
+header ul.show {
+  display: block;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  background-color: #405927;
+  width: 100%;
+  height: 15vmin;
+  transition: ease-in-out 0.8s linear;
+  margin-left: -10vmin;
+  padding-left:10vmin;
+  
+  
+}
+header ul li {
+  display: inline-block;
+}
+#logoGF {
+  height: 6vmin;
+  float: left;
+  margin-left: 3vw;
+  margin-top: 0;
+}
+.div-navegation {
+  width: 100%;
+}
+.div-navegation button {
+  margin: 4vmin;
+  width: 30vw;
+  font-size:3.5vmin;
+}
+/*Botones contenidos dentro de img-icon*/
+.btn-routing {
+  margin-top: 1.5vh !important;
+  padding-top: 0 !important;
+}
+.menu-icon {
+  display: block;
+  cursor: pointer;
+}
+#img-users {
+  width: 9vw;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.5));
+}
+main {
+  margin-top: 3em;
+}
+.banner {
+  background-image: url(img/fondo-verde-este-si\ 2.png);
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 50vmin;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10vmin;
+}
+/*Frase de bienvenida del banner*/
+.banner-welcome {
+  font-family: "Comfortaa", cursive;
+  color: #405927;
+  font-weight: 700;
+  font-size: 7vmin;
+  padding: 5vmin;
+  padding-bottom: 0;
+  margin-bottom: 2vmin;
+  margin-top: 2vmin;
+  text-align: center;
+}
+/*Sección de la imagen del proceso con titulo*/
+.process {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+#title-process {
+  font-family: "Comfortaa", cursive;
+  font-weight: bold;
+  text-align: center;
+  color: #405927;
+  font-size: 6vmin;
+  margin: 4vmin 0vmin;
+} /*Sección de la imagen del proceso*/
+.process-img {
+  display: flex;
+  align-content: center;
+}
+/*id de la imagen del movil*/
+#process-movil {
+  width: 60vmin;
+  margin-bottom: 2vh;
+}
+#process-desktop {
+  display: none;
+  padding-bottom: 9vmin;
+}
+/*Aquí comienza la edición del registro*/
+#register-page,
+#login-page {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-basis: 35%;
+  margin-top: 15vh;
+}
+.titles {
+  font-family: "Comfortaa", cursive;
+  color: #0e6359;
+  font-weight: normal;
+  font-size: 8vmin;
+}
+#title-form {
+  margin-bottom: 3.5vh;
+  text-align: center;
+  padding: 1vh;
+}
+#form-post{
+  margin-top:20vmin !important;
+}
+.form-inicial {
+  /*align-self: flex-start;*/
+  display: flex;
+  flex-flow: row wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /*justify-items: center;*/
+  margin: auto;
+  margin-left: 9vw;
+  margin-right: 0;
+  /*width: 35%; Esto para despotck*/
+}
+.form-inicial input, select, textarea {
+  color: #405927;
+  width: 20em;
+  height: 3em;
+  background: rgba(242, 197, 28, 0.6);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+  border: none;
+  padding: 0.5em 2em;
+  margin: 1vh 6vw;
+}
+.form-inicial label {
+  font-family: "Work Sans", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 25px;
+  line-height: 29px;
+  color: #000000;
+}
+ .form-inicial textarea {
+  height: 13.5em;
+} 
+.blue {
+  background: #93bdb8;
+  color: #000000;
+}
+#google-icon {
+  width: 3vmax;
+  height: 3vmax;
+  margin: 0;
+  margin-left: 1vw;
+}
+.google {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #e5e5e5;
+  border: 2px solid #0E6359;
+  color:#0E6359;
+  font-weight:500;
+}
+.submit-btn {
+  padding: 0 1vw;
+  font-size: 2.5vh;
+  margin: 1vh 25vw;
+  margin-bottom: 3vh;
+}
+#heart-movil {
+  width: 30vw;
+  margin-bottom: 2vh;
+}
+#madre-tierra {
+  display: none;
+}
+#heart {
+  display: none;
+}
+.leaf-img , .cloud-bg{
+  position: absolute;
+  z-index: -1;
+  float: left;
+  width: 65vw;
+}
+#root {
+  min-height: calc(85vh - 85px);
+}
+.show-passwords{
+  display: inline-block;
+  /*width: 20em;
+  height: 3em;*/
+  background: rgba(242, 197, 28, 0.6);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+  border: none;
+  padding: 0.45em 2em;
+  margin: 1vh 6vw;
+}
+#user-password, #confirm-password,#login-password{
+  color: #405927;
+  width: 15em;
+  height: 2em;
+  background: transparent;
+  box-shadow: none;
+  border-radius: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+.eyes,.eyes-confirm,.eyes-login{
+  margin:0;
+ padding:0;
+ position: absolute;
+}
+#hide1,#hide2, #hide3{
+ display:none;
+ /*margin-top: .8vh ;*/
+ margin:.8vh 0 0 0 !important;
+ padding:0;
+ cursor:pointer;
+}
+#show1 , #show2, #show3{
+  /*margin-top: .8vh ;*/
+  margin:.8vh 0 0 0 !important;
+  padding:0;
+  cursor:pointer;
+}
+#error-message-register, #error-message, .form-inicial p {
+  font-family: "Work Sans", sans-serif;
+  color: rgb(189, 27, 27);
+  font-weight: bold;
+  font-size: 1em;
+}
+#btn-exit, #btn-exit-wall, #btn-exit-profile{
+  display:none;
+  margin-left: 20vmax;
+  margin-top: 0;
+}
+#logout-movil{
+  display: block;
+}
+#btn-post, #btn-return-wall{
+  width:35vmin;
+  font-size: 3vmin;
+}
+#wall, #profile{
+  display: flex;
+  flex-flow: row wrap;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 8vh;
+}
+#welcome-wall, #welcome-profile{
+  margin-top: 9vh;
+  margin-bottom:2vh;
+  display: flex;
+  /* justify-content: space-around; */
+}
+#welcome-profile {
+  margin-top: 2vh;
+  flex-direction: column;
+}
+.guacamayo-movil{
+  height: 9vmax;
+  margin-right: .5vmax;
+  margin-left:2vmax;
+}
+.erizo-desktop{
+  display : none;
+  height: 9vmax;
+}
+.profile-image{
+  align-self: center;
+  height: 15vmax;
+  width: 15vmax;
+  margin-bottom: 4vmin;
+}
+
+#message-welcome, #mail-profile{
+  font-family: "Work Sans", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 5vw;
+  color: #000000;
+  text-align: center;
+ padding-right: 5vmin;
+}
+#post{
+  margin-top: 10vh;
+}
+#nubes-desktop{
+  display: none;
+}
+#nubes-movil{
+  display: block;
+}
+.beige {
+  background: #D9D5A0;
+  color: #000000;
+}
+.post-container{
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  align-content: center;
+}
+.div-post{
+  /*display: flex;*/
+  background: #FFFFFF;
+  border: 3px solid #0E6359;
+  box-sizing: border-box;
+  border-radius: 15px;
+  margin-bottom: 3vmax;
+  padding: 4vmin;
+  font-family: "Work Sans", sans-serif;
+  width: 85vmin;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.div-post h3{
+  text-transform: uppercase;
+  font-family: 'Comfortaa', sans-serif;
+  font-weight: 500;
+  font-size: 2.5vh;
+  color: #0E6359;
+  margin-bottom: 3vmin;
+}
+.div-post h4{
+  font-family: 'Comfortaa', sans-serif;
+  font-weight: 600;
+  color: #0E6359;
+  margin-bottom: 2vmin;
+  margin-top: 2vmin;
+}
+.div-post p{
+  font-size: 3.2vh;
+  font-weight: 500;  
+}
+.div-editPost{
+  display: flex;
+  flex-direction: row;
+  justify-content:flex-end;
+  align-items:flex-end;
+  margin-bottom: 0;
+}
+.btnEditDelete{
+  display: flex;
+}
+.btn-wall{
+  color: #0e6359;
+  background: #E7ECF6;
+  border: 1.5px solid #0E6359;
+  box-sizing: border-box;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+  width: 50%;
+  margin: 0.5em;
+  font-size: 3.5vw;
+  font-weight: 600;
+  display:none;
+}
+.btn-wall-movil{
+  width: 9vmin;
+}
+.like-counter{
+  margin-right: 10vw;
+  margin-left:0;
+}
+.like{
+width: 8vmin;
+margin-right: 1vw;
+}
+.me-encorazona{
+  font-weight: bold;
+}
+footer {
+  margin-top: 0%;
+  width: auto;
+  background-color: #405927;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  font-family: "Work Sans", sans-serif;
+  color: #e5e5e5;
+  padding-bottom: 0.7em;
+  height: min-content;
+}
+footer img {
+  width: 8vmin;
+  margin-top: 0.3em;
+  margin-bottom: 0.3em;
+}
+.btns-post{
+  display: flex;
+  flex-direction: row;
+  width: 95%;
+  margin: 0;
+  align-items: center;
+  justify-content: space-around;
+}
+#btn-return, #btn-create-post, #btn-return-edit, #btn-update{
+  width: 23vmin;
+  font-size:3vmin;
+  margin-top: 5vmin;
+  padding: 0;
+}
+@media only screen and (min-width: 768px ) {
+  #img-users {
+    width: 9.1vmin; 
+  }
+  #process-movil{
+    width: 50vmin;
+  }
+  header ul.show {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+  }
+  .date-public{
+    margin-left:60%;
+  }
+  
+  .like-counter {
+    font-size: 2.5vmin;}
+
+  .form-inicial{
+      margin-left: 8vw;
+    }
+  .form-inicial textarea,select {
+    width: 24em;
+    
+  }
+  .btns-post{
+    display: flex;
+    flex-direction: row;
+    width: 95%;
+    margin: 0;
+    align-items: center;
+    justify-content: space-around;
+    
+  }
+  #btn-return, #btn-create-post, #btn-return-edit, #btn-update{
+    width: 22.5vmin;
+    font-size:3vmin;
+    height: 4.4vmin;
+    margin-top: 5vmin;
+    padding: 0;
+  }
+ 
+}
+
+@media only screen and (min-width: 1024px) {
+  header {
+    height: 3em;
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+  header ul {
+    display: block;
+  }
+  .div-navegation {
+    width: 50%;
+    margin: 0;
+    padding:0;
+    display:flex;
+    flex-direction: row;
+    align-items: space-around;
+  }
+  button {
+    width: 15vmax;
+    height: 2.5vmax;
+  }
+  .div-navegation button {
+    margin: 2vmin;
+    width: 16vw;
+    height:4vmin;
+    font-size:2.3vmin;
+  }
+  #logoGF {
+    margin-bottom: 11vmin;
+    margin-left: 0;
+    width:95%;
+  }
+  .menu-icon {
+    display: none;
+  }
+  .banner{
+    margin-top: 6vmin;
+    width: 100%;
+  }
+  main {
+    margin-top: 5.5em;
+  }
+  #register-page,
+  #login-page {
+    margin-left: 3em;
+  }
+  #btn-register-movil {
+    display: none;
+  }
+  .form-inicial {
+    padding: 4vmax;
+    padding-top: 2vmax;
+    margin-left: 0;
+
+  }
+  .leaf-img {
+    width: 45vw;
+  }
+  .submit-btn{
+ margin: 1vh 10vw;
+ margin-top: 5vh;
+ width: 17vmin;
+ font-size:2vmin;
+ height:3.5vmin;
+  }
+
+  #process-desktop {
+    display: block;
+    width:97%;
+  }
+  #process-movil {
+    display: none;
+  }
+  #madre-tierra {
+    display: block;
+    width:90%;
+  }
+  #heart {
+    display: block;
+    margin-right: 6vw;
+    padding-right:7vw;
+    width:85%;
+  }
+  #heart-movil {
+    display: none;
+  }
+  
+  #google-icon {
+    width: 2.5vmin;
+    height: 2.5vmin;
+    margin: 0;
+    margin-left: .2vw;
+  }
+  .google {
+    font-size:1.8vmin;
+  }
+  #root {
+    min-height: calc(80vh - 80px);
+  }
+  #btn-exit, #btn-exit-wall, #btn-exit-profile{
+    display:block;
+    margin-bottom: 0;
+  }
+  #logout-movil{
+    display: none;
+  }
+  #nubes-desktop{
+    display: block;
+    width: 50vmax;
+    margin-top: 1vmax;
+  }
+  #nubes-movil{
+    display: none;
+  }
+  .div-post{
+    width: 65vmax;
+  }
+  .div-post h3{
+    margin-bottom: 0;
+  }
+  .div-post h4{
+    margin-top: 0;
+  }
+  .date-public{
+    margin-left: 73% ;
+  }
+  .like{
+    margin-left: 0;
+    width: 6vmin;
+    }
+  .like-counter{
+    margin-right: 10vw;
+    width:100%;
+  }
+  .btn-wall{
+    font-size: 1vw;
+    display:block;
+  }
+  .btn-wall-movil{
+    display:none;
+  }
+  .guacamayo-movil{
+    display :none;
+  }
+  .erizo-desktop{
+    display : block ;
+    margin-right: 5vmax;
+    margin-left:2vmax;
+  }
+  #message-welcome{
+    font-size: 3vw;
+  }
+  #welcome-profile {
+    margin-top: 5vh;
+  }
+  #btn-post{
+    font-size: 3.8vmin;
+    width: 48vmin;
+    height: 5vmin;
+  }
+  .btns-post{
+    display: flex;
+    flex-direction: row;
+    width: 60%;
+    margin: 0;
+    align-items: center;
+    justify-content: space-around;
+    padding:0 5vmin 0 5vmin;
+  }
+  #btn-return, #btn-create-post, #btn-return-edit, #btn-update{
+    width: 22.5vmin;
+    font-size:3vmin;
+    height: 4.4vmin;
+    margin-top: 5vmin;
+    padding: 0;
+  }
+  #form-post{
+    margin-top: 12.5vmin !important;
+  }
+
+}
