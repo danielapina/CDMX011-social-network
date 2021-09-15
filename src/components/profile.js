@@ -7,69 +7,65 @@ import {
   getAllPost, getThePost, deletePost, updatePost,
 } from '../lib/posts.js';
 
-export const wall = () => {
+export const profile = () => {
   const html = `
   <header>
         <a href="/"><img src="img/logo-desktop.png" alt="logotipo" id="logoGF" /></a>
-        <span class="menu-icon" id="logout-movil-wall"><img id="img-users" src="img/logout.png" alt="cerrar sesion"></span>
+        <span class="menu-icon" id="logout-movil-profile"><img id="img-users" src="img/logout.png" alt="cerrar sesion"></span>
         
         <nav class="div-navegation">
-            <button class="btn-roting beige" id="btn-exit-wall">Cerrar sesión</button>
+            <button class="btn-roting beige" id="btn-exit-profile">Cerrar sesión</button>
         </nav>
     </header>
-    <section id="wall">
-      <div id="welcome-wall">
-      <div id ="go-to-profile">
-      <img class="guacamayo-movil" src="img/guacamayo.png" alt="">
-      <img class="erizo-desktop" src="img/erizo.png" alt="profile-pic">
-      </div>
-      <p id="message-welcome"> ¡Bienvenido <span id='user-email-welcome'></span>!</p>
+    <section id="profile">
+      <div id="welcome-profile">
+      <img class="guacamayo-movil profile-image" src="img/guacamayo.png" alt="profile-pic" >
+      <img class="erizo-desktop profile-image" src="img/erizo.png" alt="profile-pic" >
+      <p id="mail-profile"><span id='user-email'></span></p>
       </div>
       <div>
-        <button id="btn-post">Crear publicación</button>
+        <button id="btn-return-wall">Regresar al muro</button>
       </div>
-      <div id="post-container"></div>
+      <div id="my-post-container"></div>
     </section>
   `;
-  const divWall = document.createElement('div');
-  divWall.innerHTML = html;
+  const divProfile = document.createElement('div');
+  divProfile.innerHTML = html;
 
-  const emailWelcome = divWall.querySelector('#user-email-welcome');
+  const emailWelcome = divProfile.querySelector('#user-email');
   emailWelcome.innerHTML = getUser().email;
   // para cerrar sesion
-  const btnExit = divWall.querySelector('#btn-exit-wall');
+  const btnExit = divProfile.querySelector('#btn-exit-profile');
   btnExit.addEventListener('click', (event) => {
     event.preventDefault();
     signOut();
     onNavigate('/');
   });
 
-  const btnExitMovil = divWall.querySelector('#logout-movil-wall');
+  const btnExitMovil = divProfile.querySelector('#logout-movil-profile');
   btnExitMovil.addEventListener('click', (e) => {
     e.preventDefault();
     signOut();
     onNavigate('/');
   });
-  // para botón "crear publicación"
-  const btnNewPost = divWall.querySelector('#btn-post');
-  btnNewPost.addEventListener('click', (event) => {
-    event.preventDefault();
-    onNavigate('/post');
+
+  const btnExitProfile = divProfile.querySelector('#btn-return-wall');
+  btnExitProfile.addEventListener('click', (e) => {
+    e.preventDefault();
+    onNavigate('/wall');
   });
-  // }
-  const btnProfile = divWall.querySelector('#go-to-profile');
-  btnProfile.addEventListener('click', (event) => {
-    event.preventDefault();
-    onNavigate('/profile');
-  });
-  const postContainer = divWall.querySelector('#post-container');
+
+  const postContainer = divProfile.querySelector('#my-post-container');
   // aqui cargan todo lo post
   // onSnapshot para que lo traiga en tiempo real
   getAllPost().onSnapshot((allpost) => {
     const documents = [];
     allpost.forEach((doc) => {
-      documents.push({ id: doc.id, infopost: doc.data() });
+      if (doc.data().userUid === getUser().uid) {
+        documents.push({ id: doc.id, infopost: doc.data() });
+      }
     });
+
     // la línea 66 es para que se actualice y no sobreescriba.
     postContainer.innerHTML = '';
     const documentOrder = documents.sort((post1, post2) => post2.infopost.dateComparative - post1.infopost.dateComparative);
@@ -99,13 +95,6 @@ export const wall = () => {
 
     const btnsDelete = document.querySelectorAll('.btn-delete');
 
-    btnsDelete.forEach((elems) => {
-      if (usermail !== elems.id) {
-        // eslint-disable-next-line no-param-reassign
-        elems.style.visibility = 'hidden';
-      }
-    });
-
     btnsDelete.forEach((btn) => {
       btn.addEventListener('click', async (ele) => {
         const result = window.confirm('¿Estás seguro de querer eliminar el post?');
@@ -117,13 +106,6 @@ export const wall = () => {
 
     const btnsEdit = document.querySelectorAll('.btn-edit');
     const rootDiv = document.getElementById('root');
-
-    btnsEdit.forEach((elems) => {
-      if (usermail !== elems.id) {
-        // eslint-disable-next-line no-param-reassign
-        elems.style.visibility = 'hidden';
-      }
-    });
 
     btnsEdit.forEach((btn) => {
       btn.addEventListener('click', async (ele) => {
@@ -160,5 +142,5 @@ export const wall = () => {
       });
     });
   });
-  return divWall;
+  return divProfile;
 };

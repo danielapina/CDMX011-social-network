@@ -52,7 +52,6 @@ header ul.show {
   height: 15vmin;
   transition: ease-in-out 0.8s linear;
   margin-left: -10vmin;
-  margin-left:-10vmin;
   padding-left:10vmin;
   
   
@@ -291,7 +290,7 @@ main {
   font-weight: bold;
   font-size: 1em;
 }
-#btn-exit, #btn-exit-wall{
+#btn-exit, #btn-exit-wall, #btn-exit-profile{
   display:none;
   margin-left: 20vmax;
   margin-top: 0;
@@ -299,29 +298,44 @@ main {
 #logout-movil{
   display: block;
 }
-#btn-post{
+#btn-post, #btn-return-wall{
   width:35vmin;
   font-size: 3vmin;
 }
-#wall{
+#wall, #profile{
   display: flex;
   flex-flow: row wrap;
   flex-direction: column;
   align-items: center;
   margin-top: 8vh;
 }
-#welcome-wall{
+#welcome-wall, #welcome-profile{
   margin-top: 9vh;
   margin-bottom:2vh;
   display: flex;
   /* justify-content: space-around; */
 }
-#wall-image{
+#welcome-profile {
+  margin-top: 2vh;
+  flex-direction: column;
+}
+.guacamayo-movil{
   height: 9vmax;
   margin-right: .5vmax;
   margin-left:2vmax;
 }
-#message-welcome{
+.erizo-desktop{
+  display : none;
+  height: 9vmax;
+}
+.profile-image{
+  align-self: center;
+  height: 15vmax;
+  width: 15vmax;
+  margin-bottom: 4vmin;
+}
+
+#message-welcome, #mail-profile{
   font-family: "Work Sans", sans-serif;
   font-style: normal;
   font-weight: normal;
@@ -363,16 +377,14 @@ main {
 }
 .div-post h3{
   text-transform: uppercase;
-  font-family: Comfortaa;
-  font-style: normal;
+  font-family: 'Comfortaa', sans-serif;
   font-weight: 500;
   font-size: 2.5vh;
   color: #0E6359;
   margin-bottom: 3vmin;
 }
 .div-post h4{
-  font-family: "Comfortaa";
-  font-style: normal;
+  font-family: 'Comfortaa', sans-serif;
   font-weight: 600;
   color: #0E6359;
   margin-bottom: 2vmin;
@@ -444,7 +456,7 @@ footer img {
   align-items: center;
   justify-content: space-around;
 }
-#btn-return, .btn-create-post, #btn-return-edit, #btn-update{
+#btn-return, #btn-create-post, #btn-return-edit, #btn-update{
   width: 23vmin;
   font-size:3vmin;
   margin-top: 5vmin;
@@ -461,6 +473,9 @@ footer img {
     display: flex;
     justify-content: space-between;
     align-content: center;
+  }
+  .date-public{
+    margin-left:60%;
   }
   
   .like-counter {
@@ -482,7 +497,7 @@ footer img {
     justify-content: space-around;
     
   }
-  #btn-return, .btn-create-post, #btn-return-edit, #btn-update{
+  #btn-return, #btn-create-post, #btn-return-edit, #btn-update{
     width: 22.5vmin;
     font-size:3vmin;
     height: 4.4vmin;
@@ -509,6 +524,10 @@ footer img {
     flex-direction: row;
     align-items: space-around;
   }
+  button {
+    width: 15vmax;
+    height: 2.5vmax;
+  }
   .div-navegation button {
     margin: 2vmin;
     width: 16vw;
@@ -529,10 +548,6 @@ footer img {
   }
   main {
     margin-top: 5.5em;
-  }
-  button {
-    width: 15vmax;
-    height: 2.5vmax;
   }
   #register-page,
   #login-page {
@@ -580,8 +595,8 @@ footer img {
   }
   
   #google-icon {
-    width: 2vmin;
-    height: 2vmin;
+    width: 2.5vmin;
+    height: 2.5vmin;
     margin: 0;
     margin-left: .2vw;
   }
@@ -591,7 +606,7 @@ footer img {
   #root {
     min-height: calc(80vh - 80px);
   }
-  #btn-exit, #btn-exit-wall{
+  #btn-exit, #btn-exit-wall, #btn-exit-profile{
     display:block;
     margin-bottom: 0;
   }
@@ -616,7 +631,7 @@ footer img {
     margin-top: 0;
   }
   .date-public{
-    margin-left: 78% ;
+    margin-left: 73% ;
   }
   .like{
     margin-left: 0;
@@ -633,12 +648,19 @@ footer img {
   .btn-wall-movil{
     display:none;
   }
-  #wall-image{
+  .guacamayo-movil{
+    display :none;
+  }
+  .erizo-desktop{
+    display : block ;
     margin-right: 5vmax;
     margin-left:2vmax;
   }
   #message-welcome{
     font-size: 3vw;
+  }
+  #welcome-profile {
+    margin-top: 5vh;
   }
   #btn-post{
     font-size: 3.8vmin;
@@ -654,7 +676,7 @@ footer img {
     justify-content: space-around;
     padding:0 5vmin 0 5vmin;
   }
-  #btn-return, .btn-create-post, #btn-return-edit, #btn-update{
+  #btn-return, #btn-create-post, #btn-return-edit, #btn-update{
     width: 22.5vmin;
     font-size:3vmin;
     height: 4.4vmin;
@@ -662,7 +684,7 @@ footer img {
     padding: 0;
   }
   #form-post{
-    margin-top: 15vmin !important;
+    margin-top: 12.5vmin !important;
   }
 
 }
