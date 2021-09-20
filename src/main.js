@@ -8,6 +8,7 @@ import { login } from './components/login.js';
 import { wall } from './components/wall.js';
 import { post } from './components/createPost.js';
 import { edit } from './components/edit.js';
+import { profile } from './components/profile.js';
 
 const rootDiv = document.getElementById('root');
 
@@ -18,13 +19,14 @@ const routes = {
   '/wall': wall,
   '/post': post,
   '/edit': edit,
+  '/profile': profile,
 };
 
 export const onNavigate = (pathname) => {
   window.history.pushState(
-    {},
-    pathname,
-    window.location.origin + pathname,
+    {}, /* objeto de estado */
+    pathname, /* título */
+    window.location.origin + pathname, /* url */
   );
   if (rootDiv) {
     while (rootDiv.firstChild) { // Mientras contenga informacion
@@ -33,21 +35,20 @@ export const onNavigate = (pathname) => {
     rootDiv.appendChild(routes[pathname]()); // () 'La función'
   }
 };
-
+/* Al recargar la página, te mande en la ruta donde estabas  */
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
-    onNavigate('/wall');
+    onNavigate(window.location.pathname);
   } else {
     onNavigate('/');
   }
 });
 
 const component = routes[window.location.pathname];
-
 window.onload = () => {
   rootDiv.appendChild(component());
 };
-
+/* Evento que se activa al utilizar las flechas */
 window.onpopstate = () => {
   rootDiv.appendChild(routes[window.location.pathname]());
   while (rootDiv.firstChild) { // Este es para poder usar las flechitas y borrar el pasado
