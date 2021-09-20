@@ -24,9 +24,9 @@ const routes = {
 
 export const onNavigate = (pathname) => {
   window.history.pushState(
-    {},
-    pathname,
-    window.location.origin + pathname,
+    {}, // objeto de estado
+    pathname, // título
+    window.location.origin + pathname, // url
   );
   if (rootDiv) {
     while (rootDiv.firstChild) { // Mientras contenga informacion
