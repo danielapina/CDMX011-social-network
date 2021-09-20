@@ -22,6 +22,9 @@ button {
   border-radius: 15px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
+button :hover{
+  cursor: pointer;
+}
 header {
   display: flex;
   justify-content: space-around;
@@ -174,7 +177,6 @@ main {
   align-items: center;
   /*justify-items: center;*/
   margin: auto;
-  margin-left: 9vw;
   margin-right: 0;
   /*width: 35%; Esto para despotck*/
 }
@@ -188,6 +190,7 @@ main {
   border: none;
   padding: 0.5em 2em;
   margin: 1vh 6vw;
+  outline: none;
 }
 .form-inicial label {
   font-family: "Work Sans", sans-serif;
@@ -379,7 +382,7 @@ main {
   text-transform: uppercase;
   font-family: 'Comfortaa', sans-serif;
   font-weight: 500;
-  font-size: 2.5vh;
+  font-size: 4vmin;
   color: #0E6359;
   margin-bottom: 3vmin;
 }
@@ -559,6 +562,7 @@ footer img {
   .form-inicial {
     padding: 4vmax;
     padding-top: 2vmax;
+    margin-right: 14vw;
     margin-left: 0;
 
   }
