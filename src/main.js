@@ -24,9 +24,9 @@ const routes = {
 
 export const onNavigate = (pathname) => {
   window.history.pushState(
-    {}, // objeto de estado
-    pathname, // título
-    window.location.origin + pathname, // url
+    {}, /* objeto de estado */
+    pathname, /* título */
+    window.location.origin + pathname, /* url */
   );
   if (rootDiv) {
     while (rootDiv.firstChild) { // Mientras contenga informacion
@@ -35,7 +35,7 @@ export const onNavigate = (pathname) => {
     rootDiv.appendChild(routes[pathname]()); // () 'La función'
   }
 };
-
+/* Al recargar la página, te mande en la ruta donde estabas  */
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
     onNavigate(window.location.pathname);
@@ -45,11 +45,10 @@ firebase.auth().onAuthStateChanged((user) => {
 });
 
 const component = routes[window.location.pathname];
-
 window.onload = () => {
   rootDiv.appendChild(component());
 };
-
+/* Evento que se activa al utilizar las flechas */
 window.onpopstate = () => {
   rootDiv.appendChild(routes[window.location.pathname]());
   while (rootDiv.firstChild) { // Este es para poder usar las flechitas y borrar el pasado
