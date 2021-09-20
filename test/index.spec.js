@@ -93,7 +93,7 @@ describe('Coleccion de test sobre LOGIN', () => { // -------LOGIN---------------
   });
 });
 
-describe('Coleccion de test soble REGISTER', () => { // -------REGISTER-------------------------------------------
+describe('Coleccion de test soble REGISTER', () => {
   document.body.innerHTML = '<div id="root"></div>';
   const component = register();
   test('should render', () => {
