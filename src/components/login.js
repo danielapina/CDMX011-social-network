@@ -10,7 +10,6 @@ export const login = () => {
   <div class="div-navegation">
     <ul id="navegacion">
       <li><a><button class="blue btn-routing" id="btn-register" value='/register'>¡Regístrate!</button></a></li>
-      <li><a><button class="blue btn-routing" id="btn-login" value='/login'>Iniciar Sesión</button></a></li>
     </ul>
   </div>
 </header>
@@ -43,8 +42,6 @@ export const login = () => {
 
   const btnRegister = divLogin.querySelector('#btn-register');
   btnRegister.addEventListener('click', () => onNavigate('/register'));
-  const btnLogin = divLogin.querySelector('#btn-login');
-  btnLogin.addEventListener('click', () => onNavigate('/login'));
 
   // -------------------------------icon burguer
   divLogin.querySelector('#users-icon').addEventListener('click', () => {

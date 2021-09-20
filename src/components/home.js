@@ -32,20 +32,21 @@ export const home = () => {
     </div>
    
    `;
-
+  /* Div contenedor del template string */
   const divHome = document.createElement('div');
   divHome.innerHTML = html;
-
+  /* Botón registrar en desktop */
   const btnRegister = divHome.querySelector('#btn-register');
   btnRegister.addEventListener('click', () => onNavigate('/register'));
-
-  const btnLogin = divHome.querySelector('#btn-login');
-  btnLogin.addEventListener('click', () => onNavigate('/login'));
-
+  /* Botón registrar en movil */
   const btnRegisterMovil = divHome.querySelector('#btn-register-movil'); // Esta apunta a divHome;
   btnRegisterMovil.addEventListener('click', () => onNavigate('/register'));
 
-  // -------------------------------icon burguer
+  /* Botón login */
+  const btnLogin = divHome.querySelector('#btn-login');
+  btnLogin.addEventListener('click', () => onNavigate('/login'));
+
+  /* -------------------------------icon burguer-----------------*/
   divHome.querySelector('#users-icon').addEventListener('click', () => {
     const mostrar = divHome.querySelector('#navegacion').className;
     if (mostrar === '') {

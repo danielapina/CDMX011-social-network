@@ -9,7 +9,6 @@ export const register = () => {
   <span class="menu-icon" id="users-icon"><img id="img-users" src="img/users.png" alt=""></span>
   <div class="div-navegation">
     <ul id="navegacion">
-      <li><a><button class="blue btn-routing" id="btn-register" value='/register'>¡Regístrate!</button></a></li>
       <li><a><button class="blue btn-routing" id="btn-login" value='/login'>Iniciar Sesión</button></a></li>
     </ul>
   </div>
@@ -48,9 +47,6 @@ export const register = () => {
 `;
   const divRegister = document.createElement('div');
   divRegister.innerHTML = html;
-
-  const btnRegister = divRegister.querySelector('#btn-register');
-  btnRegister.addEventListener('click', () => onNavigate('/register'));
   const btnLogin = divRegister.querySelector('#btn-login');
   btnLogin.addEventListener('click', () => onNavigate('/login'));
 
