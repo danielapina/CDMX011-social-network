@@ -132,7 +132,6 @@ export const wall = () => {
       btn.addEventListener('click', async (ele) => {
         const thePost = await getThePost(ele.target.dataset.id);
         const post = thePost.data();
-        console.log(thePost);
         const id = thePost.id;
         /* Limpia el espacio del template y solo te muestra el form editar */
         while (rootDiv.firstChild) { // Si contiene información
