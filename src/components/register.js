@@ -1,4 +1,4 @@
-import { signUp, getUser } from '../lib/firebaseClient.js';
+import { signUp } from '../lib/firebaseClient.js';
 // eslint-disable-next-line import/no-cycle
 import { onNavigate } from '../main.js';
 
@@ -70,7 +70,6 @@ export const register = () => {
       signUp(email, password)
         .then(() => {
           onNavigate('/wall');
-          console.log(getUser());
         })
         .catch((error) => {
           const errorMessage = error.message;
@@ -88,8 +87,7 @@ export const register = () => {
     e.preventDefault();
     const provider = new firebase.auth.GoogleAuthProvider();
     auth.signInWithPopup(provider)
-      .then((result) => {
-        console.log('Registro con google', result);
+      .then(() => {
         onNavigate('/wall');
       })
       .catch((err) => { divRegister.querySelector('#error-message-register').innerHTML = err; });

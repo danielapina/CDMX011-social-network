@@ -37,7 +37,6 @@ exports[`Coleccion de test soble POSTS should render 1`] = `
   <div class=\\"div-navegation\\">
     <ul id=\\"navegacion\\">
       <li><a><button class=\\"blue btn-routing\\" id=\\"btn-register\\" value=\\"/register\\">¡Regístrate!</button></a></li>
-      <li><a><button class=\\"blue btn-routing\\" id=\\"btn-login\\" value=\\"/login\\">Iniciar Sesión</button></a></li>
     </ul>
   </div>
 </header>
@@ -70,7 +69,6 @@ exports[`Coleccion de test soble POSTS should render 1`] = `
   <span class=\\"menu-icon\\" id=\\"users-icon\\"><img id=\\"img-users\\" src=\\"img/users.png\\" alt=\\"\\"></span>
   <div class=\\"div-navegation\\">
     <ul id=\\"navegacion\\">
-      <li><a><button class=\\"blue btn-routing\\" id=\\"btn-register\\" value=\\"/register\\">¡Regístrate!</button></a></li>
       <li><a><button class=\\"blue btn-routing\\" id=\\"btn-login\\" value=\\"/login\\">Iniciar Sesión</button></a></li>
     </ul>
   </div>
@@ -179,7 +177,6 @@ exports[`Coleccion de test soble REGISTER should render 1`] = `
   <div class=\\"div-navegation\\">
     <ul id=\\"navegacion\\">
       <li><a><button class=\\"blue btn-routing\\" id=\\"btn-register\\" value=\\"/register\\">¡Regístrate!</button></a></li>
-      <li><a><button class=\\"blue btn-routing\\" id=\\"btn-login\\" value=\\"/login\\">Iniciar Sesión</button></a></li>
     </ul>
   </div>
 </header>
@@ -212,7 +209,6 @@ exports[`Coleccion de test soble REGISTER should render 1`] = `
   <span class=\\"menu-icon\\" id=\\"users-icon\\"><img id=\\"img-users\\" src=\\"img/users.png\\" alt=\\"\\"></span>
   <div class=\\"div-navegation\\">
     <ul id=\\"navegacion\\">
-      <li><a><button class=\\"blue btn-routing\\" id=\\"btn-register\\" value=\\"/register\\">¡Regístrate!</button></a></li>
       <li><a><button class=\\"blue btn-routing\\" id=\\"btn-login\\" value=\\"/login\\">Iniciar Sesión</button></a></li>
     </ul>
   </div>
@@ -321,7 +317,6 @@ exports[`Coleccion de test sobre LOGIN should render 1`] = `
   <div class=\\"div-navegation\\">
     <ul id=\\"navegacion\\">
       <li><a><button class=\\"blue btn-routing\\" id=\\"btn-register\\" value=\\"/register\\">¡Regístrate!</button></a></li>
-      <li><a><button class=\\"blue btn-routing\\" id=\\"btn-login\\" value=\\"/login\\">Iniciar Sesión</button></a></li>
     </ul>
   </div>
 </header>

@@ -111,7 +111,6 @@ export const profile = () => {
       btn.addEventListener('click', async (ele) => {
         const thePost = await getThePost(ele.target.dataset.id);
         const post = thePost.data();
-        console.log(thePost);
         const id = thePost.id;
         while (rootDiv.firstChild) { // Mientras contenga informacion
           rootDiv.removeChild(rootDiv.firstChild);
@@ -126,7 +125,6 @@ export const profile = () => {
         const id = event.target.dataset.id;
         getThePost(id)
           .then((doc) => {
-            console.log(`esto es DOC ${doc}`);
             if (doc.data().likes.includes(usermail)) {
               return updatePost(id, {
                 likes: firebase.firestore.FieldValue.arrayRemove(usermail),
