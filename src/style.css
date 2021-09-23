@@ -160,7 +160,6 @@ main {
 }
 #form-post{
   margin-top:20vmin !important;
-  margin-left: 25vmin;
 }
 .form-inicial {
   /*align-self: flex-start;*/
@@ -676,6 +675,7 @@ footer img {
   }
   #form-post{
     margin-top: 12.5vmin !important;
+    margin-left: 25vmin;
   }
 
 }
