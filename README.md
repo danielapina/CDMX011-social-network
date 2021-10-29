@@ -19,7 +19,7 @@ You can use Green Frinds in your mobile, ipad or desktop.
 
 ### Page Prototype
 
-<img src="https://user-images.githubusercontent.com/79501211/139490937-ea0a1fb7-e415-4a60-8a0d-7129e1f101e0.png" width="400" height="auto"/>    <img src="https://user-images.githubusercontent.com/79501211/139490913-2048f9c0-d1cc-46c9-839f-f86a393a410e.png" width="400" height="auto"/>   <img src="https://user-images.githubusercontent.com/79501211/139493542-f28deccf-3b93-43cb-9ee2-303751d5f1ba.png" width="400" height="auto"/>    <img src="https://user-images.githubusercontent.com/79501211/139490928-214b9d40-2a47-41d2-b9a0-e23c6a098880.png" width="400" height="auto"/> 
+<img src="https://user-images.githubusercontent.com/79501211/139497295-347dbcdf-1f3e-4862-b197-a49f8b0834ec.png" width="400" height="auto"/>   <img src="https://user-images.githubusercontent.com/79501211/139497299-3ebd2f5d-7021-4361-846a-08108fbdef36.png" width="400" height="auto"/> <img src="https://user-images.githubusercontent.com/79501211/139497279-0579bbaa-2a5c-4dc9-93a5-270430c51753.png" width="400" height="auto"/>  <img src="https://user-images.githubusercontent.com/79501211/139497287-ba7f92c1-262c-4e9d-8fcb-f8a16e9cf3f0.png" width="400" height="auto"/> 
 
 
 ***
@@ -28,7 +28,7 @@ You can use Green Frinds in your mobile, ipad or desktop.
 
 ### Technologies
 
-For creating Note That, I we used JavaScript, HTML, CSS, Trello and Firebase for authentication, database and hosting.
+For creating Green Friends, we used JavaScript, HTML, CSS, Trello and Firebase for authentication, database and hosting.
 
 
 
